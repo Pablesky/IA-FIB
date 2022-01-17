@@ -1,0 +1,171 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-O6",
+      "-Wall",
+      "-g",
+      "-ansi",
+      "inst_pre.c"
+    ],
+    "directory": "/home/pol/Documentos/Uni/IA/Metric-FF",
+    "file": "/home/pol/Documentos/Uni/IA/Metric-FF/inst_pre.c"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-O6",
+      "-Wall",
+      "-g",
+      "-ansi",
+      "inst_easy.c"
+    ],
+    "directory": "/home/pol/Documentos/Uni/IA/Metric-FF",
+    "file": "/home/pol/Documentos/Uni/IA/Metric-FF/inst_easy.c"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-O6",
+      "-Wall",
+      "-g",
+      "-ansi",
+      "main.c"
+    ],
+    "directory": "/home/pol/Documentos/Uni/IA/Metric-FF",
+    "file": "/home/pol/Documentos/Uni/IA/Metric-FF/main.c"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-O6",
+      "-Wall",
+      "-g",
+      "-ansi",
+      "memory.c"
+    ],
+    "directory": "/home/pol/Documentos/Uni/IA/Metric-FF",
+    "file": "/home/pol/Documentos/Uni/IA/Metric-FF/memory.c"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-O6",
+      "-Wall",
+      "-g",
+      "-ansi",
+      "output.c"
+    ],
+    "directory": "/home/pol/Documentos/Uni/IA/Metric-FF",
+    "file": "/home/pol/Documentos/Uni/IA/Metric-FF/output.c"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-O6",
+      "-Wall",
+      "-g",
+      "-ansi",
+      "relax.c"
+    ],
+    "directory": "/home/pol/Documentos/Uni/IA/Metric-FF",
+    "file": "/home/pol/Documentos/Uni/IA/Metric-FF/relax.c"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-O6",
+      "-Wall",
+      "-g",
+      "-ansi",
+      "search.c"
+    ],
+    "directory": "/home/pol/Documentos/Uni/IA/Metric-FF",
+    "file": "/home/pol/Documentos/Uni/IA/Metric-FF/search.c"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-O6",
+      "-Wall",
+      "-g",
+      "-ansi",
+      "parse.c"
+    ],
+    "directory": "/home/pol/Documentos/Uni/IA/Metric-FF",
+    "file": "/home/pol/Documentos/Uni/IA/Metric-FF/parse.c"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-O6",
+      "-Wall",
+      "-g",
+      "-ansi",
+      "inst_final.c"
+    ],
+    "directory": "/home/pol/Documentos/Uni/IA/Metric-FF",
+    "file": "/home/pol/Documentos/Uni/IA/Metric-FF/inst_final.c"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-O6",
+      "-Wall",
+      "-g",
+      "-ansi",
+      "inst_hard.c"
+    ],
+    "directory": "/home/pol/Documentos/Uni/IA/Metric-FF",
+    "file": "/home/pol/Documentos/Uni/IA/Metric-FF/inst_hard.c"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-O6",
+      "-Wall",
+      "-g",
+      "-ansi",
+      "expressions.c"
+    ],
+    "directory": "/home/pol/Documentos/Uni/IA/Metric-FF",
+    "file": "/home/pol/Documentos/Uni/IA/Metric-FF/expressions.c"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-O6",
+      "-Wall",
+      "-g",
+      "-ansi",
+      "scan-ops_pddl.tab.c"
+    ],
+    "directory": "/home/pol/Documentos/Uni/IA/Metric-FF",
+    "file": "/home/pol/Documentos/Uni/IA/Metric-FF/scan-ops_pddl.tab.c"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-O6",
+      "-Wall",
+      "-g",
+      "-ansi",
+      "scan-fct_pddl.tab.c"
+    ],
+    "directory": "/home/pol/Documentos/Uni/IA/Metric-FF",
+    "file": "/home/pol/Documentos/Uni/IA/Metric-FF/scan-fct_pddl.tab.c"
+  }
+]

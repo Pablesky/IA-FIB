@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    string s;
+    int rotar, eliminar, intercanvipropi, afegir, intercanviaraltre, moveover, doubleswap;
+    while(cin >> s) {
+        if (s == "ROTAR") ++rotar;
+        else if (s == "ELIMINAR") ++eliminar;
+        else if (s == "INTERCANVIARPROPI") ++intercanvipropi;
+        else if (s == "AFEGIR") ++afegir;
+        else if (s == "INTERCANVIARALTRE") ++intercanviaraltre;
+        else if (s == "MOVEOVER") ++moveover;
+        else if (s == "DOUBLESWAP") ++doubleswap;
+    }
+    
+    cout << "ROTAR," << rotar << endl;
+    cout << "ELIMINAR," << eliminar << endl;
+    cout << "INTERCANVIARPROPI," << intercanvipropi << endl;
+    cout << "AFEGIR," << afegir << endl;
+    cout << "INTERCANVIARALTRE," << intercanviaraltre << endl;
+    cout << "MOVEOVER," << moveover << endl;
+    cout << "DOUBLESWAP," << doubleswap << endl;
+    
+}

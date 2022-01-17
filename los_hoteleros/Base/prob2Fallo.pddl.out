@@ -1,0 +1,11 @@
+
+ff: parsing domain file
+domain 'HOTELEROS' defined
+ ... done.
+ff: parsing problem file
+problem 'P1BASE' defined
+ ... done.
+
+
+ff: goal can be simplified to FALSE. No plan will solve it
+

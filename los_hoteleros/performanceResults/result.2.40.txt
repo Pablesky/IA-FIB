@@ -1,0 +1,114 @@
+8388608
+ff: parsing domain file
+domain 'HOTELEROS' defined
+ ... done.
+ff: parsing problem file
+problem 'P1BASE' defined
+ ... done.
+
+
+metric established (normalized to minimize): ((1.00*[RF1](COST-RESERVES)) - () + 0.00)
+
+task contains conditional effects. turning off state domination.
+
+
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is ((1.00*[RF1](COST-RESERVES)) - () + 0.00)
+
+advancing to distance:   40
+                         39
+                         38
+                         37
+                         36
+                         35
+                         34
+                         33
+                         32
+                         31
+                         30
+                         29
+                         28
+                         27
+                         26
+                         25
+                         24
+                         23
+                         22
+                         21
+                         20
+                         19
+                         18
+                         17
+                         16
+                         15
+                         14
+                         13
+                         12
+                         11
+                         10
+                          9
+                          8
+                          7
+                          6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: NO-ASSIGNAT R0 R1
+        1: NO-ASSIGNAT R1 R2
+        2: NO-ASSIGNAT R2 R3
+        3: NO-ASSIGNAT R3 R4
+        4: NO-ASSIGNAT R4 R5
+        5: NO-ASSIGNAT R5 R6
+        6: NO-ASSIGNAT R6 R7
+        7: NO-ASSIGNAT R7 R8
+        8: NO-ASSIGNAT R8 R9
+        9: NO-ASSIGNAT R9 R10
+       10: ASSIGNA R10 R11 A1
+       11: NO-ASSIGNAT R11 R12
+       12: NO-ASSIGNAT R12 R13
+       13: NO-ASSIGNAT R13 R14
+       14: NO-ASSIGNAT R14 R15
+       15: NO-ASSIGNAT R15 R16
+       16: NO-ASSIGNAT R16 R17
+       17: NO-ASSIGNAT R17 R18
+       18: NO-ASSIGNAT R18 R19
+       19: NO-ASSIGNAT R19 R20
+       20: NO-ASSIGNAT R20 R21
+       21: NO-ASSIGNAT R21 R22
+       22: NO-ASSIGNAT R22 R23
+       23: NO-ASSIGNAT R23 R24
+       24: NO-ASSIGNAT R24 R25
+       25: NO-ASSIGNAT R25 R26
+       26: NO-ASSIGNAT R26 R27
+       27: NO-ASSIGNAT R27 R28
+       28: ASSIGNA R28 R29 A1
+       29: NO-ASSIGNAT R29 R30
+       30: NO-ASSIGNAT R30 R31
+       31: NO-ASSIGNAT R31 R32
+       32: NO-ASSIGNAT R32 R33
+       33: NO-ASSIGNAT R33 R34
+       34: NO-ASSIGNAT R34 R35
+       35: NO-ASSIGNAT R35 R36
+       36: NO-ASSIGNAT R36 R37
+       37: ASSIGNA R37 R38 A1
+       38: NO-ASSIGNAT R38 R39
+       39: ASSIGNA R39 R0 A0
+     
+
+time spent:    0.00 seconds instantiating 120 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 124 facts and 90 actions
+               0.00 seconds creating final representation with 123 relevant facts, 7 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 101 states, to a max depth of 0
+               0.00 seconds total time
+

@@ -1,0 +1,23 @@
+#Descripció
+De base el nostre programa realitza HC i SA per tots els estats inicials proposats.
+
+# Instruccions de compilació per terminal
+cd <Directori de los_camioneros>
+javac -d classes -cp "./classes;./AIMA/AIMA.jar;./Gasolina/Gasolina.jar" ./src/los_camioneros/implementation/*.java
+javac -d classes -cp "./classes;./AIMA/AIMA.jar;./Gasolina/Gasolina.jar" ./src/los_camioneros/Main.java
+java -cp "./classes;./AIMA/AIMA.jar;./Gasolina/Gasolina.jar" los_camioneros.Main
+
+# Instruccions de compilació per IDE
+Obrir Eclipse
+File->Open Projects From Filesystem
+Insereix el directori amb la pràctica
+Selecciona el projecte si no està seleccionat
+Clica "Finish"
+Pot executar amb el botó de play a la part superior de la pantalla.
+Si li demana, seleccioni la classe "los_camioneros.Main"
+
+# En cas que no executi per IDE
+Ens hem trobat casos on els ordinadors de la fib fallen a compilar
+En aquest cas, la solució que hem trobat consisteix:
+Clic dret a la carpeta->Properties
+Java Compiler->Desactiva "Enable project specific settings"

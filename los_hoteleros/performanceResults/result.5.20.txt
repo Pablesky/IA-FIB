@@ -1,0 +1,74 @@
+8388608
+ff: parsing domain file
+domain 'HOTELEROS' defined
+ ... done.
+ff: parsing problem file
+problem 'P1BASE' defined
+ ... done.
+
+
+metric established (normalized to minimize): ((1.00*[RF1](COST-RESERVES)) - () + 0.00)
+
+task contains conditional effects. turning off state domination.
+
+
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is ((1.00*[RF1](COST-RESERVES)) - () + 0.00)
+
+advancing to distance:   20
+                         19
+                         18
+                         17
+                         16
+                         15
+                         14
+                         13
+                         12
+                         11
+                         10
+                          9
+                          8
+                          7
+                          6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: NO-ASSIGNAT R0 R1
+        1: NO-ASSIGNAT R1 R2
+        2: NO-ASSIGNAT R2 R3
+        3: NO-ASSIGNAT R3 R4
+        4: NO-ASSIGNAT R4 R5
+        5: NO-ASSIGNAT R5 R6
+        6: ASSIGNA R6 R7 A3
+        7: NO-ASSIGNAT R7 R8
+        8: ASSIGNA R8 R9 A2
+        9: NO-ASSIGNAT R9 R10
+       10: NO-ASSIGNAT R10 R11
+       11: NO-ASSIGNAT R11 R12
+       12: NO-ASSIGNAT R12 R13
+       13: ASSIGNA R13 R14 A4
+       14: NO-ASSIGNAT R14 R15
+       15: ASSIGNA R15 R16 A2
+       16: NO-ASSIGNAT R16 R17
+       17: ASSIGNA R17 R18 A0
+       18: ASSIGNA R18 R19 A4
+       19: NO-ASSIGNAT R19 R0
+     
+
+time spent:    0.00 seconds instantiating 20 easy, 36 hard action templates
+               0.00 seconds reachability analysis, yielding 70 facts and 56 actions
+               0.00 seconds creating final representation with 69 relevant facts, 13 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 180 states, to a max depth of 0
+               0.00 seconds total time
+
