@@ -1,0 +1,23 @@
+(dribble-on output.txt)
+(load ontologia.clips)
+(load cas_recomanable.clips)
+(load rules.clips)
+(reset)
+(run)
+y
+y
+n
+y
+n
+y
+n
+41.40141502484332
+2.1459045556882685
+n
+y
+50
+n
+1000
+900
+(dribble-off)
+(exit)

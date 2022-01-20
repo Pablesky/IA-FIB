@@ -1,0 +1,834 @@
+         CLIPS (6.31 6/12/19)
+CLIPS> (load ontologia.clips)
+Defining defclass: Solicitant
+Defining defclass: En_Grup
+Defining defclass: Familiar
+Defining defclass: Individual
+Defining defclass: Servei
+Defining defclass: Biblioteques
+Defining defclass: Escoles
+Defining defclass: Gimnas
+Defining defclass: Hospital_o_CAP
+Defining defclass: Llocs_emblematics
+Defining defclass: Platja
+Defining defclass: Poligons_Industrials
+Defining defclass: Supermercat_i_Hipermercats
+Defining defclass: Transport_Public
+Defining defclass: Zona_Cultural
+Defining defclass: Zona_Oci_Nocturn
+Defining defclass: Zona_Verda
+Defining defclass: Zona_comercial
+Defining defclass: Habitatge
+Defining defclass: Multi_Pis
+Defining defclass: Duplex
+Defining defclass: Pis
+Defining defclass: Unifamiliar
+Defining defclass: Lloc_de_treball
+Defining definstances: instances
+TRUE
+CLIPS> (load data.clips)
+Defining definstances: services_Biblioteques
+Defining definstances: services_Llocs_emblematics
+Defining definstances: services_Zona_Verda
+Defining definstances: services_Zona_comercial
+Defining definstances: services_Supermercat_i_Hipermercats
+Defining definstances: services_Hospital_o_CAP
+Defining definstances: services_Gimnas
+Defining definstances: services_Escoles
+Defining definstances: services_Transport_Public
+Defining definstances: services_Zona_Cultural
+Defining definstances: services_Zona_Oci_Nocturn
+Defining definstances: services_Platja
+Defining definstances: services_Poligons_Industrials
+TRUE
+CLIPS> (load habitatges.clips)
+Defining definstances: Habitatges
+TRUE
+CLIPS> (load rules.clips)
+Defining deffunction: ask-number
+Defining deffunction: ask-int
+Defining deffunction: ask-question
+Defining deffunction: yes-or-no-p
+Defining defglobal: R
+Defining deffunction: calcDistance
+Defining deffunction: prettyPrint
+
+[CSTRCPSR1] WARNING: Redefining defmodule: MAIN
+Defining defclass: infoServeis
+Defining definstances: num_serveis
+Defining defrule: count_serveis +j+j+j
+Defining defrule: start +j+j
+Defining defmodule: Real
+Defining defrule: initWelcomeMessage +j+j
+Defining defrule: enGrupNum +j+j
+Defining defrule: FamiliarParella +j+j
+Defining defrule: FamiliarFills +j+j
+Defining defrule: FamiliarFillsFuturs +j+j
+Defining defrule: FamiliarPersonesGransAlCarrec +j+j
+Defining defrule: forServiceAsk =j+j+j
+Defining defrule: workAsk +j+j
+Defining defrule: hasCar +j+j
+Defining defrule: hasPet +j+j
+Defining defrule: howOldIndividual +j+j
+Defining defrule: howOldEn_Grup +j+j
+Defining defrule: howOldFamiliar +j+j
+Defining defrule: minSize +j+j
+Defining defrule: isEstricte +j+j
+Defining defrule: prefereixNou +j+j
+Defining defrule: numDorms =j+j
+Defining defrule: maxPreu +j+j
+Defining defrule: minPreu +j+j
+Defining defrule: hasBalco +j+j
+Defining defrule: hasTerrassa +j+j
+Defining defrule: hasMobles +j+j
+Defining defrule: hasElectrodomestics +j+j
+Defining defrule: hasAire +j+j
+Defining defrule: hasCalefaccio +j+j
+Defining defrule: hasPiscina +j+j
+Defining defrule: hasParquet +j+j
+Defining defmodule: Abs
+Defining defrule: necessitaTransportCotxe +j+j
+Defining defrule: necessitaTransportCert +j+j
+Defining defrule: necessitaTransportNoFeina +j+j
+Defining defrule: mobilitatReduida +j+j
+Defining defrule: serveiProperAbs +j+j+j+j
+Defining defrule: abitacionsNecessariesFamiliar +j+j
+Defining defrule: abitacionsNecessariesEn_Grup +j+j
+Defining defrule: abitacionsNecessariesIndividual +j+j
+Defining defmodule: Sol
+Defining defrule: preuRaonableAbs +j+j+j
+Defining defrule: facilTransportFeinaAbs +j+j+j+j+j
+Defining defrule: serveiCobertAbs +j+j+j+j+j+j
+Defining defrule: serveiMascotesAbs +j+j+j
+Defining defrule: garatgeReal +j+j+j
+Defining defrule: ascensorAbsMulti_Pis +j+j+j
+Defining defrule: ascensorAbsUnifamiliar +j+j
+Defining defrule: areaSatisfetaAbs +j+j+j
+Defining defrule: abitacionsSatisfetaAbs +j+j+j
+Defining defrule: lavabosSatisfetsAbs +j+j+j
+Defining defrule: balcoSatisfet +j+j+j
+Defining defrule: terrassaSatisfet +j+j+j
+Defining defrule: moblesSatisfet +j+j+j
+Defining defrule: electrodomesticsSatisfet +j+j+j
+Defining defrule: aireSatisfet +j+j+j
+Defining defrule: calefaccioSatisfet +j+j+j
+Defining defrule: piscinaSatisfet +j+j+j
+Defining defrule: parquetSatisfet +j+j+j
+Defining defrule: solveHouse +j+j+j
+Defining defmodule: Refine
+Defining deffunction: appendText
+Defining defrule: refineNotAccepted +j+j+j+j+j
+Defining defrule: refineAccepted +j+j+j
+Defining defrule: printHouseStep1 +j+j
+Defining defrule: printHouseStep2 +j+j
+Defining defrule: printHouseStep3 +j+j+j+j
+TRUE
+CLIPS> (reset)
+CLIPS> (run)
+Ets una persona individual (yes) o sou un grup de persones (no) (yes/no)? no
+Formeu una familia (yes/no)? y
+Biblioteques: Tens preferència? (yes/no) n
+Llocs_emblematics: Tens preferència? (yes/no) n
+Zona_Verda: Tens preferència? (yes/no) n
+Zona_comercial: Tens preferència? (yes/no) y
+T'agrada? (yes/no) y
+Vols els servei a prop? (yes/no) y
+Supermercat_i_Hipermercats: Tens preferència? (yes/no) n
+Hospital_o_CAP: Tens preferència? (yes/no) n
+Gimnas: Tens preferència? (yes/no) y
+T'agrada? (yes/no) y
+Vols els servei a prop? (yes/no) y
+Escoles: Tens preferència? (yes/no) y
+T'agrada? (yes/no) y
+Vols els servei a prop? (yes/no) n
+Transport_Public: Tens preferència? (yes/no) n
+Zona_Cultural: Tens preferència? (yes/no) n
+Zona_Oci_Nocturn: Tens preferència? (yes/no) n
+Platja: Tens preferència? (yes/no) n
+Poligons_Industrials: Tens preferència? (yes/no) y
+T'agrada? (yes/no) n
+Tens parella? (yes/no) y
+Quants fills tens? 0
+Quants fills adicionals tindràs? 1
+Quanta gent gran tens al carrec? 0
+Treballes? (yes/no) y
+Quina es la latitud del teu treball? 41.39225
+Quina es la longitud del teu treball? 2.16502
+Tens cotxe? (yes/no) y
+Tens mascota? (yes/no) n
+Quina es la edat del familiar més vell? 35
+Quin és el teu tamany mínim? 150
+Ets estricte amb el teu rang de preus? (yes/no) n
+Preferiries un pis nou (>=2016)? (yes/no) y
+Quin es el preu maxim que estaries dispossat a pagar? 650000
+Quin es el preu minim que estaries dispossat a pagar? 100000
+Vols balco? (yes/no)n
+Vols terrassa? (yes/no)n
+Vols una casa amb mobles? (yes/no)y
+Vols electrodomestics? (yes/no)y
+Vols aire aire condicionat? (yes/no)y
+Vols calefaccio? (yes/no)y
+Vols piscina comunitaria? (yes/no)n
+Vols parquet? (yes/no)y
+Casa [Hab_24] parcialment aceptable en 41.413276302849 2.19840150911737. Motius: 
+El servei [Zona_comercial] es troba a 1040.86808595001 m
+Casa [Hab_5] parcialment aceptable en 41.4117739897149 2.19021966292402. Motius: 
+No està solejat en cap moment
+La casa no te electrodomestics
+La casa no te parquet
+Casa [Hab_11] parcialment aceptable en 41.3936771629645 2.09519874058998. Motius: 
+La casa té 1 dormitoris simples i 0 dobles
+El servei [Zona_comercial] es troba a 3369.0648283495 m
+El servei [Gimnas] es troba a 3815.66871675939 m
+Casa [Hab_81] parcialment aceptable en 41.4447676927938 2.25319039372312. Motius: 
+El servei [Zona_comercial] es troba a 4580.97511204821 m
+El servei [Gimnas] es troba a 3975.00425887464 m
+La casa no te aire condicionat
+Casa [Hab_92] parcialment aceptable en 41.4170035735734 2.21168464458475. Motius: 
+La casa costa 38000€
+La casa no te mobles
+La casa no te aire condicionat
+Casa [Hab_67] parcialment aceptable en 41.4526474509071 2.20456027795514. Motius: 
+El servei [Zona_comercial] es troba a 1406.97015932659 m
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_33] parcialment aceptable en 41.4203667718669 2.16888456496148. Motius: 
+El servei [Zona_comercial] es troba a 1903.39592366306 m
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_0] parcialment aceptable en 41.3755290717128 2.16597694661397. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 1179.8774506342 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_1] parcialment aceptable en 41.4222784464025 2.19738247976294. Motius: 
+El servei [Zona_comercial] es troba a 1931.12057769312 m
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_12] parcialment aceptable en 41.3472553664712 2.16519851564621. Motius: 
+El servei [Zona_comercial] es troba a 2206.76827668955 m
+El servei [Gimnas] es troba a 3245.81463431745 m
+El servei [Escoles] es troba a 4377.2213555309 m
+La casa no te parquet
+Casa [Hab_21] parcialment aceptable en 41.3997113486052 2.07315479938327. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 5297.90080792287 m
+El servei [Gimnas] es troba a 2648.09172027272 m
+La casa no te aire condicionat
+Casa [Hab_29] parcialment aceptable en 41.4133887809039 2.14055516748034. Motius: 
+El servei [Zona_comercial] es troba a 2684.25327841984 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_37] parcialment aceptable en 41.3592138131556 2.118560607837. Motius: 
+La casa té 112m^2 d'area
+El servei [Gimnas] es troba a 2292.76500264446 m
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_38] parcialment aceptable en 41.3549402163771 2.16181578438807. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 2398.43326183966 m
+El servei [Gimnas] es troba a 2394.29945976636 m
+El servei [Escoles] es troba a 3504.67527935073 m
+Casa [Hab_43] parcialment aceptable en 41.3587090788515 2.09684504257928. Motius: 
+El servei [Zona_comercial] es troba a 1983.68665748047 m
+El servei [Gimnas] es troba a 3886.51013624475 m
+El servei [Escoles] es troba a 3917.6299883634 m
+La casa no te electrodomestics
+Casa [Hab_45] parcialment aceptable en 41.3627311078382 2.26852381883823. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 6802.73736267472 m
+El servei [Gimnas] es troba a 6603.43755321133 m
+El servei [Escoles] es troba a 7928.73936963039 m
+Casa [Hab_59] parcialment aceptable en 41.4020340076735 2.13668294090124. Motius: 
+La casa té 85m^2 d'area
+El servei [Zona_comercial] es troba a 1389.85613987758 m
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_64] parcialment aceptable en 41.36982254406 2.10731443123366. Motius: 
+La casa té 71m^2 d'area
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 1556.75328832995 m
+El servei [Gimnas] es troba a 2718.00933787203 m
+Casa [Hab_96] parcialment aceptable en 41.4040252069334 2.148177919152. Motius: 
+El servei [Zona_comercial] es troba a 1935.94053111747 m
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_97] parcialment aceptable en 41.4199640685734 2.19905571718974. Motius: 
+El servei [Zona_comercial] es troba a 1729.44630791843 m
+La casa no te mobles
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_83] parcialment aceptable en 41.4225894649713 2.19105959270921. Motius: 
+La casa té 69m^2 d'area
+El servei [Zona_comercial] es troba a 1669.06858879746 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_68] parcialment aceptable en 41.3256307718901 2.06404961927375. Motius: 
+El servei [Zona_comercial] es troba a 1205.4269361905 m
+El servei [Gimnas] es troba a 6316.41121865729 m
+El servei [Escoles] es troba a 8455.82097119973 m
+La casa no te electrodomestics
+Casa [Hab_9] parcialment aceptable en 41.4523582635164 2.10668393150684. Motius: 
+El servei [Zona_comercial] es troba a 6431.11775354571 m
+El servei [Gimnas] es troba a 4978.62888680915 m
+El servei [Escoles] es troba a 3631.13149887525 m
+La casa no te electrodomestics
+Casa [Hab_8] parcialment aceptable en 41.4331132419577 2.18648074841774. Motius: 
+El servei [Poligons_Industrials] es troba a 523.590586477187 m
+La casa no te aire condicionat
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_2] parcialment aceptable en 41.4063243990713 2.25815553111584. Motius: 
+La casa té 86m^2 d'area
+El servei [Zona_comercial] es troba a 3495.20078296105 m
+El servei [Gimnas] es troba a 4829.30650804458 m
+El servei [Escoles] es troba a 4540.433108743 m
+La casa no te aire condicionat
+Casa [Hab_13] parcialment aceptable en 41.3459337592914 2.14177216263609. Motius: 
+El servei [Gimnas] es troba a 2945.31713184376 m
+El servei [Escoles] es troba a 3912.22518507703 m
+El servei [Poligons_Industrials] es troba a 823.986926905703 m
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_22] parcialment aceptable en 41.477791056547 2.15979570387095. Motius: 
+El servei [Zona_comercial] es troba a 5027.50021298002 m
+El servei [Gimnas] es troba a 4668.46022550815 m
+El servei [Escoles] es troba a 4298.09585379991 m
+La casa no te electrodomestics
+La casa no te aire condicionat
+Casa [Hab_25] parcialment aceptable en 41.4878806505219 2.09425132922164. Motius: 
+El servei [Zona_comercial] es troba a 9258.96385897777 m
+El servei [Gimnas] es troba a 8195.594145051 m
+El servei [Escoles] es troba a 7590.34250343789 m
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_26] parcialment aceptable en 41.409897024521 2.0500164832736. Motius: 
+El servei [Zona_comercial] es troba a 7270.31803496317 m
+El servei [Gimnas] es troba a 3135.85285273193 m
+El servei [Escoles] es troba a 4488.97751264607 m
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_39] parcialment aceptable en 41.4780515594263 2.16808247642655. Motius: 
+El servei [Zona_comercial] es troba a 4851.34062375257 m
+El servei [Gimnas] es troba a 4103.26961599918 m
+El servei [Escoles] es troba a 4104.00210198151 m
+El servei [Poligons_Industrials] es troba a 913.700677029035 m
+La casa no te parquet
+Casa [Hab_46] parcialment aceptable en 41.4802413470956 2.24581034548021. Motius: 
+El servei [Zona_comercial] es troba a 5894.63032034469 m
+El servei [Gimnas] es troba a 4084.63601209294 m
+El servei [Escoles] es troba a 3458.67390929485 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_49] parcialment aceptable en 41.3919228405383 2.0631155090239. Motius: 
+La casa costa 61000€
+El servei [Zona_comercial] es troba a 5042.72037819801 m
+El servei [Gimnas] es troba a 1446.41210597609 m
+El servei [Escoles] es troba a 3787.61674028598 m
+La casa no te electrodomestics
+Casa [Hab_57] parcialment aceptable en 41.4802534288104 2.07892191356873. Motius: 
+El servei [Zona_comercial] es troba a 9824.04153104455 m
+El servei [Gimnas] es troba a 8575.01898649901 m
+El servei [Escoles] es troba a 6987.61497334529 m
+La casa no te electrodomestics
+La casa no te parquet
+Casa [Hab_65] parcialment aceptable en 41.4066321920953 2.22500462678427. Motius: 
+El servei [Gimnas] es troba a 2377.13893397437 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_84] parcialment aceptable en 41.4228370861312 2.24421200853075. Motius: 
+El servei [Zona_comercial] es troba a 2724.45903410008 m
+El servei [Gimnas] es troba a 3404.33261468521 m
+El servei [Escoles] es troba a 3339.32073288946 m
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_86] parcialment aceptable en 41.4439990783862 2.21608564637424. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 1508.71896938223 m
+El servei [Gimnas] es troba a 1553.73330871443 m
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_87] parcialment aceptable en 41.3450891447358 2.10574861437724. Motius: 
+El servei [Zona_comercial] es troba a 1884.70420226807 m
+El servei [Gimnas] es troba a 4152.08120358829 m
+El servei [Escoles] es troba a 4651.23734808077 m
+La casa no te mobles
+La casa no te aire condicionat
+Casa [Hab_90] parcialment aceptable en 41.3645881475321 2.19684864523604. Motius: 
+El servei [Zona_comercial] es troba a 3310.18485862384 m
+El servei [Gimnas] es troba a 2216.38797397219 m
+El servei [Escoles] es troba a 3554.80796101212 m
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_76] parcialment aceptable en 41.3334001043287 2.138147285492. Motius: 
+El servei [Gimnas] es troba a 4335.9136445317 m
+El servei [Escoles] es troba a 5294.69451832277 m
+El servei [Poligons_Industrials] es troba a 250.385857815628 m
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_71] parcialment aceptable en 41.4231228753332 2.10066289526606. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 4713.05114103449 m
+El servei [Gimnas] es troba a 3558.07933819671 m
+La casa no te mobles
+La casa no te aire condicionat
+Casa [Hab_62] parcialment aceptable en 41.375832514837 2.04916204122454. Motius: 
+El servei [Zona_comercial] es troba a 3919.35231900778 m
+El servei [Escoles] es troba a 5492.50124930258 m
+El servei [Poligons_Industrials] es troba a 388.30529925237 m
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_60] parcialment aceptable en 41.3615157282472 2.18662161161641. Motius: 
+El servei [Zona_comercial] es troba a 3077.39807930722 m
+El servei [Gimnas] es troba a 2529.45986969037 m
+El servei [Escoles] es troba a 3617.42156753633 m
+La casa no te electrodomestics
+La casa no te parquet
+Casa [Hab_53] parcialment aceptable en 41.3478214941593 2.19535605480548. Motius: 
+El servei [Zona_comercial] es troba a 4667.7612261253 m
+El servei [Gimnas] es troba a 4074.83502310726 m
+El servei [Escoles] es troba a 5266.36518103096 m
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_47] parcialment aceptable en 41.3972549890712 2.16668854504527. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 1281.47902316435 m
+La casa no te mobles
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_35] parcialment aceptable en 41.4539929611322 2.07044118389719. Motius: 
+La casa té 137m^2 d'area
+El servei [Zona_comercial] es troba a 8970.20409480098 m
+El servei [Gimnas] es troba a 7626.75465511478 m
+El servei [Escoles] es troba a 4624.79421211944 m
+La casa no te mobles
+Casa [Hab_31] parcialment aceptable en 41.4622931989565 2.14047365663644. Motius: 
+El servei [Zona_comercial] es troba a 4481.91581116935 m
+El servei [Gimnas] es troba a 3605.14746540979 m
+El servei [Escoles] es troba a 3983.90752012371 m
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_27] parcialment aceptable en 41.4054544716389 2.20685209830253. Motius: 
+El servei [Gimnas] es troba a 1461.03525115828 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_4] parcialment aceptable en 41.3271354336107 2.16011343544047. Motius: 
+El servei [Zona_comercial] es troba a 2240.08288215583 m
+El servei [Gimnas] es troba a 5311.08352212041 m
+El servei [Escoles] es troba a 6263.64600371163 m
+La casa no te mobles
+La casa no te aire condicionat
+Casa [Hab_6] parcialment aceptable en 41.473880921472 2.07877825225168. Motius: 
+El servei [Zona_comercial] es troba a 9494.17741660867 m
+El servei [Gimnas] es troba a 8177.73017980057 m
+El servei [Escoles] es troba a 6313.60687766977 m
+La casa no te electrodomestics
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_30] parcialment aceptable en 41.4007424512248 2.05647417247904. Motius: 
+El servei [Zona_comercial] es troba a 6136.3327465846 m
+El servei [Gimnas] es troba a 2140.38606097824 m
+El servei [Escoles] es troba a 4277.98215080252 m
+El servei [Poligons_Industrials] es troba a 931.817895649832 m
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_34] parcialment aceptable en 41.4446269096386 2.16995739146369. Motius: 
+La casa costa 78000€
+El servei [Zona_comercial] es troba a 1354.50854574772 m
+El servei [Gimnas] es troba a 1419.52479535839 m
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_36] parcialment aceptable en 41.3777220230793 2.05049372428104. Motius: 
+El servei [Zona_comercial] es troba a 4023.38489854618 m
+El servei [Escoles] es troba a 5299.12896861095 m
+El servei [Poligons_Industrials] es troba a 549.469974946314 m
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_40] parcialment aceptable en 41.4130304459405 2.24105184198025. Motius: 
+La casa té 110m^2 d'area
+El servei [Zona_comercial] es troba a 2077.05400862109 m
+El servei [Gimnas] es troba a 3245.091035512 m
+El servei [Escoles] es troba a 3003.86671199983 m
+La casa no te electrodomestics
+La casa no te parquet
+Casa [Hab_61] parcialment aceptable en 41.4237578035363 2.25620019327155. Motius: 
+El servei [Zona_comercial] es troba a 3653.30114728012 m
+El servei [Gimnas] es troba a 4408.7474299355 m
+El servei [Escoles] es troba a 4337.61482439837 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_99] parcialment aceptable en 41.3280968022213 2.26133179104055. Motius: 
+El servei [Zona_comercial] es troba a 9744.22533143262 m
+El servei [Gimnas] es troba a 8369.71850148756 m
+El servei [Escoles] es troba a 10024.9334351696 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te parquet
+Casa [Hab_89] parcialment aceptable en 41.3665433709686 2.09302794164999. Motius: 
+La casa té 78m^2 d'area
+La casa té 1 dormitoris simples i 0 dobles
+El servei [Zona_comercial] es troba a 2423.14185218586 m
+El servei [Gimnas] es troba a 3794.76018961391 m
+El servei [Escoles] es troba a 3686.04412865998 m
+La casa no te aire condicionat
+Casa [Hab_88] parcialment aceptable en 41.4122026823163 2.25258679551835. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 3020.01054284565 m
+El servei [Gimnas] es troba a 4200.7668063115 m
+El servei [Escoles] es troba a 3970.13085824263 m
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_82] parcialment aceptable en 41.3431654883517 2.1010256767008. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 1972.18196810661 m
+El servei [Gimnas] es troba a 4579.71048203358 m
+El servei [Escoles] es troba a 5032.40680440958 m
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_80] parcialment aceptable en 41.4452347781253 2.18668788480834. Motius: 
+La casa té 81m^2 d'area
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 1097.68946042986 m
+El servei [Gimnas] es troba a 1756.43039153938 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_75] parcialment aceptable en 41.3988804760158 2.13719166424882. Motius: 
+La casa té 126m^2 d'area
+El servei [Zona_comercial] es troba a 1046.85881867208 m
+El servei [Gimnas] es troba a 1007.98831973733 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_72] parcialment aceptable en 41.383205148648 2.20883087795542. Motius: 
+La casa costa 43000€
+El servei [Zona_comercial] es troba a 2284.0115477758 m
+El servei [Gimnas] es troba a 1172.59341728393 m
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_69] parcialment aceptable en 41.3275997126718 2.09466266716053. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 1983.80801328237 m
+El servei [Gimnas] es troba a 6239.23100580472 m
+El servei [Escoles] es troba a 6803.20732268506 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_58] parcialment aceptable en 41.4846986815134 2.04646300823524. Motius: 
+El servei [Zona_comercial] es troba a 12440.1903975542 m
+El servei [Gimnas] es troba a 11099.9292453567 m
+El servei [Escoles] es troba a 8573.8726211447 m
+El servei [Poligons_Industrials] es troba a 343.116084786743 m
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_56] parcialment aceptable en 41.3654898571623 2.22501738552498. Motius: 
+El servei [Zona_comercial] es troba a 4630.11329001159 m
+El servei [Gimnas] es troba a 3282.85583064156 m
+El servei [Escoles] es troba a 4966.34797099654 m
+La casa no te mobles
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_52] parcialment aceptable en 41.4244708069811 2.25197319294562. Motius: 
+El servei [Zona_comercial] es troba a 3374.78121691331 m
+El servei [Gimnas] es troba a 4064.9640756392 m
+El servei [Escoles] es troba a 4010.9587222523 m
+La casa no te mobles
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_50] parcialment aceptable en 41.4511708395949 2.21686111758887. Motius: 
+La casa té 103m^2 d'area
+El servei [Zona_comercial] es troba a 1914.55385787507 m
+El servei [Poligons_Industrials] es troba a 984.56445628011 m
+La casa no te mobles
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_42] parcialment aceptable en 41.3618702510907 2.12551071393378. Motius: 
+La casa costa 53000€
+La casa té 1 dormitoris simples i 0 dobles
+El servei [Gimnas] es troba a 1663.88236904456 m
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_20] parcialment aceptable en 41.4022589655292 2.0618859875243. Motius: 
+La casa costa 41000€
+El servei [Zona_comercial] es troba a 6184.89312703409 m
+El servei [Gimnas] es troba a 2416.44223137645 m
+El servei [Escoles] es troba a 3842.20813801575 m
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_19] parcialment aceptable en 41.4713723353534 2.05437541589659. Motius: 
+El servei [Zona_comercial] es troba a 11243.353539264 m
+El servei [Gimnas] es troba a 9822.45521103234 m
+El servei [Escoles] es troba a 6975.68813921776 m
+El servei [Poligons_Industrials] es troba a 834.15091243342 m
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_15] parcialment aceptable en 41.4112113858886 2.12636113784888. Motius: 
+La casa té 116m^2 d'area
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 2515.77500096135 m
+El servei [Gimnas] es troba a 1053.4924237313 m
+La casa no te electrodomestics
+La casa no te parquet
+Casa [Hab_7] parcialment aceptable en 41.4858387767749 2.22119521873118. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 5349.30608594096 m
+El servei [Gimnas] es troba a 3419.39222666774 m
+El servei [Escoles] es troba a 3419.43667127503 m
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_10] parcialment aceptable en 41.3614627148959 2.20738145601262. Motius: 
+El servei [Zona_comercial] es troba a 4190.89218264713 m
+El servei [Gimnas] es troba a 2762.448777259 m
+El servei [Escoles] es troba a 4293.40666581097 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_17] parcialment aceptable en 41.3527248512623 2.13893283410764. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 1029.33851132072 m
+El servei [Gimnas] es troba a 2186.0998164955 m
+El servei [Escoles] es troba a 3146.43057926144 m
+El servei [Poligons_Industrials] es troba a 666.099129730522 m
+La casa no te mobles
+La casa no te aire condicionat
+Casa [Hab_28] parcialment aceptable en 41.4721850748863 2.16745364782244. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 4241.30450661439 m
+El servei [Gimnas] es troba a 3809.74173557443 m
+El servei [Escoles] es troba a 3490.54682086559 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_41] parcialment aceptable en 41.4064874319581 2.06634065985981. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 6044.60470493603 m
+El servei [Gimnas] es troba a 2989.38701464524 m
+El servei [Escoles] es troba a 3338.82443425312 m
+La casa no te mobles
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_44] parcialment aceptable en 41.394397871026 2.23230724853764. Motius: 
+La casa té 1 dormitoris simples i 0 dobles
+El servei [Zona_comercial] es troba a 2164.96476997333 m
+El servei [Gimnas] es troba a 3312.09383220974 m
+El servei [Escoles] es troba a 3290.79397175753 m
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_48] parcialment aceptable en 41.4297136994801 2.23467668389513. Motius: 
+El servei [Zona_comercial] es troba a 2678.58109527731 m
+El servei [Gimnas] es troba a 2788.76970283636 m
+El servei [Poligons_Industrials] es troba a 588.290564274966 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_70] parcialment aceptable en 41.4275075365378 2.10544468395522. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 4893.59860125532 m
+El servei [Gimnas] es troba a 3494.09253660064 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_73] parcialment aceptable en 41.4675202344078 2.1358782022127. Motius: 
+La casa té 1 dormitoris simples i 0 dobles
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 5158.46892462009 m
+El servei [Gimnas] es troba a 4298.9337989401 m
+El servei [Escoles] es troba a 4634.04287274393 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_77] parcialment aceptable en 41.4339238707836 2.2612876155599. Motius: 
+El servei [Zona_comercial] es troba a 4594.28410035436 m
+El servei [Gimnas] es troba a 5039.86386864436 m
+El servei [Escoles] es troba a 4073.75909645229 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_78] parcialment aceptable en 41.3509263138947 2.06185560289035. Motius: 
+La casa té 114m^2 d'area
+El servei [Zona_comercial] es troba a 1378.72495309148 m
+El servei [Gimnas] es troba a 3518.54710092013 m
+El servei [Escoles] es troba a 6524.73303325697 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_98] parcialment aceptable en 41.328129488144 2.17305317936157. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 3073.56129304495 m
+El servei [Gimnas] es troba a 5426.31242049576 m
+El servei [Escoles] es troba a 6560.01007904763 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te aire condicionat
+Casa [Hab_95] parcialment aceptable en 41.4165113570198 2.19403261280176. Motius: 
+La casa costa 89000€
+La casa té 122m^2 d'area
+La casa té 1 dormitoris simples i 0 dobles
+El servei [Zona_comercial] es troba a 1244.45398669503 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te parquet
+Casa [Hab_93] parcialment aceptable en 41.3643499511944 2.23128131427634. Motius: 
+El servei [Zona_comercial] es troba a 4996.31044536273 m
+El servei [Gimnas] es troba a 3772.32183557751 m
+El servei [Escoles] es troba a 5457.80144413893 m
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_85] parcialment aceptable en 41.3316507551996 2.11835829943888. Motius: 
+No està solejat en cap moment
+El servei [Gimnas] es troba a 4866.51198673785 m
+El servei [Escoles] es troba a 5707.52233200207 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_66] parcialment aceptable en 41.3458296377324 2.04765827447196. Motius: 
+La casa costa 39000€
+El servei [Zona_comercial] es troba a 1680.4263753452 m
+El servei [Gimnas] es troba a 4012.82128653345 m
+El servei [Escoles] es troba a 7703.87363748649 m
+La casa no te mobles
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_63] parcialment aceptable en 41.3358622983032 2.09168330991494. Motius: 
+La casa té 102m^2 d'area
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 1769.83508242054 m
+El servei [Gimnas] es troba a 5705.55005277324 m
+El servei [Escoles] es troba a 6135.57253317658 m
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_54] parcialment aceptable en 41.3334608028829 2.04679291602389. Motius: 
+No està solejat en cap moment
+El servei [Gimnas] es troba a 5389.05633704438 m
+El servei [Escoles] es troba a 8836.1375812076 m
+El servei [Poligons_Industrials] es troba a 167.392580486219 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te parquet
+Casa [Hab_51] parcialment aceptable en 41.4714152088142 2.25446149484915. Motius: 
+La casa costa 41000€
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 5772.33869864009 m
+El servei [Gimnas] es troba a 4188.00000486148 m
+El servei [Escoles] es troba a 3299.88782225603 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_32] parcialment aceptable en 41.4486411773779 2.11574114195442. Motius: 
+El servei [Zona_comercial] es troba a 5590.65448119439 m
+El servei [Gimnas] es troba a 4120.78058623478 m
+El servei [Escoles] es troba a 3392.3329041694 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_3] parcialment aceptable en 41.3488388066975 2.23239033552564. Motius: 
+El servei [Zona_comercial] es troba a 6566.11887861252 m
+El servei [Gimnas] es troba a 5049.16353102561 m
+El servei [Escoles] es troba a 6690.79856388304 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_14] parcialment aceptable en 41.4830108518356 2.20716245877761. Motius: 
+La casa té 54m^2 d'area
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 4744.31635240885 m
+El servei [Gimnas] es troba a 2930.73835067261 m
+El servei [Escoles] es troba a 3323.62521257626 m
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_23] parcialment aceptable en 41.359129241187 2.0597295906434. Motius: 
+La casa té 110m^2 d'area
+El servei [Zona_comercial] es troba a 1960.37992259092 m
+El servei [Gimnas] es troba a 2590.14551311146 m
+El servei [Escoles] es troba a 5928.29124489064 m
+La casa no te mobles
+La casa no te aire condicionat
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_79] parcialment aceptable en 41.4715644835755 2.0906611689205. Motius: 
+La casa té 1 dormitoris simples i 0 dobles
+El servei [Zona_comercial] es troba a 8497.26141689177 m
+El servei [Gimnas] es troba a 7214.61442721646 m
+El servei [Escoles] es troba a 5826.87161246092 m
+El servei [Poligons_Industrials] es troba a 634.99016758388 m
+La casa no te electrodomestics
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_74] parcialment aceptable en 41.3956295201936 2.08157351517294. Motius: 
+La casa té 135m^2 d'area
+El servei [Zona_comercial] es troba a 4524.9329773184 m
+El servei [Gimnas] es troba a 2888.05569989575 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_18] parcialment aceptable en 41.3287925277716 2.07471259415257. Motius: 
+La casa té 76m^2 d'area
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 1953.19908740946 m
+El servei [Gimnas] es troba a 6178.08722782676 m
+El servei [Escoles] es troba a 7608.85029892407 m
+La casa no te aire condicionat
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_16] parcialment aceptable en 41.487508289386 2.25936620827649. Motius: 
+La casa té 128m^2 d'area
+El servei [Zona_comercial] es troba a 7256.9240581235 m
+El servei [Gimnas] es troba a 5470.23695257207 m
+El servei [Escoles] es troba a 4796.47485067341 m
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_94] parcialment aceptable en 41.4862574126906 2.23883558354063. Motius: 
+La casa té 1 dormitoris simples i 0 dobles
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 6066.93360986315 m
+El servei [Gimnas] es troba a 4163.57962761002 m
+El servei [Escoles] es troba a 3758.30786134114 m
+La casa no te mobles
+La casa no te aire condicionat
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_91] parcialment aceptable en 41.4775866858802 2.0891038473046. Motius: 
+La casa costa 47000€
+La casa té 130m^2 d'area
+El servei [Zona_comercial] es troba a 8944.58391665257 m
+El servei [Gimnas] es troba a 7724.2656485092 m
+El servei [Escoles] es troba a 6508.75974298295 m
+El servei [Poligons_Industrials] es troba a 429.080413649479 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te aire condicionat
+Casa [Hab_55] parcialment aceptable en 41.4627032069554 2.22961095526636. Motius: 
+La casa té 129m^2 d'area
+La casa té 1 dormitoris simples i 0 dobles
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 3555.16185074483 m
+El servei [Gimnas] es troba a 1905.12865001128 m
+El servei [Poligons_Industrials] es troba a 700.444954500892 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te aire condicionat
+La casa no te calefaccio
+CLIPS> (exit)

@@ -1,0 +1,3 @@
+Cada carpeta conté un joc de proves. Si executes la següent comanda dins de cada carpeta, s'executarà el joc de prova.
+
+clips -f executar.clips

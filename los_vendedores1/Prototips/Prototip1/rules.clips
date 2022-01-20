@@ -1,0 +1,458 @@
+(deffunction ask-number (?question)
+	(printout t ?question)
+	(bind ?answer (read))
+	(while (lexemep ?answer) do
+		(printout t ?question)
+		(bind ?answer (read))
+		)
+	(float ?answer)
+)
+
+(deffunction ask-int (?question)
+	(printout t ?question)
+	(bind ?answer (read))
+	(while (lexemep ?answer) do
+		(printout t ?question)
+		(bind ?answer (read))
+		)
+	(integer ?answer))
+
+
+(deffunction ask-question (?question $?allowed-values)
+   (printout t ?question)
+   (bind ?answer (read))
+   (if (lexemep ?answer)
+       then (bind ?answer (lowcase ?answer)))
+   (while (not (member ?answer ?allowed-values)) do
+      (printout t ?question)
+      (bind ?answer (read))
+      (if (lexemep ?answer)
+          then (bind ?answer (lowcase ?answer))))
+   ?answer)
+
+(deffunction yes-or-no-p (?question)
+   (bind ?response (ask-question ?question yes no y n))
+   (if (or (eq ?response yes) (eq ?response y))
+       then TRUE
+       else FALSE))
+
+(defglobal ?*R* = 6371000)
+(deffunction calcDistance (?lat1 ?lat2 ?lon1 ?lon2)
+	(bind ?pi180 (/ (pi) 180))
+	(bind ?o1 (* ?lat1 ?pi180))
+	(bind ?o2 (* ?lat2 ?pi180))
+	(bind ?dlat (/ (* (- ?lat2 ?lat1) ?pi180) 2))
+	(bind ?dlon (/ (* (- ?lon2 ?lon1) ?pi180) 2))
+
+	(bind ?a (sqrt (+ (* (sin ?dlat) (sin ?dlat)) (* (* (cos ?o1) (cos ?o2)) (* (sin ?dlon) (sin ?dlon))))))
+	(if (< ?a 1) then
+		(bind ?c (* 2 (asin ?a)))
+	else (bind ?c (pi)))
+	(* ?c ?*R*)
+)
+
+(deffunction prettyPrint ($?text)
+	(progn$ (?e ?text)
+		(printout t ?e crlf)
+	)
+)
+
+(defclass infoServeis
+	(is-a USER)
+	(role concrete)
+	(slot num_serveis (type INTEGER))
+	(slot num_serveis_tipus (type INTEGER))
+	(multislot llista_serveis (type INSTANCE))
+)
+
+(definstances num_serveis
+	(serveisInfo of infoServeis (num_serveis 0) (num_serveis_tipus 0))
+)
+
+(defrule count_serveis
+	?s <- (object (is-a Servei))
+	?info <- (object (is-a infoServeis))
+=>
+	(bind ?accept TRUE)
+	(loop-for-count (?i 1 (length$ (send ?info get-llista_serveis)))
+	do
+		(if (eq (type ?s) (type (nth$ ?i (send ?info get-llista_serveis))))
+		then (bind ?accept FALSE)
+		else)
+	)
+
+	(slot-insert$ ?info llista_serveis (+ 1 (length$ (send ?info get-llista_serveis))) ?s)
+	(if (eq ?accept TRUE)
+	then
+		(send ?info put-num_serveis (+ (send ?info get-num_serveis) 1))
+		(send ?info put-num_serveis_tipus (+ (send ?info get-num_serveis_tipus) 1))
+	else
+		(send ?info put-num_serveis (+ (send ?info get-num_serveis) 1))
+	)
+)
+
+(defrule initWelcomeMessage
+	(not (object (is-a Solicitant)))
+	=>
+	(
+	if (yes-or-no-p "Ets una persona individual (yes) o sou un grup de persones (no) (yes/no)? ")
+	then
+		(make-instance soli of Individual)
+	else (
+		if (yes-or-no-p "Formeu una familia (yes/no)? ")
+		then
+		(make-instance soli of Familiar)
+		else
+		(make-instance soli of En_Grup)
+	)
+	)
+)
+
+; (forall (object (is-a Solicitant) (preferencia_llunyana_de ?p)) (test(neq (type ?p) (type ?s))))
+; for some reason this does not do what the (1st) for loop checks. No clue.
+(defrule forServiceAsk
+	?s <- (object (is-a Servei))
+	?x <- (object (is-a Solicitant))
+	=>
+	(bind ?accept TRUE)
+	(loop-for-count (?i 1 (length$ (send ?x get-preferencia_llunyana_de)))
+	do
+		(if (eq (type ?s) (type (nth$ ?i (send ?x get-preferencia_llunyana_de))))
+		then (bind ?accept FALSE)
+		else)
+	)
+	(loop-for-count (?i 1 (length$ (send ?x get-preferencia_mitjana_de)))
+	do
+		(if (eq (type ?s) (type (nth$ ?i (send ?x get-preferencia_mitjana_de))))
+		then (bind ?accept FALSE)
+		else)
+	)
+	(loop-for-count (?i 1 (length$ (send ?x get-preferencia_propera_de)))
+	do
+		(if (eq (type ?s) (type (nth$ ?i (send ?x get-preferencia_propera_de))))
+		then (bind ?accept FALSE)
+		else)
+	)
+	(
+		if (eq ?accept TRUE)
+		then
+			(printout t (type ?s) ": T'agrada? (yes/no) ")
+			(if (yes-or-no-p "")
+			then
+				(if (yes-or-no-p "Vols els servei a prop? (yes/no) ")
+				then
+				(slot-insert$ ?x preferencia_propera_de (+ 1 (length$ (send ?x get-preferencia_propera_de))) ?s)
+				else
+				(slot-insert$ ?x preferencia_mitjana_de (+ 1 (length$ (send ?x get-preferencia_mitjana_de))) ?s)
+				)
+			else
+			(slot-insert$ ?x preferencia_llunyana_de (+ 1 (length$ (send ?x get-preferencia_llunyana_de))) ?s)
+			)
+	)
+)
+
+(defrule workAsk
+	?x <- (object (is-a Solicitant) (treballa_a ?e&:(eq ?e [nil])))
+	=>
+	(bind ?coordx (ask-number "Quina es la latitud del teu treball? "))
+	(bind ?coordy (ask-number "Quina es la longitud del teu treball? "))
+	(make-instance llocTreball of Lloc_de_treball (ubicacio_x ?coordx) (ubicacio_y ?coordy))
+	(send ?x put-treballa_a (instance-address llocTreball))
+)
+
+(defrule hasCar
+	?x <- (object (is-a Solicitant) (cotxe ?e&:(eq ?e nil)))
+	=>
+	(bind ?teCotxe (yes-or-no-p "Tens cotxe? (yes/no) "))
+	(send ?x put-cotxe ?teCotxe)
+)
+
+(defrule hasPet
+	?x <- (object (is-a Solicitant) (mascotes ?e&:(eq ?e nil)))
+	=>
+	(bind ?teMascota (yes-or-no-p "Tens mascota? (yes/no) "))
+	(send ?x put-mascotes ?teMascota)
+)
+
+(defrule howOld
+	?x <- (object (is-a Solicitant) (edat ?e&:(eq ?e nil)))
+	=>
+	(bind ?age (ask-int "Quina es la teva edat? "))
+	(send ?x put-edat ?age)
+)
+
+(defrule isEstricte
+	?x <- (object (is-a Solicitant) (estricte ?e&:(eq ?e nil)))
+	=>
+	(bind ?esEstricte (yes-or-no-p "Ets estricte amb el teu rang de preus? (yes/no) "))
+	(send ?x put-estricte ?esEstricte)
+)
+
+(defrule numDorms
+	?x <- (object (is-a Solicitant) (estricte ?e&:(eq ?e nil)))
+	=>
+	(bind ?num (ask-int "Quants dormitoris dessitges? "))
+	(send ?x put-numero_dormitoris ?num)
+)
+
+(defrule maxPreu
+	?x <- (object (is-a Solicitant) (preu_maxim ?e&:(eq ?e nil)))
+	=>
+	(bind ?num (ask-int "Quin es el preu maxim que estaries dispossat a pagar? "))
+	(send ?x put-preu_maxim ?num)
+)
+
+(defrule minPreu
+	?x <- (object (is-a Solicitant) (preu_minim ?e&:(eq ?e nil)))
+	=>
+	(bind ?num (ask-int "Quin es el preu minim que estaries dispossat a pagar? "))
+	(send ?x put-preu_minim ?num)
+)
+
+(defrule preuRaonableAbs
+	?c <- (object (is-a Habitatge) (preu_raonable ?r&:(eq ?r nil)))
+	?x <- (object (is-a Solicitant) (preu_minim ?mic&:(neq ?mic nil)) (preu_maxim ?mac&:(neq ?mac nil)) (estricte ?e&:(neq ?e nil)))
+	=>
+	(bind ?preuCasa (send ?c get-preu))
+	(bind ?mi (integer (send ?x get-preu_minim)))
+	(bind ?ma (integer (send ?x get-preu_maxim)))
+
+	(if (>= ?mi ?preuCasa) then
+		(send ?c put-preu_raonable "lluny")
+	else (if (>= ?ma ?preuCasa) then
+		(send ?c put-preu_raonable "dins")
+	else (if (and (not (send ?x get-estricte)) (>= (* ?ma 1.15) ?preuCasa)) then
+		(send ?c put-preu_raonable "prop")
+	else (send ?c put-preu_raonable "lluny"))))
+)
+
+(defrule facilTransportFeinaAbs
+	?c <- (object (is-a Habitatge) (facil_transport_feina ?r&:(eq ?r nil)))
+	?x <- (object (is-a Solicitant) (cotxe ?car&:(neq ?car nil)) (edat ?edad&:(neq ?edad nil)) (treballa_a ?treball&:(neq ?treball [nil])))
+	?t <- (object (is-a Transport_Public) (ubicacio_x ?tx) (ubicacio_y ?ty))
+	(forall (object (is-a Transport_Public) (ubicacio_x ?tx2) (ubicacio_y ?ty2))
+		(test(<=
+		(calcDistance (send ?c get-ubicacio_x) ?tx (send ?c get-ubicacio_y) ?ty)
+		(calcDistance (send ?c get-ubicacio_x) ?tx2 (send ?c get-ubicacio_y) ?ty2)
+		))
+	)
+	=>
+	(bind ?edad (integer (send ?x get-edat)))
+	(bind ?dist (calcDistance (send ?c get-ubicacio_x) (send ?treball get-ubicacio_x) (send ?c get-ubicacio_y) (send ?treball get-ubicacio_y)))
+	(bind ?distTransport (calcDistance (send ?c get-ubicacio_x) ?tx (send ?c get-ubicacio_y) ?ty))
+	(if (eq ?car TRUE)
+	then
+		(send ?c put-facil_transport_feina TRUE)
+	else
+		(if (> 500 ?dist)
+		then
+			(send ?c put-facil_transport_feina TRUE)
+		else
+			(if (and (> 70 ?edad) (> 500 ?distTransport))
+			then
+				(send ?c put-facil_transport_feina TRUE)
+			else
+				(send ?c put-facil_transport_feina FALSE)
+		)
+	)
+	)
+)
+
+(defrule serveiCobertAbs
+	?soli <- (object (is-a Solicitant) (preferencia_propera_de $?pref1) (preferencia_mitjana_de $?pref2) (preferencia_llunyana_de $?pref3))
+	?info <- (object (is-a infoServeis) (num_serveis_tipus ?numTipus))
+	(test (= ?numTipus (+ (length$ ?pref1) (length$ ?pref2) (length$ ?pref3))))
+	?serveiTipus <- (object (is-a Servei))
+	(test (or (member$ ?serveiTipus ?pref1) (member$ ?serveiTipus ?pref2) (member$ ?serveiTipus ?pref3)))
+	?servei <- (object (is-a Servei) (ubicacio_x ?x1) (ubicacio_y ?y1))
+	(test (eq (class ?serveiTipus) (class ?servei)))
+	?c <- (object (is-a Habitatge) (ubicacio_x ?cx) (ubicacio_y ?cy))
+	(forall
+		(object (is-a ?classType) (ubicacio_x ?x2) (ubicacio_y ?y2))
+		(test (or (neq ?classType (class ?serveiTipus)) (<= (calcDistance ?x1 ?cx ?y1 ?cy) (calcDistance ?cx ?x2 ?cy ?y2))))
+	)
+	=>
+		(bind ?distance (calcDistance ?x1 ?cx ?y1 ?cy))
+		(if (member$ ?serveiTipus ?pref1) then
+			(if (<= ?distance 500) then
+				(slot-insert$ ?c servei_cobert (+ 1 (length$ (send ?c get-servei_cobert))) ?servei)
+			else
+				(slot-insert$ ?c servei_no_cobert (+ 1 (length$ (send ?c get-servei_no_cobert))) ?servei)
+			)
+		else
+			(if (member$ ?serveiTipus ?pref2) then
+				(if (<= ?distance 1000) then
+					(slot-insert$ ?c servei_cobert (+ 1 (length$ (send ?c get-servei_cobert))) ?servei)
+				else
+					(slot-insert$ ?c servei_no_cobert (+ 1 (length$ (send ?c get-servei_no_cobert))) ?servei)
+				)
+			else
+				(if (> ?distance 1000) then
+					(slot-insert$ ?c servei_cobert (+ 1 (length$ (send ?c get-servei_cobert))) ?servei)
+				else
+					(slot-insert$ ?c servei_no_cobert (+ 1 (length$ (send ?c get-servei_no_cobert))) ?servei)
+				)
+			)
+		)
+)
+
+(defrule serveiMascotesAbs
+	?c <- (object (is-a Habitatge) (mascotes_cobert ?r&:(eq ?r nil)) (mascotes ?admetmasc&:(neq ?admetmasc nil)))
+	?x <- (object (is-a Solicitant) (mascotes ?masc&:(neq ?masc nil)))
+	=>
+	(bind ?resultat (or (not ?masc) ?admetmasc))
+	(send ?c put-mascotes_cobert ?resultat)
+)
+
+(defrule solveHouse
+	?info <- (object (is-a infoServeis) (num_serveis_tipus ?num_serveis_tipus))
+	?c <- (object (is-a Habitatge)
+		(aceptable_abstracto ?aceptable_abstracto&:(eq ?aceptable_abstracto nil))
+		(preu_raonable ?preu_raonable&:(neq ?preu_raonable nil))
+		(facil_transport_feina ?facil_transport_feina&:(neq ?facil_transport_feina nil))
+		(mascotes_cobert ?mascotes_cobert&:(neq ?mascotes_cobert nil))
+		(servei_cobert $?servei_cobert)
+		(servei_no_cobert $?servei_no_cobert)
+	)
+	(test (= ?num_serveis_tipus (+ (length$ ?servei_cobert) (length$ ?servei_no_cobert))))
+	=>
+	(send ?c put-aceptable_abstracto (and
+		(neq ?preu_raonable "lluny")
+		?facil_transport_feina
+		?mascotes_cobert
+		(= ?num_serveis_tipus (length$ ?servei_cobert))
+	))
+)
+
+(deffunction appendText(?c ?u ?t)
+	(slot-insert$ ?c description_result (+ 1 (length$ (send ?c get-description_result))) ?t)
+	(send ?c put-aceptable ?u)
+)
+(defrule refineNotAccepted
+	?c <- (object (is-a Habitatge)
+		(aceptable_abstracto FALSE)
+		(aceptable ?aceptable&:(eq ?aceptable nil))
+
+		(preu_raonable ?preu_raonable&:(neq ?preu_raonable nil))
+		(facil_transport_feina ?facil_transport_feina&:(neq ?facil_transport_feina nil))
+		(mascotes_cobert ?mascotes_cobert&:(neq ?mascotes_cobert nil))
+		(servei_cobert $?servei_cobert)
+		(servei_no_cobert $?servei_no_cobert)
+	)
+	?x <- (object (is-a Solicitant) (treballa_a ?treball&:(neq ?treball [nil])))
+	?t <- (object (is-a Transport_Public) (ubicacio_x ?tx) (ubicacio_y ?ty))
+	(forall (object (is-a Transport_Public) (ubicacio_x ?tx2) (ubicacio_y ?ty2))
+		(test(<=
+		(calcDistance (send ?c get-ubicacio_x) ?tx (send ?c get-ubicacio_y) ?ty)
+		(calcDistance (send ?c get-ubicacio_x) ?tx2 (send ?c get-ubicacio_y) ?ty2)
+		))
+	)
+	=>
+	(bind ?u "Parcialmente")
+	(send ?c put-aceptable ?u)
+	(if (eq ?preu_raonable "lluny") then (appendText ?c ?u (str-cat "La casa costa " (send ?c get-preu) "€")))
+	(if (not ?mascotes_cobert) then (appendText ?c ?u "La casa no admet mascotes"))
+
+	(if (not ?facil_transport_feina) then
+		(bind ?dist (calcDistance (send ?c get-ubicacio_x) (send ?treball get-ubicacio_x) (send ?c get-ubicacio_y) (send ?treball get-ubicacio_y)))
+		(bind ?distTransport (calcDistance (send ?c get-ubicacio_x) ?tx (send ?c get-ubicacio_y) ?ty))
+		(bind ?text (str-cat "La casa està a més de " ?dist "m de la feina"))
+		(if (and (> 70 (send ?x get-edat)) (<= 500 ?distTransport)) then
+			(bind ?text (str-cat ?text " i la casa està a " ?distTransport "m de distància del transport públic més proper"))
+		)
+		(appendText ?c ?u ?text)
+	)
+
+	(loop-for-count (?i 1 (length$ ?servei_no_cobert))
+	do
+		(bind ?iServei (nth$ ?i ?servei_no_cobert))
+		(bind ?dist (calcDistance (send ?c get-ubicacio_x) (send ?iServei get-ubicacio_x) (send ?c get-ubicacio_y) (send ?iServei get-ubicacio_y)))
+		(appendText ?c ?u (str-cat "El servei [" (class ?iServei) "] es troba a " ?dist))
+	)
+)
+
+(defrule refineAccepted
+	?c <- (object (is-a Habitatge)
+		(aceptable_abstracto TRUE)
+		(aceptable ?aceptable&:(eq ?aceptable nil))
+
+		(preu_raonable ?preu_raonable&:(neq ?preu_raonable nil))
+		(facil_transport_feina ?facil_transport_feina&:(neq ?facil_transport_feina nil))
+		(mascotes_cobert ?mascotes_cobert&:(neq ?mascotes_cobert nil))
+		(servei_cobert $?servei_cobert)
+		(servei_no_cobert $?servei_no_cobert)
+	)
+	?x <- (object (is-a Solicitant) (treballa_a ?treball&:(neq ?treball [nil])))
+	=>
+	(bind ?u "Recomendable")
+	(send ?c put-aceptable "Adecuado")
+	(if (eq ?preu_raonable "dins") then (appendText ?c ?u (str-cat "La casa costa " (send ?c get-preu) "€")))
+
+	(if (not ?facil_transport_feina) then
+		(bind ?dist (calcDistance (send ?c get-ubicacio_x) (send ?treball get-ubicacio_x) (send ?c get-ubicacio_y) (send ?treball get-ubicacio_y)))
+		(if (> 500 ?dist) then
+			(appendText ?c ?u (str-cat "La casa està a menys de " ?dist "m de la feina"))
+		)
+	)
+
+	(loop-for-count (?i 1 (length$ ?servei_cobert))
+	do
+		(bind ?iServei (nth$ ?i ?servei_cobert))
+		(bind ?dist (calcDistance (send ?c get-ubicacio_x) (send ?iServei get-ubicacio_x) (send ?c get-ubicacio_y) (send ?iServei get-ubicacio_y)))
+		(if (> 500 ?dist) then
+		(loop-for-count (?i 1 (length$ (send ?x get-preferencia_mitjana_de)))
+		do
+			(if (eq (class ?iServei) (class (nth$ ?i (send ?x get-preferencia_mitjana_de)))) then
+				(appendText ?c ?u (str-cat "El servei [" (class ?iServei) "] es troba a " ?dist "m"))
+				(break)
+			)
+		)
+		)
+	)
+)
+(defrule printHouseStep1 "Asserts each item that needs to be printed."
+	?c <- (object (is-a Habitatge)
+		(aceptable ?a&:(neq ?a nil))
+		(printed ?p&:(eq ?p nil))
+		(description_result $?description)
+	)
+	=>
+	(assert (unprinted ?c))
+	(send ?c put-printed FALSE)
+)
+
+(defrule printHouseStep2 "Raise flag for sorted printing"
+	(forall (object (is-a Habitatge) (printed ?p))
+		(test (neq ?p nil)))
+	=>
+	(assert (startPrint TRUE))
+)
+
+(defrule printHouseStep3 "Sorted printing"
+	(startPrint TRUE)
+	?delete <- (unprinted ?c)
+	(forall (object (is-a Habitatge) (printed FALSE) (aceptable ?a2) (description_result $?d2))
+		(test (or
+			(and (eq "Recomendable" (send ?c get-aceptable))
+				(
+					or (neq "Recomendable" ?a2) (>= (length$ (send ?c get-description_result)) (length$ ?d2))
+				))
+			(and (eq "Adecuado" (send ?c get-aceptable)) (neq "Recomendable" ?a2))
+			(and (eq "Parcialmente" (send ?c get-aceptable)) (eq "Parcialmente" ?a2) (>= (length$ (send ?c get-description_result)) (length$ ?d2)))
+		))
+	)
+	=>
+	(bind ?a (send ?c get-aceptable))
+	(if (eq ?a "Recomendable") then
+	(printout t "Casa " (instance-name ?c) " recomanable en " (send ?c get-ubicacio_x) " " (send ?c get-ubicacio_y) ". Motius: " crlf)
+	(prettyPrint (send ?c get-description_result))
+	else (if (eq ?a "Adecuado") then
+	(printout t "Casa " (instance-name ?c) " aceptable en " (send ?c get-ubicacio_x) " " (send ?c get-ubicacio_y) "." crlf)
+	else
+	(printout t "Casa " (instance-name ?c) " parcialment aceptable en " (send ?c get-ubicacio_x) " " (send ?c get-ubicacio_y) ". Motius: " crlf)
+	(prettyPrint (send ?c get-description_result))
+	)
+	)
+	(send ?c put-printed TRUE)
+	(retract ?delete)
+)

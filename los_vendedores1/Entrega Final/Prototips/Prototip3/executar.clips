@@ -1,0 +1,6 @@
+(load ontologia.clips)
+(load data.clips)
+(load habitatges.clips)
+(load rules.clips)
+(reset)
+(run)

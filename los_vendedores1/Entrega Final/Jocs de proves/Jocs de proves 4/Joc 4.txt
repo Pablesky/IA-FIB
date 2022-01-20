@@ -1,0 +1,696 @@
+         CLIPS (6.31 6/12/19)
+CLIPS> (load ontologia.clips)
+Defining defclass: Solicitant
+Defining defclass: En_Grup
+Defining defclass: Familiar
+Defining defclass: Individual
+Defining defclass: Servei
+Defining defclass: Biblioteques
+Defining defclass: Escoles
+Defining defclass: Gimnas
+Defining defclass: Hospital_o_CAP
+Defining defclass: Llocs_emblematics
+Defining defclass: Platja
+Defining defclass: Poligons_Industrials
+Defining defclass: Supermercat_i_Hipermercats
+Defining defclass: Transport_Public
+Defining defclass: Zona_Cultural
+Defining defclass: Zona_Oci_Nocturn
+Defining defclass: Zona_Verda
+Defining defclass: Zona_comercial
+Defining defclass: Habitatge
+Defining defclass: Multi_Pis
+Defining defclass: Duplex
+Defining defclass: Pis
+Defining defclass: Unifamiliar
+Defining defclass: Lloc_de_treball
+Defining definstances: instances
+TRUE
+CLIPS> (load data.clips)
+Defining definstances: services_Biblioteques
+Defining definstances: services_Llocs_emblematics
+Defining definstances: services_Zona_Verda
+Defining definstances: services_Zona_comercial
+Defining definstances: services_Supermercat_i_Hipermercats
+Defining definstances: services_Hospital_o_CAP
+Defining definstances: services_Gimnas
+Defining definstances: services_Escoles
+Defining definstances: services_Transport_Public
+Defining definstances: services_Zona_Cultural
+Defining definstances: services_Zona_Oci_Nocturn
+Defining definstances: services_Platja
+Defining definstances: services_Poligons_Industrials
+TRUE
+CLIPS> (load habitatges.clips)
+Defining definstances: Habitatges
+TRUE
+CLIPS> (load rules.clips)
+Defining deffunction: ask-number
+Defining deffunction: ask-int
+Defining deffunction: ask-question
+Defining deffunction: yes-or-no-p
+Defining defglobal: R
+Defining deffunction: calcDistance
+Defining deffunction: prettyPrint
+
+[CSTRCPSR1] WARNING: Redefining defmodule: MAIN
+Defining defclass: infoServeis
+Defining definstances: num_serveis
+Defining defrule: count_serveis +j+j+j
+Defining defrule: start +j+j
+Defining defmodule: Real
+Defining defrule: initWelcomeMessage +j+j
+Defining defrule: enGrupNum +j+j
+Defining defrule: FamiliarParella +j+j
+Defining defrule: FamiliarFills +j+j
+Defining defrule: FamiliarFillsFuturs +j+j
+Defining defrule: FamiliarPersonesGransAlCarrec +j+j
+Defining defrule: forServiceAsk =j+j+j
+Defining defrule: workAsk +j+j
+Defining defrule: hasCar +j+j
+Defining defrule: hasPet +j+j
+Defining defrule: howOldIndividual +j+j
+Defining defrule: howOldEn_Grup +j+j
+Defining defrule: howOldFamiliar +j+j
+Defining defrule: minSize +j+j
+Defining defrule: isEstricte +j+j
+Defining defrule: prefereixNou +j+j
+Defining defrule: numDorms =j+j
+Defining defrule: maxPreu +j+j
+Defining defrule: minPreu +j+j
+Defining defrule: hasBalco +j+j
+Defining defrule: hasTerrassa +j+j
+Defining defrule: hasMobles +j+j
+Defining defrule: hasElectrodomestics +j+j
+Defining defrule: hasAire +j+j
+Defining defrule: hasCalefaccio +j+j
+Defining defrule: hasPiscina +j+j
+Defining defrule: hasParquet +j+j
+Defining defmodule: Abs
+Defining defrule: necessitaTransportCotxe +j+j
+Defining defrule: necessitaTransportCert +j+j
+Defining defrule: necessitaTransportNoFeina +j+j
+Defining defrule: mobilitatReduida +j+j
+Defining defrule: serveiProperAbs +j+j+j+j
+Defining defrule: abitacionsNecessariesFamiliar +j+j
+Defining defrule: abitacionsNecessariesEn_Grup +j+j
+Defining defrule: abitacionsNecessariesIndividual +j+j
+Defining defmodule: Sol
+Defining defrule: preuRaonableAbs +j+j+j
+Defining defrule: facilTransportFeinaAbs +j+j+j+j+j
+Defining defrule: serveiCobertAbs +j+j+j+j+j+j
+Defining defrule: serveiMascotesAbs +j+j+j
+Defining defrule: garatgeReal +j+j+j
+Defining defrule: ascensorAbsMulti_Pis +j+j+j
+Defining defrule: ascensorAbsUnifamiliar +j+j
+Defining defrule: areaSatisfetaAbs +j+j+j
+Defining defrule: abitacionsSatisfetaAbs +j+j+j
+Defining defrule: lavabosSatisfetsAbs +j+j+j
+Defining defrule: balcoSatisfet +j+j+j
+Defining defrule: terrassaSatisfet +j+j+j
+Defining defrule: moblesSatisfet +j+j+j
+Defining defrule: electrodomesticsSatisfet +j+j+j
+Defining defrule: aireSatisfet +j+j+j
+Defining defrule: calefaccioSatisfet +j+j+j
+Defining defrule: piscinaSatisfet +j+j+j
+Defining defrule: parquetSatisfet +j+j+j
+Defining defrule: solveHouse +j+j+j
+Defining defmodule: Refine
+Defining deffunction: appendText
+Defining defrule: refineNotAccepted +j+j+j+j+j
+Defining defrule: refineAccepted +j+j+j
+Defining defrule: printHouseStep1 +j+j
+Defining defrule: printHouseStep2 +j+j
+Defining defrule: printHouseStep3 +j+j+j+j
+TRUE
+CLIPS> (reset)
+CLIPS> (run)
+Ets una persona individual (yes) o sou un grup de persones (no) (yes/no)? y
+Biblioteques: Tens preferència? (yes/no) n
+Llocs_emblematics: Tens preferència? (yes/no) y
+T'agrada? (yes/no) n
+Zona_Verda: Tens preferència? (yes/no) y
+T'agrada? (yes/no) y
+Vols els servei a prop? (yes/no) n
+Zona_comercial: Tens preferència? (yes/no) n
+Supermercat_i_Hipermercats: Tens preferència? (yes/no) y
+T'agrada? (yes/no) y
+Vols els servei a prop? (yes/no) n
+Hospital_o_CAP: Tens preferència? (yes/no) n
+Gimnas: Tens preferència? (yes/no) n
+Escoles: Tens preferència? (yes/no) n
+Transport_Public: Tens preferència? (yes/no) n
+Zona_Cultural: Tens preferència? (yes/no) n
+Zona_Oci_Nocturn: Tens preferència? (yes/no) y
+T'agrada? (yes/no) n
+Platja: Tens preferència? (yes/no) n
+Poligons_Industrials: Tens preferència? (yes/no) n
+Treballes? (yes/no) n
+Tens cotxe? (yes/no) n
+Tens mascota? (yes/no) y
+Quina es la teva edat? 89
+Quin és el teu tamany mínim? 50
+Ets estricte amb el teu rang de preus? (yes/no) n
+Preferiries un pis nou (>=2016)? (yes/no) n
+Quin es el preu maxim que estaries dispossat a pagar? 350000
+Quin es el preu minim que estaries dispossat a pagar? 50000
+Vols balco? (yes/no)y
+Vols terrassa? (yes/no)n
+Vols una casa amb mobles? (yes/no)y
+Vols electrodomestics? (yes/no)n
+Vols aire aire condicionat? (yes/no)n
+Vols calefaccio? (yes/no)y
+Vols piscina comunitaria? (yes/no)n
+Vols parquet? (yes/no)n
+Casa [Hab_24] recomanable en 41.413276302849 2.19840150911737. Motius: 
+La casa costa 141000€
+Té bones vistes
+EXTRA: La casa te terrassa
+EXTRA: La casa te electrodomestics
+EXTRA: La casa te aire condicionat
+EXTRA: La casa te pisicina comunitaria
+EXTRA: La casa te parquet
+Casa [Hab_8] parcialment aceptable en 41.4331132419577 2.18648074841774. Motius: 
+La casa no te calefaccio
+Casa [Hab_60] parcialment aceptable en 41.3615157282472 2.18662161161641. Motius: 
+La casa costa 602000€
+Casa [Hab_0] parcialment aceptable en 41.3755290717128 2.16597694661397. Motius: 
+No està solejat en cap moment
+La casa no te calefaccio
+Casa [Hab_1] parcialment aceptable en 41.4222784464025 2.19738247976294. Motius: 
+El pis no té ascensor i es troba al pis 5
+La casa no te balco
+Casa [Hab_12] parcialment aceptable en 41.3472553664712 2.16519851564621. Motius: 
+El servei [Supermercat_i_Hipermercats] es troba a 4006.50072449486 m
+La casa no te balco
+Casa [Hab_15] parcialment aceptable en 41.4112113858886 2.12636113784888. Motius: 
+No està solejat en cap moment
+El servei [Llocs_emblematics] es troba a 611.022935530368 m
+Casa [Hab_42] parcialment aceptable en 41.3618702510907 2.12551071393378. Motius: 
+El pis no té ascensor i es troba al pis 7
+El servei [Supermercat_i_Hipermercats] es troba a 3521.94538621913 m
+Casa [Hab_59] parcialment aceptable en 41.4020340076735 2.13668294090124. Motius: 
+El servei [Llocs_emblematics] es troba a 724.057545638148 m
+La casa no te calefaccio
+Casa [Hab_64] parcialment aceptable en 41.36982254406 2.10731443123366. Motius: 
+No està solejat en cap moment
+El servei [Supermercat_i_Hipermercats] es troba a 3770.53690772404 m
+Casa [Hab_97] parcialment aceptable en 41.4199640685734 2.19905571718974. Motius: 
+La casa no admet mascotes
+La casa no te mobles
+Casa [Hab_95] parcialment aceptable en 41.4165113570198 2.19403261280176. Motius: 
+La casa no te balco
+La casa no te mobles
+Casa [Hab_34] parcialment aceptable en 41.4446269096386 2.16995739146369. Motius: 
+La casa no admet mascotes
+El servei [Zona_Verda] es troba a 3255.62323747992 m
+Casa [Hab_27] parcialment aceptable en 41.4054544716389 2.20685209830253. Motius: 
+La casa no admet mascotes
+La casa no te mobles
+Casa [Hab_11] parcialment aceptable en 41.3936771629645 2.09519874058998. Motius: 
+El servei [Supermercat_i_Hipermercats] es troba a 3991.67387235434 m
+La casa no te balco
+Casa [Hab_19] parcialment aceptable en 41.4713723353534 2.05437541589659. Motius: 
+La casa no admet mascotes
+El servei [Zona_Verda] es troba a 9153.07247240983 m
+La casa no te mobles
+Casa [Hab_22] parcialment aceptable en 41.477791056547 2.15979570387095. Motius: 
+La casa no admet mascotes
+El servei [Zona_Verda] es troba a 7002.0956911396 m
+La casa no te balco
+Casa [Hab_43] parcialment aceptable en 41.3587090788515 2.09684504257928. Motius: 
+La casa costa 453000€
+El servei [Zona_Verda] es troba a 3676.80218206219 m
+El servei [Supermercat_i_Hipermercats] es troba a 5238.514344408 m
+Casa [Hab_49] parcialment aceptable en 41.3919228405383 2.0631155090239. Motius: 
+El servei [Zona_Verda] es troba a 4473.0688044865 m
+El servei [Supermercat_i_Hipermercats] es troba a 6655.98083364532 m
+La casa no te balco
+Casa [Hab_57] parcialment aceptable en 41.4802534288104 2.07892191356873. Motius: 
+La casa costa 638000€
+El duplex no té ascensor i té 10 plantes
+El servei [Zona_Verda] es troba a 9056.4428008055 m
+Casa [Hab_58] parcialment aceptable en 41.4846986815134 2.04646300823524. Motius: 
+El servei [Zona_Verda] es troba a 10756.2539347464 m
+La casa no te balco
+La casa no te calefaccio
+Casa [Hab_89] parcialment aceptable en 41.3665433709686 2.09302794164999. Motius: 
+El servei [Zona_Verda] es troba a 3133.30725962259 m
+El servei [Supermercat_i_Hipermercats] es troba a 4954.10960240344 m
+La casa no te balco
+Casa [Hab_92] parcialment aceptable en 41.4170035735734 2.21168464458475. Motius: 
+La casa costa 38000€
+El servei [Zona_Verda] es troba a 3316.0673095899 m
+La casa no te mobles
+Casa [Hab_83] parcialment aceptable en 41.4225894649713 2.19105959270921. Motius: 
+La casa costa 411000€
+La casa no admet mascotes
+La casa no te calefaccio
+Casa [Hab_81] parcialment aceptable en 41.4447676927938 2.25319039372312. Motius: 
+La casa costa 577000€
+El servei [Zona_Verda] es troba a 7614.19527869688 m
+El servei [Supermercat_i_Hipermercats] es troba a 3352.50107566065 m
+Casa [Hab_68] parcialment aceptable en 41.3256307718901 2.06404961927375. Motius: 
+La casa costa 553000€
+El servei [Zona_Verda] es troba a 8240.44787918217 m
+El servei [Supermercat_i_Hipermercats] es troba a 9782.86304635686 m
+Casa [Hab_40] parcialment aceptable en 41.4130304459405 2.24105184198025. Motius: 
+La casa costa 518000€
+El servei [Zona_Verda] es troba a 5381.80896809949 m
+El servei [Supermercat_i_Hipermercats] es troba a 4482.4160875391 m
+Casa [Hab_31] parcialment aceptable en 41.4622931989565 2.14047365663644. Motius: 
+La casa no admet mascotes
+El servei [Zona_Verda] es troba a 5748.16850431452 m
+La casa no te calefaccio
+Casa [Hab_30] parcialment aceptable en 41.4007424512248 2.05647417247904. Motius: 
+El servei [Zona_Verda] es troba a 4869.52729617827 m
+El servei [Supermercat_i_Hipermercats] es troba a 7293.58839761679 m
+La casa no te balco
+Casa [Hab_9] parcialment aceptable en 41.4523582635164 2.10668393150684. Motius: 
+La casa costa 576000€
+La casa no admet mascotes
+El servei [Zona_Verda] es troba a 5215.94912981496 m
+Casa [Hab_6] parcialment aceptable en 41.473880921472 2.07877825225168. Motius: 
+El servei [Zona_Verda] es troba a 8466.47227521557 m
+La casa no te balco
+La casa no te calefaccio
+Casa [Hab_5] parcialment aceptable en 41.4117739897149 2.19021966292402. Motius: 
+No està solejat en cap moment
+El servei [Llocs_emblematics] es troba a 707.353083053014 m
+La casa no te balco
+Casa [Hab_4] parcialment aceptable en 41.3271354336107 2.16011343544047. Motius: 
+El servei [Zona_Verda] es troba a 4468.68356402206 m
+El servei [Supermercat_i_Hipermercats] es troba a 6268.83817629213 m
+La casa no te mobles
+Casa [Hab_3] parcialment aceptable en 41.3488388066975 2.23239033552564. Motius: 
+El servei [Zona_Verda] es troba a 5482.32025998089 m
+El servei [Supermercat_i_Hipermercats] es troba a 5621.98648728359 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_35] parcialment aceptable en 41.4539929611322 2.07044118389719. Motius: 
+La casa costa 517000€
+La casa no admet mascotes
+El servei [Zona_Verda] es troba a 6802.9930544717 m
+La casa no te mobles
+Casa [Hab_53] parcialment aceptable en 41.3478214941593 2.19535605480548. Motius: 
+La casa no admet mascotes
+El servei [Supermercat_i_Hipermercats] es troba a 3920.07088671337 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_76] parcialment aceptable en 41.3334001043287 2.138147285492. Motius: 
+La casa costa 556000€
+El servei [Zona_Verda] es troba a 4027.47781696925 m
+El servei [Supermercat_i_Hipermercats] es troba a 6387.60796338805 m
+La casa no te calefaccio
+Casa [Hab_96] parcialment aceptable en 41.4040252069334 2.148177919152. Motius: 
+La casa costa 425000€
+El pis no té ascensor i es troba al pis 2
+El servei [Llocs_emblematics] es troba a 928.33374070181 m
+El servei [Zona_Oci_Nocturn] es troba a 431.415220545868 m
+Casa [Hab_90] parcialment aceptable en 41.3645881475321 2.19684864523604. Motius: 
+La casa costa 648000€
+El pis no té ascensor i es troba al pis 9
+La casa no te balco
+La casa no te mobles
+Casa [Hab_87] parcialment aceptable en 41.3450891447358 2.10574861437724. Motius: 
+El servei [Zona_Verda] es troba a 4827.06440421675 m
+El servei [Supermercat_i_Hipermercats] es troba a 5947.05146521955 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_86] parcialment aceptable en 41.4439990783862 2.21608564637424. Motius: 
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 4945.01829115306 m
+La casa no te balco
+La casa no te calefaccio
+Casa [Hab_73] parcialment aceptable en 41.4675202344078 2.1358782022127. Motius: 
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 6314.64277424197 m
+La casa no te balco
+La casa no te calefaccio
+Casa [Hab_72] parcialment aceptable en 41.383205148648 2.20883087795542. Motius: 
+La casa costa 43000€
+El duplex no té ascensor i té 8 plantes
+El servei [Zona_Verda] es troba a 3001.9845286434 m
+La casa no te calefaccio
+Casa [Hab_67] parcialment aceptable en 41.4526474509071 2.20456027795514. Motius: 
+La casa no admet mascotes
+El servei [Zona_Verda] es troba a 5015.69611222775 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_55] parcialment aceptable en 41.4627032069554 2.22961095526636. Motius: 
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 7198.8211795434 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_50] parcialment aceptable en 41.4511708395949 2.21686111758887. Motius: 
+La casa costa 684000€
+El servei [Zona_Verda] es troba a 5537.23320588998 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_39] parcialment aceptable en 41.4780515594263 2.16808247642655. Motius: 
+El pis no té ascensor i es troba al pis 8
+El servei [Zona_Verda] es troba a 6975.11413487689 m
+El servei [Supermercat_i_Hipermercats] es troba a 3395.43759534791 m
+La casa no te balco
+Casa [Hab_38] parcialment aceptable en 41.3549402163771 2.16181578438807. Motius: 
+La casa no admet mascotes
+No està solejat en cap moment
+El servei [Supermercat_i_Hipermercats] es troba a 3334.58114574464 m
+La casa no te balco
+Casa [Hab_37] parcialment aceptable en 41.3592138131556 2.118560607837. Motius: 
+El duplex no té ascensor i té 3 plantes
+El servei [Zona_Verda] es troba a 3132.19694821588 m
+El servei [Supermercat_i_Hipermercats] es troba a 4050.39402820181 m
+La casa no te calefaccio
+Casa [Hab_33] parcialment aceptable en 41.4203667718669 2.16888456496148. Motius: 
+La casa costa 418000€
+El duplex no té ascensor i té 10 plantes
+La casa no te balco
+La casa no te mobles
+Casa [Hab_29] parcialment aceptable en 41.4133887809039 2.14055516748034. Motius: 
+El pis no té ascensor i es troba al pis 7
+La casa no te balco
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_17] parcialment aceptable en 41.3527248512623 2.13893283410764. Motius: 
+La casa costa 418000€
+No està solejat en cap moment
+El servei [Supermercat_i_Hipermercats] es troba a 4239.39674299205 m
+La casa no te mobles
+Casa [Hab_13] parcialment aceptable en 41.3459337592914 2.14177216263609. Motius: 
+La casa no admet mascotes
+El servei [Supermercat_i_Hipermercats] es troba a 4982.53112828155 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_2] parcialment aceptable en 41.4063243990713 2.25815553111584. Motius: 
+La casa costa 713000€
+La casa no admet mascotes
+El servei [Zona_Verda] es troba a 6651.18006421075 m
+El servei [Supermercat_i_Hipermercats] es troba a 5918.95462459686 m
+Casa [Hab_14] parcialment aceptable en 41.4830108518356 2.20716245877761. Motius: 
+La casa costa 670000€
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 8113.25249586373 m
+El servei [Supermercat_i_Hipermercats] es troba a 3982.01989500892 m
+La casa no te calefaccio
+Casa [Hab_23] parcialment aceptable en 41.359129241187 2.0597295906434. Motius: 
+La casa costa 456000€
+El servei [Zona_Verda] es troba a 5782.25271268111 m
+El servei [Supermercat_i_Hipermercats] es troba a 7778.10155577929 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_32] parcialment aceptable en 41.4486411773779 2.11574114195442. Motius: 
+La casa no admet mascotes
+El servei [Zona_Verda] es troba a 4526.56438757985 m
+El servei [Supermercat_i_Hipermercats] es troba a 3189.57806118697 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_36] parcialment aceptable en 41.3777220230793 2.05049372428104. Motius: 
+La casa costa 696000€
+El servei [Zona_Verda] es troba a 5694.51427204885 m
+El servei [Supermercat_i_Hipermercats] es troba a 7843.04777984723 m
+La casa no te balco
+La casa no te calefaccio
+Casa [Hab_61] parcialment aceptable en 41.4237578035363 2.25620019327155. Motius: 
+La casa costa 510000€
+El servei [Zona_Verda] es troba a 6963.45945814085 m
+El servei [Supermercat_i_Hipermercats] es troba a 4455.17833852084 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_62] parcialment aceptable en 41.375832514837 2.04916204122454. Motius: 
+La casa costa 695000€
+La casa no admet mascotes
+El servei [Zona_Verda] es troba a 5848.51388482177 m
+El servei [Supermercat_i_Hipermercats] es troba a 7993.27895434509 m
+La casa no te calefaccio
+Casa [Hab_71] parcialment aceptable en 41.4231228753332 2.10066289526606. Motius: 
+La casa no admet mascotes
+No està solejat en cap moment
+El servei [Supermercat_i_Hipermercats] es troba a 4001.81240929943 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_79] parcialment aceptable en 41.4715644835755 2.0906611689205. Motius: 
+La casa costa 436000€
+El servei [Zona_Verda] es troba a 7729.25040159524 m
+El servei [Zona_Oci_Nocturn] es troba a 710.881922759345 m
+La casa no te balco
+La casa no te calefaccio
+Casa [Hab_93] parcialment aceptable en 41.3643499511944 2.23128131427634. Motius: 
+La casa costa 681000€
+El servei [Zona_Verda] es troba a 4777.42000100937 m
+El servei [Supermercat_i_Hipermercats] es troba a 4617.77371582861 m
+La casa no te balco
+La casa no te calefaccio
+Casa [Hab_99] parcialment aceptable en 41.3280968022213 2.26133179104055. Motius: 
+La casa no admet mascotes
+El servei [Zona_Verda] es troba a 8675.70543807811 m
+El servei [Supermercat_i_Hipermercats] es troba a 8958.07239243518 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_91] parcialment aceptable en 41.4775866858802 2.0891038473046. Motius: 
+La casa costa 47000€
+La casa no admet mascotes
+El servei [Zona_Verda] es troba a 8380.65362396159 m
+El servei [Zona_Oci_Nocturn] es troba a 707.288067454614 m
+La casa no te mobles
+Casa [Hab_84] parcialment aceptable en 41.4228370861312 2.24421200853075. Motius: 
+La casa costa 587000€
+El servei [Zona_Verda] es troba a 6005.22019804236 m
+El servei [Supermercat_i_Hipermercats] es troba a 3771.18913020286 m
+La casa no te balco
+La casa no te calefaccio
+Casa [Hab_82] parcialment aceptable en 41.3431654883517 2.1010256767008. Motius: 
+La casa no admet mascotes
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 5135.32955108647 m
+El servei [Supermercat_i_Hipermercats] es troba a 6339.02899309377 m
+La casa no te mobles
+Casa [Hab_77] parcialment aceptable en 41.4339238707836 2.2612876155599. Motius: 
+La casa no admet mascotes
+El servei [Zona_Verda] es troba a 7828.86625818496 m
+El servei [Supermercat_i_Hipermercats] es troba a 4287.83457583703 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_74] parcialment aceptable en 41.3956295201936 2.08157351517294. Motius: 
+La casa no admet mascotes
+El pis no té ascensor i es troba al pis 5
+El servei [Supermercat_i_Hipermercats] es troba a 5143.63883724956 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_70] parcialment aceptable en 41.4275075365378 2.10544468395522. Motius: 
+No està solejat en cap moment
+El servei [Supermercat_i_Hipermercats] es troba a 3654.45019418078 m
+La casa no te balco
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_65] parcialment aceptable en 41.4066321920953 2.22500462678427. Motius: 
+La casa no admet mascotes
+El servei [Zona_Verda] es troba a 3917.05478707117 m
+El servei [Supermercat_i_Hipermercats] es troba a 3870.21870287389 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_56] parcialment aceptable en 41.3654898571623 2.22501738552498. Motius: 
+La casa no admet mascotes
+El servei [Zona_Verda] es troba a 4239.72383765966 m
+El servei [Supermercat_i_Hipermercats] es troba a 4090.11493809986 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_52] parcialment aceptable en 41.4244708069811 2.25197319294562. Motius: 
+La casa no admet mascotes
+El duplex no té ascensor i té 9 plantes
+El servei [Zona_Verda] es troba a 6669.79325274437 m
+El servei [Supermercat_i_Hipermercats] es troba a 4126.78959681379 m
+La casa no te mobles
+Casa [Hab_45] parcialment aceptable en 41.3627311078382 2.26852381883823. Motius: 
+La casa no admet mascotes
+El duplex no té ascensor i té 8 plantes
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 7868.17225238006 m
+El servei [Supermercat_i_Hipermercats] es troba a 7608.23470599059 m
+Casa [Hab_44] parcialment aceptable en 41.394397871026 2.23230724853764. Motius: 
+La casa costa 462000€
+El duplex no té ascensor i té 8 plantes
+El servei [Zona_Verda] es troba a 4507.43454797653 m
+El servei [Supermercat_i_Hipermercats] es troba a 4537.22415217912 m
+La casa no te balco
+Casa [Hab_25] parcialment aceptable en 41.4878806505219 2.09425132922164. Motius: 
+La casa costa 600000€
+La casa no admet mascotes
+El servei [Zona_Verda] es troba a 9242.60035517906 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_21] parcialment aceptable en 41.3997113486052 2.07315479938327. Motius: 
+La casa costa 622000€
+El duplex no té ascensor i té 3 plantes
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 3488.96093186443 m
+El servei [Supermercat_i_Hipermercats] es troba a 5901.86293751552 m
+Casa [Hab_20] parcialment aceptable en 41.4022589655292 2.0618859875243. Motius: 
+La casa costa 41000€
+El servei [Zona_Verda] es troba a 4413.71311737105 m
+El servei [Supermercat_i_Hipermercats] es troba a 6877.13692515856 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_54] parcialment aceptable en 41.3334608028829 2.04679291602389. Motius: 
+La casa no admet mascotes
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 8454.11877355886 m
+El servei [Supermercat_i_Hipermercats] es troba a 10240.9805180673 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_63] parcialment aceptable en 41.3358622983032 2.09168330991494. Motius: 
+La casa no admet mascotes
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 6159.28817655776 m
+El servei [Supermercat_i_Hipermercats] es troba a 7449.21948236351 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_66] parcialment aceptable en 41.3458296377324 2.04765827447196. Motius: 
+La casa costa 39000€
+El servei [Zona_Verda] es troba a 7471.79450169695 m
+El servei [Supermercat_i_Hipermercats] es troba a 9385.41378969184 m
+La casa no te balco
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_85] parcialment aceptable en 41.3316507551996 2.11835829943888. Motius: 
+La casa no admet mascotes
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 5025.07836444282 m
+El servei [Supermercat_i_Hipermercats] es troba a 6881.45256359937 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_94] parcialment aceptable en 41.4862574126906 2.23883558354063. Motius: 
+La casa costa 503000€
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 9715.54481342943 m
+El servei [Supermercat_i_Hipermercats] es troba a 4814.46714535979 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_88] parcialment aceptable en 41.4122026823163 2.25258679551835. Motius: 
+La casa no admet mascotes
+El duplex no té ascensor i té 4 plantes
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 6294.49609377718 m
+El servei [Supermercat_i_Hipermercats] es troba a 5119.33945675396 m
+La casa no te mobles
+Casa [Hab_75] parcialment aceptable en 41.3988804760158 2.13719166424882. Motius: 
+La casa costa 667000€
+La casa no admet mascotes
+El servei [Zona_Oci_Nocturn] es troba a 996.972256482268 m
+La casa no te balco
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_69] parcialment aceptable en 41.3275997126718 2.09466266716053. Motius: 
+El pis no té ascensor i es troba al pis 9
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 6724.07272511328 m
+El servei [Supermercat_i_Hipermercats] es troba a 8092.3085201404 m
+La casa no te balco
+La casa no te calefaccio
+Casa [Hab_48] parcialment aceptable en 41.4297136994801 2.23467668389513. Motius: 
+La casa costa 466000€
+La casa no admet mascotes
+El duplex no té ascensor i té 10 plantes
+El servei [Zona_Verda] es troba a 5566.98779731834 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_46] parcialment aceptable en 41.4802413470956 2.24581034548021. Motius: 
+La casa costa 695000€
+El servei [Zona_Verda] es troba a 9551.60324410106 m
+El servei [Supermercat_i_Hipermercats] es troba a 4548.13729235115 m
+La casa no te balco
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_28] parcialment aceptable en 41.4721850748863 2.16745364782244. Motius: 
+El pis no té ascensor i es troba al pis 6
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 6325.18328605222 m
+El servei [Supermercat_i_Hipermercats] es troba a 3611.58193468159 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_26] parcialment aceptable en 41.409897024521 2.0500164832736. Motius: 
+La casa no admet mascotes
+El pis no té ascensor i es troba al pis 6
+El servei [Zona_Verda] es troba a 5463.03822386114 m
+El servei [Supermercat_i_Hipermercats] es troba a 6943.33481346071 m
+La casa no te balco
+La casa no te calefaccio
+Casa [Hab_18] parcialment aceptable en 41.3287925277716 2.07471259415257. Motius: 
+La casa no admet mascotes
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 7481.84895824615 m
+El servei [Supermercat_i_Hipermercats] es troba a 8933.9943374022 m
+La casa no te balco
+La casa no te calefaccio
+Casa [Hab_16] parcialment aceptable en 41.487508289386 2.25936620827649. Motius: 
+La casa no admet mascotes
+El pis no té ascensor i es troba al pis 2
+El servei [Zona_Verda] es troba a 10906.8855569248 m
+El servei [Supermercat_i_Hipermercats] es troba a 5886.56740224335 m
+La casa no te balco
+La casa no te calefaccio
+Casa [Hab_10] parcialment aceptable en 41.3614627148959 2.20738145601262. Motius: 
+La casa no admet mascotes
+El duplex no té ascensor i té 8 plantes
+El servei [Supermercat_i_Hipermercats] es troba a 3132.05929380426 m
+La casa no te balco
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_41] parcialment aceptable en 41.4064874319581 2.06634065985981. Motius: 
+La casa no admet mascotes
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 4064.36947057728 m
+El servei [Supermercat_i_Hipermercats] es troba a 6620.81785312199 m
+La casa no te balco
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_78] parcialment aceptable en 41.3509263138947 2.06185560289035. Motius: 
+La casa costa 440000€
+La casa no admet mascotes
+El pis no té ascensor i es troba al pis 9
+El servei [Zona_Verda] es troba a 6201.01094929841 m
+El servei [Supermercat_i_Hipermercats] es troba a 8081.91358453936 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_80] parcialment aceptable en 41.4452347781253 2.18668788480834. Motius: 
+La casa costa 618000€
+La casa no admet mascotes
+El pis no té ascensor i es troba al pis 5
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 3579.5169887205 m
+La casa no te balco
+La casa no te calefaccio
+Casa [Hab_98] parcialment aceptable en 41.328129488144 2.17305317936157. Motius: 
+La casa costa 634000€
+La casa no admet mascotes
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 4358.38335892102 m
+El servei [Supermercat_i_Hipermercats] es troba a 5951.32528006374 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_51] parcialment aceptable en 41.4714152088142 2.25446149484915. Motius: 
+La casa costa 41000€
+La casa no admet mascotes
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 9358.77527549011 m
+El servei [Supermercat_i_Hipermercats] es troba a 4352.64454719855 m
+La casa no te balco
+La casa no te calefaccio
+Casa [Hab_47] parcialment aceptable en 41.3972549890712 2.16668854504527. Motius: 
+La casa costa 622000€
+La casa no admet mascotes
+No està solejat en cap moment
+El servei [Llocs_emblematics] es troba a 760.405043745844 m
+El servei [Zona_Oci_Nocturn] es troba a 834.5281607296 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_7] parcialment aceptable en 41.4858387767749 2.22119521873118. Motius: 
+La casa costa 731000€
+La casa no admet mascotes
+El pis no té ascensor i es troba al pis 1
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 8895.37846236512 m
+El servei [Supermercat_i_Hipermercats] es troba a 4317.89002745529 m
+La casa no te balco
+La casa no te mobles
+CLIPS> (exit)

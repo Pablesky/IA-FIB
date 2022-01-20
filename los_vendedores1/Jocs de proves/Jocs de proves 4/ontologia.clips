@@ -1,0 +1,398 @@
+;;; ---------------------------------------------------------
+;;; ontologia.clips
+;;; Translated by owl2clips
+;;; Translated to CLIPS from ontology Ontologia.owl
+;;; :Date 16/12/2021 18:53:22
+
+(defclass Solicitant
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+    (multislot preferencia_cap
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot preferencia_llunyana_de
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot preferencia_mitjana_de
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot preferencia_propera_de
+        (type INSTANCE)
+        (create-accessor read-write))
+    (single-slot treballa_a
+        (type INSTANCE)
+        (create-accessor read-write))
+    (single-slot aire_condicionat
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot amb_mobles
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot area
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot balco
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot calefaccio
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot cotxe
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot edat
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot electrodomestics
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot estricte
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot mascotes
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot mobilitat_reduida
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot necessita_transport
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot num_persones
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot numero_dormitoris
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot parquet
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot pis_nou
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot piscina_comunitaria
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot poden_compartir_dormitori
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot preu_maxim
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot preu_minim
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot terrassa
+        (type SYMBOL)
+        (create-accessor read-write))
+)
+
+(defclass En_Grup
+    (is-a Solicitant)
+    (role concrete)
+    (pattern-match reactive)
+    (single-slot numero_de_persones
+        (type SYMBOL)
+        (create-accessor read-write))
+)
+
+(defclass Familiar
+    (is-a Solicitant)
+    (role concrete)
+    (pattern-match reactive)
+    (single-slot fills
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot fills_futurs
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot parella
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot persones_grans_al_carrec
+        (type SYMBOL)
+        (create-accessor read-write))
+)
+
+(defclass Individual
+    (is-a Solicitant)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Servei
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+    (single-slot ubicacio_x
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot ubicacio_y
+        (type SYMBOL)
+        (create-accessor read-write))
+)
+
+(defclass Biblioteques
+    (is-a Servei)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Escoles
+    (is-a Servei)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Gimnas
+    (is-a Servei)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Hospital_o_CAP
+    (is-a Servei)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Llocs_emblematics
+    (is-a Servei)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Platja
+    (is-a Servei)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Poligons_Industrials
+    (is-a Servei)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Supermercat_i_Hipermercats
+    (is-a Servei)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Transport_Public
+    (is-a Servei)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Zona_Cultural
+    (is-a Servei)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Zona_Oci_Nocturn
+    (is-a Servei)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Zona_Verda
+    (is-a Servei)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Zona_comercial
+    (is-a Servei)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Habitatge
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+    (multislot servei_cobert
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot servei_mes_proper
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot servei_no_cobert
+        (type INSTANCE)
+        (create-accessor read-write))
+    (single-slot aceptable
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot aceptable_abstracto
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot aire_condicionat
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot aire_condicionat_satisfet
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot amb_mobles
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot amb_mobles_satisfet
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot any_construccio
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot area
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot area_satisfeta
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot balco
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot balco_satisfet
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot bones_vistes
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot calefaccio
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot calefaccio_satisfet
+        (type SYMBOL)
+        (create-accessor read-write))
+    (multislot description_result
+        (type STRING)
+        (create-accessor read-write))
+    (single-slot dormitoris_satisfets
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot electrodomestics
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot electrodomestics_satisfet
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot facil_transport_feina
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot garatge_util
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot jardi
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot lavabos_satisfets
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot mascotes
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot mascotes_cobert
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot necessitat_assencor_satisfeta
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot numero_dormitoris_dobles
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot numero_dormitoris_simples
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot numero_lavabos
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot parquet
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot parquet_satisfet
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot piscina_comunitaria
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot piscina_comunitaria_satisfet
+        (type SYMBOL)
+        (create-accessor read-write))
+    (multislot placa_garatge
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot preu
+        (type INTEGER)
+        (create-accessor read-write))
+    (single-slot preu_raonable
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot printed
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot solejat
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot terrassa
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot terrassa_satisfet
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot ubicacio_x
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot ubicacio_y
+        (type SYMBOL)
+        (create-accessor read-write))
+)
+
+(defclass Multi_Pis
+    (is-a Habitatge)
+    (role concrete)
+    (pattern-match reactive)
+    (single-slot ascensor
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot atic
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot planta
+        (type SYMBOL)
+        (create-accessor read-write))
+)
+
+(defclass Duplex
+    (is-a Multi_Pis)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Pis
+    (is-a Multi_Pis)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Unifamiliar
+    (is-a Habitatge)
+    (role concrete)
+    (pattern-match reactive)
+)
+
+(defclass Lloc_de_treball
+    (is-a USER)
+    (role concrete)
+    (pattern-match reactive)
+    (single-slot ubicacio_x
+        (type SYMBOL)
+        (create-accessor read-write))
+    (single-slot ubicacio_y
+        (type SYMBOL)
+        (create-accessor read-write))
+)
+
+(definstances instances
+)

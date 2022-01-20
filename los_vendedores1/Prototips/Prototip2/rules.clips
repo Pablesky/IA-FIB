@@ -1,0 +1,874 @@
+(deffunction ask-number (?question)
+	(printout t ?question)
+	(bind ?answer (read))
+	(while (lexemep ?answer) do
+		(printout t ?question)
+		(bind ?answer (read))
+		)
+	(float ?answer)
+)
+
+(deffunction ask-int (?question)
+	(printout t ?question)
+	(bind ?answer (read))
+	(while (lexemep ?answer) do
+		(printout t ?question)
+		(bind ?answer (read))
+		)
+	(integer ?answer))
+
+
+(deffunction ask-question (?question $?allowed-values)
+   (printout t ?question)
+   (bind ?answer (read))
+   (if (lexemep ?answer)
+       then (bind ?answer (lowcase ?answer)))
+   (while (not (member ?answer ?allowed-values)) do
+      (printout t ?question)
+      (bind ?answer (read))
+      (if (lexemep ?answer)
+          then (bind ?answer (lowcase ?answer))))
+   ?answer)
+
+(deffunction yes-or-no-p (?question)
+   (bind ?response (ask-question ?question yes no y n))
+   (if (or (eq ?response yes) (eq ?response y))
+       then TRUE
+       else FALSE))
+
+(defglobal ?*R* = 6371000)
+(deffunction calcDistance (?lat1 ?lat2 ?lon1 ?lon2)
+	(bind ?pi180 (/ (pi) 180))
+	(bind ?o1 (* ?lat1 ?pi180))
+	(bind ?o2 (* ?lat2 ?pi180))
+	(bind ?dlat (/ (* (- ?lat2 ?lat1) ?pi180) 2))
+	(bind ?dlon (/ (* (- ?lon2 ?lon1) ?pi180) 2))
+
+	(bind ?a (sqrt (+ (* (sin ?dlat) (sin ?dlat)) (* (* (cos ?o1) (cos ?o2)) (* (sin ?dlon) (sin ?dlon))))))
+	(if (< ?a 1) then
+		(bind ?c (* 2 (asin ?a)))
+	else (bind ?c (pi)))
+	(* ?c ?*R*)
+)
+
+(deffunction prettyPrint ($?text)
+	(progn$ (?e ?text)
+		(printout t ?e crlf)
+	)
+)
+
+(defclass infoServeis
+	(is-a USER)
+	(role concrete)
+	(slot num_serveis (type INTEGER))
+	(slot num_serveis_tipus (type INTEGER))
+	(multislot llista_serveis (type INSTANCE))
+)
+
+(definstances num_serveis
+	(serveisInfo of infoServeis (num_serveis 0) (num_serveis_tipus 0))
+)
+
+(defrule count_serveis
+	?s <- (object (is-a Servei))
+	?info <- (object (is-a infoServeis))
+=>
+	(bind ?accept TRUE)
+	(loop-for-count (?i 1 (length$ (send ?info get-llista_serveis)))
+	do
+		(if (eq (type ?s) (type (nth$ ?i (send ?info get-llista_serveis))))
+		then (bind ?accept FALSE)
+		else)
+	)
+
+	(slot-insert$ ?info llista_serveis (+ 1 (length$ (send ?info get-llista_serveis))) ?s)
+	(if (eq ?accept TRUE)
+	then
+		(send ?info put-num_serveis (+ (send ?info get-num_serveis) 1))
+		(send ?info put-num_serveis_tipus (+ (send ?info get-num_serveis_tipus) 1))
+	else
+		(send ?info put-num_serveis (+ (send ?info get-num_serveis) 1))
+	)
+)
+
+(defrule initWelcomeMessage
+	(not (object (is-a Solicitant)))
+	=>
+	(
+	if (yes-or-no-p "Ets una persona individual (yes) o sou un grup de persones (no) (yes/no)? ")
+	then
+		(make-instance soli of Individual)
+	else (
+		if (yes-or-no-p "Formeu una familia (yes/no)? ")
+		then
+		(make-instance soli of Familiar)
+		else
+		(make-instance soli of En_Grup)
+	)
+	)
+)
+
+(defrule enGrupNum
+	?x <- (object (is-a En_Grup) (numero_de_persones ?n&:(eq ?n nil)))
+	=>
+		(send ?x put-numero_de_persones (ask-int "Quants sou? "))
+)
+
+(defrule FamiliarParella
+	?x <- (object (is-a Familiar) (parella ?n&:(eq ?n nil)))
+	=>
+		(send ?x put-parella (yes-or-no-p "Tens parella? (yes/no) "))
+)
+
+(defrule FamiliarFills
+	?x <- (object (is-a Familiar) (fills ?n&:(eq ?n nil)))
+	=>
+		(send ?x put-fills (ask-int "Quants fills tens? "))
+)
+
+(defrule FamiliarFillsFuturs
+	?x <- (object (is-a Familiar) (fills_futurs ?n&:(eq ?n nil)))
+	=>
+		(send ?x put-fills_futurs (ask-int "Quants fills adicionals tindràs? "))
+)
+
+(defrule FamiliarPersonesGransAlCarrec
+	?x <- (object (is-a Familiar) (persones_grans_al_carrec ?n&:(eq ?n nil)))
+	=>
+		(send ?x put-persones_grans_al_carrec (ask-int "Quanta gent gran tens al carrec? "))
+)
+
+(defrule forServiceAsk
+	?s <- (object (is-a Servei))
+	?x <- (object (is-a Solicitant))
+	=>
+	(bind ?accept TRUE)
+	(loop-for-count (?i 1 (length$ (send ?x get-preferencia_llunyana_de)))
+	do
+		(if (eq (type ?s) (type (nth$ ?i (send ?x get-preferencia_llunyana_de))))
+		then (bind ?accept FALSE)
+		else)
+	)
+	(loop-for-count (?i 1 (length$ (send ?x get-preferencia_mitjana_de)))
+	do
+		(if (eq (type ?s) (type (nth$ ?i (send ?x get-preferencia_mitjana_de))))
+		then (bind ?accept FALSE)
+		else)
+	)
+	(loop-for-count (?i 1 (length$ (send ?x get-preferencia_propera_de)))
+	do
+		(if (eq (type ?s) (type (nth$ ?i (send ?x get-preferencia_propera_de))))
+		then (bind ?accept FALSE)
+		else)
+	)
+	(loop-for-count (?i 1 (length$ (send ?x get-preferencia_cap)))
+	do
+		(if (eq (type ?s) (type (nth$ ?i (send ?x get-preferencia_cap))))
+		then (bind ?accept FALSE)
+		else)
+	)
+	(
+		if (eq ?accept TRUE)
+		then
+			(printout t (type ?s) ": Tens preferència? (yes/no) ")
+			(if (yes-or-no-p "") then
+				(if (yes-or-no-p "T'agrada? (yes/no) ")
+				then
+					(if (yes-or-no-p "Vols els servei a prop? (yes/no) ")
+					then
+					(slot-insert$ ?x preferencia_propera_de (+ 1 (length$ (send ?x get-preferencia_propera_de))) ?s)
+					else
+					(slot-insert$ ?x preferencia_mitjana_de (+ 1 (length$ (send ?x get-preferencia_mitjana_de))) ?s)
+					)
+				else
+				(slot-insert$ ?x preferencia_llunyana_de (+ 1 (length$ (send ?x get-preferencia_llunyana_de))) ?s)
+				)
+			else
+				(slot-insert$ ?x preferencia_cap (+ 1 (length$ (send ?x get-preferencia_cap))) ?s)
+			)
+	)
+)
+
+(defrule workAsk
+	?x <- (object (is-a Solicitant) (treballa_a ?e&:(eq ?e [nil])))
+	=>
+	(if (yes-or-no-p "Treballes? (yes/no) ") then
+	(bind ?coordx (ask-number "Quina es la latitud del teu treball? "))
+	(bind ?coordy (ask-number "Quina es la longitud del teu treball? "))
+	(make-instance llocTreball of Lloc_de_treball (ubicacio_x ?coordx) (ubicacio_y ?coordy))
+	(send ?x put-treballa_a (instance-address llocTreball))
+	else
+	(send ?x put-treballa_a [])
+	)
+)
+
+(defrule hasCar
+	?x <- (object (is-a Solicitant) (cotxe ?e&:(eq ?e nil)))
+	=>
+	(bind ?teCotxe (yes-or-no-p "Tens cotxe? (yes/no) "))
+	(send ?x put-cotxe ?teCotxe)
+)
+
+(defrule hasPet
+	?x <- (object (is-a Solicitant) (mascotes ?e&:(eq ?e nil)))
+	=>
+	(bind ?teMascota (yes-or-no-p "Tens mascota? (yes/no) "))
+	(send ?x put-mascotes ?teMascota)
+)
+
+(defrule howOldIndividual
+	?x <- (object (is-a Individual) (edat ?e&:(eq ?e nil)))
+	=>
+	(bind ?age (ask-int "Quina es la teva edat? "))
+	(send ?x put-edat ?age)
+)
+
+(defrule howOldEn_Grup
+	?x <- (object (is-a En_Grup) (edat ?e&:(eq ?e nil)))
+	=>
+	(bind ?age (ask-int "Quina es la edat del membre més vell? "))
+	(send ?x put-edat ?age)
+)
+
+(defrule howOldFamiliar
+	?x <- (object (is-a Familiar) (edat ?e&:(eq ?e nil)))
+	=>
+	(bind ?age (ask-int "Quina es la edat del familiar més vell? "))
+	(send ?x put-edat ?age)
+)
+
+(defrule minSize
+	?x <- (object (is-a Solicitant) (area ?e&:(eq ?e nil)))
+	=>
+	(send ?x put-area (ask-int "Quin és el teu tamany mínim? "))
+)
+
+(defrule isEstricte
+	?x <- (object (is-a Solicitant) (estricte ?e&:(eq ?e nil)))
+	=>
+	(bind ?esEstricte (yes-or-no-p "Ets estricte amb el teu rang de preus? (yes/no) "))
+	(send ?x put-estricte ?esEstricte)
+)
+
+(defrule prefereixNou
+	?x <- (object (is-a Solicitant) (pis_nou ?e&:(eq ?e nil)))
+	=>
+	(send ?x put-pis_nou (yes-or-no-p "Preferiries un pis nou (>=2016)? (yes/no) "))
+)
+
+(defrule numDorms
+	?x <- (object (is-a Solicitant) (estricte ?e&:(eq ?e nil)))
+	=>
+	(bind ?num (ask-int "Quants dormitoris dessitges? "))
+	(send ?x put-numero_dormitoris ?num)
+)
+
+(defrule maxPreu
+	?x <- (object (is-a Solicitant) (preu_maxim ?e&:(eq ?e nil)))
+	=>
+	(bind ?num (ask-int "Quin es el preu maxim que estaries dispossat a pagar? "))
+	(send ?x put-preu_maxim ?num)
+)
+
+(defrule minPreu
+	?x <- (object (is-a Solicitant) (preu_minim ?e&:(eq ?e nil)))
+	=>
+	(bind ?num (ask-int "Quin es el preu minim que estaries dispossat a pagar? "))
+	(send ?x put-preu_minim ?num)
+)
+
+(defrule preuRaonableAbs
+	?c <- (object (is-a Habitatge) (preu_raonable ?r&:(eq ?r nil)))
+	?x <- (object (is-a Solicitant) (preu_minim ?mic&:(neq ?mic nil)) (preu_maxim ?mac&:(neq ?mac nil)) (estricte ?e&:(neq ?e nil)))
+	=>
+	(bind ?preuCasa (send ?c get-preu))
+	(bind ?mi (integer (send ?x get-preu_minim)))
+	(bind ?ma (integer (send ?x get-preu_maxim)))
+
+	(if (>= ?mi ?preuCasa) then
+		(send ?c put-preu_raonable "lluny")
+	else (if (>= ?ma ?preuCasa) then
+		(send ?c put-preu_raonable "dins")
+	else (if (and (not (send ?x get-estricte)) (>= (* ?ma 1.15) ?preuCasa)) then
+		(send ?c put-preu_raonable "prop")
+	else (send ?c put-preu_raonable "lluny"))))
+)
+
+(defrule facilTransportFeinaAbs
+	?c <- (object (is-a Habitatge) (facil_transport_feina ?r&:(eq ?r nil)))
+	?x <- (object (is-a Solicitant) (cotxe ?car&:(neq ?car nil)) (edat ?edad&:(neq ?edad nil)) (treballa_a ?treball&:(neq ?treball [nil])))
+	?t <- (object (is-a Transport_Public) (ubicacio_x ?tx) (ubicacio_y ?ty))
+	(forall (object (is-a Transport_Public) (ubicacio_x ?tx2) (ubicacio_y ?ty2))
+		(test(<=
+		(calcDistance (send ?c get-ubicacio_x) ?tx (send ?c get-ubicacio_y) ?ty)
+		(calcDistance (send ?c get-ubicacio_x) ?tx2 (send ?c get-ubicacio_y) ?ty2)
+		))
+	)
+	=>
+	(if (neq ?treball []) then
+		(bind ?edad (integer (send ?x get-edat)))
+		(bind ?dist (calcDistance (send ?c get-ubicacio_x) (send ?treball get-ubicacio_x) (send ?c get-ubicacio_y) (send ?treball get-ubicacio_y)))
+		(bind ?distTransport (calcDistance (send ?c get-ubicacio_x) ?tx (send ?c get-ubicacio_y) ?ty))
+		(if (eq ?car TRUE)
+		then
+			(send ?c put-facil_transport_feina TRUE)
+		else
+			(if (> 1000 ?dist)
+			then
+				(send ?c put-facil_transport_feina TRUE)
+			else
+				(if (and (> 70 ?edad) (> 1000 ?distTransport))
+				then
+					(send ?c put-facil_transport_feina TRUE)
+				else
+					(send ?c put-facil_transport_feina FALSE)
+			)
+		)
+		)
+	else
+		(send ?c put-facil_transport_feina TRUE)
+	)
+)
+
+(defrule serveiCobertAbs
+	?soli <- (object (is-a Solicitant) (preferencia_propera_de $?pref1) (preferencia_mitjana_de $?pref2) (preferencia_llunyana_de $?pref3) (preferencia_cap $?pref4))
+	?info <- (object (is-a infoServeis) (num_serveis_tipus ?numTipus))
+	(test (= ?numTipus (+ (length$ ?pref1) (length$ ?pref2) (length$ ?pref3) (length$ ?pref4))))
+	?serveiTipus <- (object (is-a Servei))
+	(test (or (member$ ?serveiTipus ?pref1) (member$ ?serveiTipus ?pref2) (member$ ?serveiTipus ?pref3) (member$ ?serveiTipus ?pref4)))
+	?servei <- (object (is-a Servei) (ubicacio_x ?x1) (ubicacio_y ?y1))
+	(test (eq (class ?serveiTipus) (class ?servei)))
+	?c <- (object (is-a Habitatge) (ubicacio_x ?cx) (ubicacio_y ?cy))
+	(forall
+		(object (is-a ?classType) (ubicacio_x ?x2) (ubicacio_y ?y2))
+		(test (or (neq ?classType (class ?serveiTipus)) (<= (calcDistance ?x1 ?cx ?y1 ?cy) (calcDistance ?cx ?x2 ?cy ?y2))))
+	)
+	=>
+	(bind ?distance (calcDistance ?x1 ?cx ?y1 ?cy))
+	(bind ?accept TRUE)
+	(progn$ (?e (send ?c get-servei_cobert))
+		(if (eq (class ?e) (class ?serveiTipus)) then (bind ?accept FALSE)))
+	(progn$ (?e (send ?c get-servei_no_cobert))
+		(if (eq (class ?e) (class ?serveiTipus)) then (bind ?accept FALSE)))
+	(if ?accept then
+		(if (member$ ?serveiTipus ?pref1) then
+			(if (<= ?distance 1000) then
+				(slot-insert$ ?c servei_cobert (+ 1 (length$ (send ?c get-servei_cobert))) ?servei)
+			else
+				(slot-insert$ ?c servei_no_cobert (+ 1 (length$ (send ?c get-servei_no_cobert))) ?servei)
+			)
+		else
+			(if (member$ ?serveiTipus ?pref2) then
+				(if (<= ?distance 3000) then
+					(slot-insert$ ?c servei_cobert (+ 1 (length$ (send ?c get-servei_cobert))) ?servei)
+				else
+					(slot-insert$ ?c servei_no_cobert (+ 1 (length$ (send ?c get-servei_no_cobert))) ?servei)
+				)
+			else
+				(if (member$ ?serveiTipus ?pref3) then
+					(if (> ?distance 1000) then
+						(slot-insert$ ?c servei_cobert (+ 1 (length$ (send ?c get-servei_cobert))) ?servei)
+					else
+						(slot-insert$ ?c servei_no_cobert (+ 1 (length$ (send ?c get-servei_no_cobert))) ?servei)
+					)
+				else
+					(slot-insert$ ?c servei_cobert (+ 1 (length$ (send ?c get-servei_cobert))) ?servei)
+				)
+			)
+		)
+	)
+)
+
+(defrule serveiMascotesAbs
+	?c <- (object (is-a Habitatge) (mascotes_cobert ?r&:(eq ?r nil)) (mascotes ?admetmasc&:(neq ?admetmasc nil)))
+	?x <- (object (is-a Solicitant) (mascotes ?masc&:(neq ?masc nil)))
+	=>
+	(bind ?resultat (or (not ?masc) ?admetmasc))
+	(send ?c put-mascotes_cobert ?resultat)
+)
+
+(defrule garatgeAbs
+	?c <- (object (is-a Habitatge) (garatge_util ?r&:(eq ?r nil)) (placa_garatge ?garatge))
+	?x <- (object (is-a Solicitant) (cotxe ?cotxe&:(neq ?cotxe nil)))
+	=>
+	(send ?c put-garatge_util (and ?garatge ?cotxe))
+)
+
+(defrule ascensorAbsMulti_Pis
+	?c <- (object (is-a Multi_Pis) (necessitat_assencor_satisfeta ?n&:(eq ?n nil)) (ascensor ?ascensor) (planta ?planta))
+	?x <- (object (is-a Solicitant) (edat ?edat&:(neq ?edat nil)))
+	=>
+	(send ?c put-necessitat_assencor_satisfeta (or ?ascensor (eq ?planta 0) (<= (send ?x get-edat) 70)))
+)
+
+(defrule ascensorAbsUnifamiliar
+	?c <- (object (is-a Unifamiliar) (necessitat_assencor_satisfeta ?n&:(eq ?n nil)))
+	=>
+	(send ?c put-necessitat_assencor_satisfeta TRUE)
+)
+
+(defrule areaSatisfetaAbs
+	?c <- (object (is-a Habitatge) (area ?ac&:(neq ?ac nil)) (area_satisfeta ?n&:(eq ?n nil)))
+	?x <- (object (is-a Solicitant) (area ?au&:(neq ?au nil)))
+	=>
+	(send ?c put-area_satisfeta (<= (send ?x get-area) (send ?c get-area)))
+)
+
+(defrule abitacionsSatisfetaAbsFamiliar
+	?c <- (object (is-a Habitatge) (dormitoris_satisfets ?dormitoris_satisfets&:(eq ?dormitoris_satisfets nil)))
+	?x <- (object (is-a Familiar)
+		(fills ?fills&:(neq ?fills nil))
+		(fills_futurs ?fills_futurs&:(neq ?fills_futurs nil))
+		(parella ?parella&:(neq ?parella nil))
+		(persones_grans_al_carrec ?persones_grans_al_carrec&:(neq ?persones_grans_al_carrec nil))
+	)
+	=>
+	(bind ?numP (+ (send ?x get-fills) (send ?x get-fills_futurs) (if (send ?x get-parella) then 1 else 0) (send ?x get-persones_grans_al_carrec)))
+	(bind ?numL (+ (send ?c get-numero_dormitoris_simples) (* 2 (send ?c get-numero_dormitoris_dobles))))
+	(send ?c put-dormitoris_satisfets (<= ?numP ?numL))
+)
+
+(defrule abitacionsSatisfetaAbsEn_Grup
+	?c <- (object (is-a Habitatge) (dormitoris_satisfets ?dormitoris_satisfets&:(eq ?dormitoris_satisfets nil)))
+	?x <- (object (is-a En_Grup) (numero_de_persones ?numero_de_persones&:(neq ?numero_de_persones nil)))
+	=>
+	(bind ?numP (send ?x get-numero_de_persones))
+	(bind ?numL (+ (send ?c get-numero_dormitoris_simples) (send ?c get-numero_dormitoris_dobles)))
+	(send ?c put-dormitoris_satisfets (<= ?numP ?numL))
+)
+
+(defrule abitacionsSatisfetaIndividual
+	?c <- (object (is-a Habitatge) (dormitoris_satisfets ?dormitoris_satisfets&:(eq ?dormitoris_satisfets nil)))
+	?x <- (object (is-a Individual))
+	=>
+	(bind ?numL (+ (send ?c get-numero_dormitoris_simples) (send ?c get-numero_dormitoris_dobles)))
+	(send ?c put-dormitoris_satisfets (<= 1 ?numL))
+)
+
+(defrule lavabosSatisfetsAbsFamiliar
+	?c <- (object (is-a Habitatge) (lavabos_satisfets ?lavabos_satisfets&:(eq ?lavabos_satisfets nil)))
+	?x <- (object (is-a Familiar)
+		(fills ?fills&:(neq ?fills nil))
+		(fills_futurs ?fills_futurs&:(neq ?fills_futurs nil))
+		(parella ?parella&:(neq ?parella nil))
+		(persones_grans_al_carrec ?persones_grans_al_carrec&:(neq ?persones_grans_al_carrec nil))
+	)
+	=>
+	(bind ?numP (+ (send ?x get-fills) (send ?x get-fills_futurs) (if (send ?x get-parella) then 1 else 0) (send ?x get-persones_grans_al_carrec)))
+	(bind ?numL (send ?c get-numero_lavabos))
+	(send ?c put-lavabos_satisfets (<= (+ 1 (integer (/ ?numP 4))) ?numL))
+)
+
+(defrule lavabosSatisfetsAbsEn_Grup
+	?c <- (object (is-a Habitatge) (lavabos_satisfets ?lavabos_satisfets&:(eq ?lavabos_satisfets nil)))
+	?x <- (object (is-a En_Grup) (numero_de_persones ?numero_de_persones&:(neq ?numero_de_persones nil)))
+	=>
+	(bind ?numP (send ?x get-numero_de_persones))
+	(bind ?numL (send ?c get-numero_lavabos))
+	(send ?c put-lavabos_satisfets (<= (+ 1 (integer (/ ?numP 4))) ?numL))
+)
+
+(defrule lavabosSatisfetsAbsIndividual
+	?c <- (object (is-a Habitatge) (lavabos_satisfets ?lavabos_satisfets&:(eq ?lavabos_satisfets nil)))
+	?x <- (object (is-a Individual))
+	=>
+	(bind ?numL (send ?c get-numero_lavabos))
+	(send ?c put-lavabos_satisfets (<= 1 ?numL))
+)
+
+(defrule solveHouse
+	?info <- (object (is-a infoServeis) (num_serveis_tipus ?num_serveis_tipus))
+	?c <- (object (is-a Habitatge)
+		(aceptable_abstracto ?aceptable_abstracto&:(eq ?aceptable_abstracto nil))
+		(preu_raonable ?preu_raonable&:(neq ?preu_raonable nil))
+		(facil_transport_feina ?facil_transport_feina&:(neq ?facil_transport_feina nil))
+		(mascotes_cobert ?mascotes_cobert&:(neq ?mascotes_cobert nil))
+		(necessitat_assencor_satisfeta ?necessitat_assencor_satisfeta&:(neq ?necessitat_assencor_satisfeta nil))
+		(area_satisfeta ?area_satisfeta&:(neq ?area_satisfeta nil))
+		(dormitoris_satisfets ?dormitoris_satisfets&:(neq ?dormitoris_satisfets nil))
+		(lavabos_satisfets ?lavabos_satisfets&:(neq ?lavabos_satisfets nil))
+		(servei_cobert $?servei_cobert)
+		(servei_no_cobert $?servei_no_cobert)
+		(balco_satisfet ?balco_satisfet&:(neq ?balco_satisfet nil))
+		(terrassa_satisfet ?terrassa_satisfet&:(neq ?terrassa_satisfet nil))
+		(amb_mobles_satisfet ?amb_mobles_satisfet&:(neq ?amb_mobles_satisfet nil))
+		(electrodomestics_satisfet ?electrodomestics_satisfet&:(neq ?electrodomestics_satisfet nil))
+		(aire_condicionat_satisfet ?aire_condicionat_satisfet&:(neq ?aire_condicionat_satisfet nil))
+		(calefaccio_satisfet ?calefaccio_satisfet&:(neq ?calefaccio_satisfet nil))
+		(piscina_comunitaria_satisfet ?piscina_comunitaria_satisfet&:(neq ?piscina_comunitaria_satisfet nil))
+		(parquet_satisfet ?parquet_satisfet&:(neq ?parquet_satisfet nil))
+	)
+	(test (= ?num_serveis_tipus (+ (length$ ?servei_cobert) (length$ ?servei_no_cobert))))
+	=>
+	(send ?c put-aceptable_abstracto (and
+		(neq ?preu_raonable "lluny")
+		?facil_transport_feina
+		?mascotes_cobert
+		?necessitat_assencor_satisfeta
+		?area_satisfeta
+		?dormitoris_satisfets
+		?lavabos_satisfets
+		(= ?num_serveis_tipus (length$ ?servei_cobert))
+		?balco_satisfet
+		?terrassa_satisfet
+		?amb_mobles_satisfet
+		?electrodomestics_satisfet
+		?aire_condicionat_satisfet
+		?calefaccio_satisfet
+		?piscina_comunitaria_satisfet
+		?parquet_satisfet
+	))
+)
+
+(deffunction appendText(?c ?u ?t)
+	(slot-insert$ ?c description_result (+ 1 (length$ (send ?c get-description_result))) ?t)
+	(send ?c put-aceptable ?u)
+)
+
+(defrule refineNotAccepted
+	?c <- (object (is-a Habitatge)
+		(aceptable_abstracto FALSE)
+		(aceptable ?aceptable&:(eq ?aceptable nil))
+
+		(preu_raonable ?preu_raonable&:(neq ?preu_raonable nil))
+		(facil_transport_feina ?facil_transport_feina&:(neq ?facil_transport_feina nil))
+		(mascotes_cobert ?mascotes_cobert&:(neq ?mascotes_cobert nil))
+		(necessitat_assencor_satisfeta ?necessitat_assencor_satisfeta&:(neq ?necessitat_assencor_satisfeta nil))
+		(area_satisfeta ?area_satisfeta&:(neq ?area_satisfeta nil))
+		(dormitoris_satisfets ?dormitoris_satisfets&:(neq ?dormitoris_satisfets nil))
+		(lavabos_satisfets ?lavabos_satisfets&:(neq ?lavabos_satisfets nil))
+		(servei_cobert $?servei_cobert)
+		(servei_no_cobert $?servei_no_cobert)
+
+		(balco_satisfet ?balco_satisfet&:(neq ?balco_satisfet nil))
+		(terrassa_satisfet ?terrassa_satisfet&:(neq ?terrassa_satisfet nil))
+		(amb_mobles_satisfet ?amb_mobles_satisfet&:(neq ?amb_mobles_satisfet nil))
+		(electrodomestics_satisfet ?electrodomestics_satisfet&:(neq ?electrodomestics_satisfet nil))
+		(aire_condicionat_satisfet ?aire_condicionat_satisfet&:(neq ?aire_condicionat_satisfet nil))
+		(calefaccio_satisfet ?calefaccio_satisfet&:(neq ?calefaccio_satisfet nil))
+		(piscina_comunitaria_satisfet ?piscina_comunitaria_satisfet&:(neq ?piscina_comunitaria_satisfet nil))
+		(parquet_satisfet ?parquet_satisfet&:(neq ?parquet_satisfet nil))
+	)
+	?x <- (object (is-a Solicitant) (treballa_a ?treball&:(neq ?treball [nil])))
+	?t <- (object (is-a Transport_Public) (ubicacio_x ?tx) (ubicacio_y ?ty))
+	(forall (object (is-a Transport_Public) (ubicacio_x ?tx2) (ubicacio_y ?ty2))
+		(test(<=
+		(calcDistance (send ?c get-ubicacio_x) ?tx (send ?c get-ubicacio_y) ?ty)
+		(calcDistance (send ?c get-ubicacio_x) ?tx2 (send ?c get-ubicacio_y) ?ty2)
+		))
+	)
+	=>
+	(bind ?u "Parcialmente")
+	(send ?c put-aceptable ?u)
+	(if (eq ?preu_raonable "lluny") then (appendText ?c ?u (str-cat "La casa costa " (send ?c get-preu) "€")))
+	(if (not ?mascotes_cobert) then (appendText ?c ?u "La casa no admet mascotes"))
+
+	(if (not ?facil_transport_feina) then
+		(bind ?dist (calcDistance (send ?c get-ubicacio_x) (send ?treball get-ubicacio_x) (send ?c get-ubicacio_y) (send ?treball get-ubicacio_y)))
+		(bind ?distTransport (calcDistance (send ?c get-ubicacio_x) ?tx (send ?c get-ubicacio_y) ?ty))
+		(bind ?text (str-cat "La casa està a més de " ?dist "m de la feina"))
+		(if (and (> 70 (send ?x get-edat)) (<= 1000 ?distTransport)) then
+			(bind ?text (str-cat ?text " i la casa està a " ?distTransport "m de distància del transport públic més proper"))
+		)
+		(appendText ?c ?u ?text)
+	)
+
+	(if (not ?necessitat_assencor_satisfeta) then
+		(switch (class ?c)
+			(case Duplex then (appendText ?c ?u (str-cat "El duplex no té ascensor i té " (+ (send ?c get-planta) 1) " plantes")))
+			(case Pis then (appendText ?c ?u (str-cat "El pis no té ascensor i es troba al pis " (send ?c get-planta))))
+		)
+	)
+	(if (not ?area_satisfeta) then
+		(appendText ?c ?u (str-cat "La casa té " (send ?c get-area) "m^2 d'area"))
+	)
+
+	(if (not ?dormitoris_satisfets) then
+		(appendText ?c ?u (str-cat "La casa té " (send ?c get-numero_dormitoris_simples) " dormitoris simples i " (send ?c get-numero_dormitoris_dobles) " dobles"))
+	)
+
+	(if (not ?lavabos_satisfets) then
+		(appendText ?c ?u (str-cat "La casa té " (send ?c get-numero_lavabos) " lavabos"))
+	)
+
+	(if (eq "cap" (send ?c get-solejat)) then (appendText ?c ?u "No està solejat en cap moment"))
+
+	(loop-for-count (?i 1 (length$ ?servei_no_cobert))
+	do
+		(bind ?iServei (nth$ ?i ?servei_no_cobert))
+		(bind ?dist (calcDistance (send ?c get-ubicacio_x) (send ?iServei get-ubicacio_x) (send ?c get-ubicacio_y) (send ?iServei get-ubicacio_y)))
+		(appendText ?c ?u (str-cat "El servei [" (class ?iServei) "] es troba a " ?dist " m"))
+	)
+
+	(if (not ?balco_satisfet) then (appendText ?c ?u "La casa no te balco"))
+
+	(if (not ?terrassa_satisfet) then (appendText ?c ?u "La casa no te terrassa"))
+
+	(if (not ?amb_mobles_satisfet) then (appendText ?c ?u "La casa no te mobles"))
+
+	(if (not ?electrodomestics_satisfet) then (appendText ?c ?u "La casa no te electrodomestics"))
+
+	(if (not ?aire_condicionat_satisfet) then (appendText ?c ?u "La casa no te aire condicionat"))
+
+	(if (not ?piscina_comunitaria_satisfet) then (appendText ?c ?u "La casa no te pisicina comunitaria"))
+
+	(if (not ?parquet_satisfet) then (appendText ?c ?u "La casa no te parquet"))
+)
+
+(defrule refineAccepted
+	?c <- (object (is-a Habitatge)
+		(aceptable_abstracto TRUE)
+		(aceptable ?aceptable&:(eq ?aceptable nil))
+
+		(preu_raonable ?preu_raonable&:(neq ?preu_raonable nil))
+		(facil_transport_feina ?facil_transport_feina&:(neq ?facil_transport_feina nil))
+		(mascotes_cobert ?mascotes_cobert&:(neq ?mascotes_cobert nil))
+		(garatge_util ?garatge_util)
+		(servei_cobert $?servei_cobert)
+		(servei_no_cobert $?servei_no_cobert)
+		(balco_satisfet ?balco_satisfet&:(neq ?balco_satisfet nil))
+		(terrassa_satisfet ?terrassa_satisfet&:(neq ?terrassa_satisfet nil))
+		(amb_mobles_satisfet ?amb_mobles_satisfet&:(neq ?amb_mobles_satisfet nil))
+		(electrodomestics_satisfet ?electrodomestics_satisfet&:(neq ?electrodomestics_satisfet nil))
+		(aire_condicionat_satisfet ?aire_condicionat_satisfet&:(neq ?aire_condicionat_satisfet nil))
+		(calefaccio_satisfet ?calefaccio_satisfet&:(neq ?calefaccio_satisfet nil))
+		(piscina_comunitaria_satisfet ?piscina_comunitaria_satisfet&:(neq ?piscina_comunitaria_satisfet nil))
+		(parquet_satisfet ?parquet_satisfet&:(neq ?parquet_satisfet nil))
+	)
+	?x <- (object (is-a Solicitant) (treballa_a ?treball&:(neq ?treball [nil])) (pis_nou ?pis_nou&:(neq ?pis_nou nil)))
+	=>
+	(bind ?u "Recomendable")
+	(send ?c put-aceptable "Adecuado")
+	(if (eq ?preu_raonable "dins") then (appendText ?c ?u (str-cat "La casa costa " (send ?c get-preu) "€")))
+
+	(if (neq ?treball []) then
+		(bind ?dist (calcDistance (send ?c get-ubicacio_x) (send ?treball get-ubicacio_x) (send ?c get-ubicacio_y) (send ?treball get-ubicacio_y)))
+		(if (> 1000 ?dist) then
+			(appendText ?c ?u (str-cat "La casa està a menys de " ?dist "m de la feina"))
+		)
+	)
+
+	(if ?garatge_util then (appendText ?c ?u "La casa té garatge"))
+
+	(if (superclassp Multi_Pis (class ?c)) then (if (send ?c get-atic) then
+		(appendText ?c ?u "És un àtic")
+	))
+
+	(if (eq "ambdues" (send ?c get-solejat)) then (appendText ?c ?u "Està solejat tot el dia"))
+
+	(if (send ?c get-bones_vistes) then (appendText ?c ?u "Té bones vistes"))
+
+	(if (and ?pis_nou (<= 2016 (send ?c get-any_construccio))) then
+		(appendText ?c ?u (str-cat "La casa és nova. Data: " (send ?c get-any_construccio)))
+	)
+
+	(loop-for-count (?i 1 (length$ ?servei_cobert))
+	do
+		(bind ?iServei (nth$ ?i ?servei_cobert))
+		(bind ?dist (calcDistance (send ?c get-ubicacio_x) (send ?iServei get-ubicacio_x) (send ?c get-ubicacio_y) (send ?iServei get-ubicacio_y)))
+		(if (> 1000 ?dist) then
+		(loop-for-count (?i 1 (length$ (send ?x get-preferencia_mitjana_de)))
+		do
+			(if (eq (class ?iServei) (class (nth$ ?i (send ?x get-preferencia_mitjana_de)))) then
+				(appendText ?c ?u (str-cat "El servei [" (class ?iServei) "] es troba a " ?dist " m"))
+				(break)
+			)
+		)
+		)
+	)
+
+	(bind ?extra (send ?x get-balco))
+	(bind ?extra1 (send ?c get-balco))
+	(if (and (not ?extra) ?extra1 ?balco_satisfet) then (appendText ?c ?u "EXTRA: La casa te balco"))
+
+	(bind ?extra (send ?x get-terrassa))
+	(bind ?extra1 (send ?c get-terrassa))
+	(if (and (not ?extra) ?extra1 ?terrassa_satisfet) then (appendText ?c ?u "EXTRA: La casa te terrassa"))
+
+	(bind ?extra (send ?x get-amb_mobles))
+	(bind ?extra1 (send ?c get-amb_mobles))
+	(if (and (not ?extra) ?extra1 ?amb_mobles_satisfet) then (appendText ?c ?u "EXTRA: La casa te mobles"))
+
+	(bind ?extra (send ?x get-electrodomestics))
+	(bind ?extra1 (send ?c get-electrodomestics))
+	(if (and (not ?extra) ?extra1 ?electrodomestics_satisfet) then (appendText ?c ?u "EXTRA: La casa te electrodomestics"))
+
+	(bind ?extra (send ?x get-aire_condicionat))
+	(bind ?extra1 (send ?c get-aire_condicionat))
+	(if (and (not ?extra) ?extra1 ?aire_condicionat_satisfet) then (appendText ?c ?u "EXTRA: La casa te aire condicionat"))
+
+	(bind ?extra (send ?x get-piscina_comunitaria))
+	(bind ?extra1 (send ?c get-piscina_comunitaria))
+	(if (and (not ?extra) ?extra1 ?piscina_comunitaria_satisfet) then (appendText ?c ?u "EXTRA: La casa te pisicina comunitaria"))
+
+	(bind ?extra (send ?x get-parquet))
+	(bind ?extra1 (send ?c get-parquet))
+	(if (and (not ?extra) ?extra1 ?parquet_satisfet) then (appendText ?c ?u "EXTRA: La casa te parquet"))
+)
+
+(defrule printHouseStep1 "Asserts each item that needs to be printed."
+	?c <- (object (is-a Habitatge)
+		(aceptable ?a&:(neq ?a nil))
+		(printed ?p&:(eq ?p nil))
+		(description_result $?description)
+	)
+	=>
+	(assert (unprinted ?c))
+	(send ?c put-printed FALSE)
+)
+
+(defrule printHouseStep2 "Raise flag for sorted printing"
+	(forall (object (is-a Habitatge) (printed ?p))
+		(test (neq ?p nil)))
+	=>
+	(assert (startPrint TRUE))
+)
+
+(defrule printHouseStep3 "Sorted printing"
+	(startPrint TRUE)
+	?delete <- (unprinted ?c)
+	(forall (object (is-a Habitatge) (printed FALSE) (aceptable ?a2) (description_result $?d2))
+		(test (or
+			(and (eq "Recomendable" (send ?c get-aceptable))
+				(
+					or (neq "Recomendable" ?a2) (>= (length$ (send ?c get-description_result)) (length$ ?d2))
+				))
+			(and (eq "Adecuado" (send ?c get-aceptable)) (neq "Recomendable" ?a2))
+			(and (eq "Parcialmente" (send ?c get-aceptable)) (eq "Parcialmente" ?a2) (<= (length$ (send ?c get-description_result)) (length$ ?d2)))
+		))
+	)
+	=>
+	(bind ?a (send ?c get-aceptable))
+	(if (eq ?a "Recomendable") then
+	(printout t "Casa " (instance-name ?c) " recomanable en " (send ?c get-ubicacio_x) " " (send ?c get-ubicacio_y) ". Motius: " crlf)
+	(prettyPrint (send ?c get-description_result))
+	else (if (eq ?a "Adecuado") then
+	(printout t "Casa " (instance-name ?c) " aceptable en " (send ?c get-ubicacio_x) " " (send ?c get-ubicacio_y) "." crlf)
+	else
+	(printout t "Casa " (instance-name ?c) " parcialment aceptable en " (send ?c get-ubicacio_x) " " (send ?c get-ubicacio_y) ". Motius: " crlf)
+	(prettyPrint (send ?c get-description_result))
+	)
+	)
+	(send ?c put-printed TRUE)
+	(retract ?delete)
+)
+
+(defrule hasBalco
+	?x <- (object (is-a Solicitant) (balco ?balco&:(eq ?balco nil)))
+	=>
+	(bind ?res (yes-or-no-p "Vols balco? (yes/no)"))
+	(send ?x put-balco ?res)
+)
+
+(defrule balcoSatisfet
+	?c <- (object (is-a Habitatge) (balco_satisfet ?req&:(eq ?req nil))  (balco ?balco&:(neq ?balco nil)))
+	?x <- (object (is-a Solicitant) (balco ?necBalco&:(neq ?necBalco nil)))
+	=>
+	(bind ?res (or (not ?necBalco) ?balco))
+	(send ?c put-balco_satisfet ?res)
+)
+
+(defrule hasTerrassa
+	?x <- (object (is-a Solicitant) (terrassa ?terrassa&:(eq ?terrassa nil)))
+	=>
+	(bind ?res (yes-or-no-p "Vols terrassa? (yes/no)"))
+	(send ?x put-terrassa ?res)
+)
+
+(defrule terrassaSatisfet
+	?c <- (object (is-a Habitatge) (terrassa_satisfet ?req&:(eq ?req nil))  (terrassa ?terrassa&:(neq ?terrassa nil)))
+	?x <- (object (is-a Solicitant) (terrassa ?necTerrassa&:(neq ?necTerrassa nil)))
+	=>
+	(bind ?res (or (not ?necTerrassa) ?terrassa))
+	(send ?c put-terrassa_satisfet ?res)
+)
+
+(defrule hasMobles
+	?x <- (object (is-a Solicitant) (amb_mobles ?amb_mobles&:(eq ?amb_mobles nil)))
+	=>
+	(bind ?res (yes-or-no-p "Vols una casa amb mobles? (yes/no)"))
+	(send ?x put-amb_mobles ?res)
+)
+
+(defrule moblesSatisfet
+	?c <- (object (is-a Habitatge) (amb_mobles_satisfet ?req&:(eq ?req nil))  (amb_mobles ?amb_mobles&:(neq ?amb_mobles nil)))
+	?x <- (object (is-a Solicitant) (amb_mobles ?necMobles&:(neq ?necMobles nil)))
+	=>
+	(bind ?res (or (not ?necMobles) ?amb_mobles))
+	(send ?c put-amb_mobles_satisfet ?res)
+)
+
+(defrule hasElectrodomestics
+	?x <- (object (is-a Solicitant) (electrodomestics ?electrodomestics&:(eq ?electrodomestics nil)))
+	=>
+	(bind ?res (yes-or-no-p "Vols electrodomestics? (yes/no)"))
+	(send ?x put-electrodomestics ?res)
+)
+
+(defrule electrodomesticsSatisfet
+	?c <- (object (is-a Habitatge) (electrodomestics_satisfet ?req&:(eq ?req nil))  (electrodomestics ?electrodomestics&:(neq ?electrodomestics nil)))
+	?x <- (object (is-a Solicitant) (electrodomestics ?necElectrodomestics&:(neq ?necElectrodomestics nil)))
+	=>
+	(bind ?res (or (not ?necElectrodomestics) ?electrodomestics))
+	(send ?c put-electrodomestics_satisfet ?res)
+)
+
+(defrule hasAire
+	?x <- (object (is-a Solicitant) (aire_condicionat ?aire_condicionat&:(eq ?aire_condicionat nil)))
+	=>
+	(bind ?res (yes-or-no-p "Vols aire aire condicionat? (yes/no)"))
+	(send ?x put-aire_condicionat ?res)
+)
+
+(defrule aireSatisfet
+	?c <- (object (is-a Habitatge) (aire_condicionat_satisfet ?req&:(eq ?req nil))  (aire_condicionat ?aire_condicionat&:(neq ?aire_condicionat nil)))
+	?x <- (object (is-a Solicitant) (aire_condicionat ?necAire&:(neq ?necAire nil)))
+	=>
+	(bind ?res (or (not ?necAire) ?aire_condicionat))
+	(send ?c put-aire_condicionat_satisfet ?res)
+)
+
+(defrule hasCalefaccio
+	?x <- (object (is-a Solicitant) (calefaccio ?calefaccio&:(eq ?calefaccio nil)))
+	=>
+	(bind ?res (yes-or-no-p "Vols calefaccio? (yes/no)"))
+	(send ?x put-calefaccio ?res)
+)
+
+(defrule calefaccioSatisfet
+	?c <- (object (is-a Habitatge) (calefaccio_satisfet ?req&:(eq ?req nil))  (calefaccio ?calefaccio&:(neq ?calefaccio nil)))
+	?x <- (object (is-a Solicitant) (calefaccio ?necCalefaccio&:(neq ?necCalefaccio nil)))
+	=>
+	(bind ?res (or (not ?necCalefaccio) ?calefaccio))
+	(send ?c put-calefaccio_satisfet ?res)
+)
+
+(defrule hasPiscina
+	?x <- (object (is-a Solicitant) (piscina_comunitaria ?piscina_comunitaria&:(eq ?piscina_comunitaria nil)))
+	=>
+	(bind ?res (yes-or-no-p "Vols piscina comunitaria? (yes/no)"))
+	(send ?x put-piscina_comunitaria ?res)
+)
+
+(defrule piscinaSatisfet
+	?c <- (object (is-a Habitatge) (piscina_comunitaria_satisfet ?req&:(eq ?req nil))  (piscina_comunitaria ?piscina_comunitaria&:(neq ?piscina_comunitaria nil)))
+	?x <- (object (is-a Solicitant) (piscina_comunitaria ?necPiscina&:(neq ?necPiscina nil)))
+	=>
+	(bind ?res (or (not ?necPiscina) ?piscina_comunitaria))
+	(send ?c put-piscina_comunitaria_satisfet ?res)
+)
+
+(defrule hasParquet
+	?x <- (object (is-a Solicitant) (parquet ?parquet&:(eq ?parquet nil)))
+	=>
+	(bind ?res (yes-or-no-p "Vols parquet? (yes/no)"))
+	(send ?x put-parquet ?res)
+)
+
+(defrule parquetSatisfet
+	?c <- (object (is-a Habitatge) (parquet_satisfet ?req&:(eq ?req nil))  (parquet ?parquet&:(neq ?parquet nil)))
+	?x <- (object (is-a Solicitant) (parquet ?necParquet&:(neq ?necParquet nil)))
+	=>
+	(bind ?res (or (not ?necParquet) ?parquet))
+	(send ?c put-parquet_satisfet ?res)
+)

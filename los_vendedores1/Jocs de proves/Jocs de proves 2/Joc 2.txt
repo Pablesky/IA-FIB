@@ -1,0 +1,942 @@
+         CLIPS (6.31 6/12/19)
+CLIPS> (load ontologia.clips)
+Defining defclass: Solicitant
+Defining defclass: En_Grup
+Defining defclass: Familiar
+Defining defclass: Individual
+Defining defclass: Servei
+Defining defclass: Biblioteques
+Defining defclass: Escoles
+Defining defclass: Gimnas
+Defining defclass: Hospital_o_CAP
+Defining defclass: Llocs_emblematics
+Defining defclass: Platja
+Defining defclass: Poligons_Industrials
+Defining defclass: Supermercat_i_Hipermercats
+Defining defclass: Transport_Public
+Defining defclass: Zona_Cultural
+Defining defclass: Zona_Oci_Nocturn
+Defining defclass: Zona_Verda
+Defining defclass: Zona_comercial
+Defining defclass: Habitatge
+Defining defclass: Multi_Pis
+Defining defclass: Duplex
+Defining defclass: Pis
+Defining defclass: Unifamiliar
+Defining defclass: Lloc_de_treball
+Defining definstances: instances
+TRUE
+CLIPS> (load data.clips)
+Defining definstances: services_Biblioteques
+Defining definstances: services_Llocs_emblematics
+Defining definstances: services_Zona_Verda
+Defining definstances: services_Zona_comercial
+Defining definstances: services_Supermercat_i_Hipermercats
+Defining definstances: services_Hospital_o_CAP
+Defining definstances: services_Gimnas
+Defining definstances: services_Escoles
+Defining definstances: services_Transport_Public
+Defining definstances: services_Zona_Cultural
+Defining definstances: services_Zona_Oci_Nocturn
+Defining definstances: services_Platja
+Defining definstances: services_Poligons_Industrials
+TRUE
+CLIPS> (load habitatges.clips)
+Defining definstances: Habitatges
+TRUE
+CLIPS> (load rules.clips)
+Defining deffunction: ask-number
+Defining deffunction: ask-int
+Defining deffunction: ask-question
+Defining deffunction: yes-or-no-p
+Defining defglobal: R
+Defining deffunction: calcDistance
+Defining deffunction: prettyPrint
+
+[CSTRCPSR1] WARNING: Redefining defmodule: MAIN
+Defining defclass: infoServeis
+Defining definstances: num_serveis
+Defining defrule: count_serveis +j+j+j
+Defining defrule: start +j+j
+Defining defmodule: Real
+Defining defrule: initWelcomeMessage +j+j
+Defining defrule: enGrupNum +j+j
+Defining defrule: FamiliarParella +j+j
+Defining defrule: FamiliarFills +j+j
+Defining defrule: FamiliarFillsFuturs +j+j
+Defining defrule: FamiliarPersonesGransAlCarrec +j+j
+Defining defrule: forServiceAsk =j+j+j
+Defining defrule: workAsk +j+j
+Defining defrule: hasCar +j+j
+Defining defrule: hasPet +j+j
+Defining defrule: howOldIndividual +j+j
+Defining defrule: howOldEn_Grup +j+j
+Defining defrule: howOldFamiliar +j+j
+Defining defrule: minSize +j+j
+Defining defrule: isEstricte +j+j
+Defining defrule: prefereixNou +j+j
+Defining defrule: numDorms =j+j
+Defining defrule: maxPreu +j+j
+Defining defrule: minPreu +j+j
+Defining defrule: hasBalco +j+j
+Defining defrule: hasTerrassa +j+j
+Defining defrule: hasMobles +j+j
+Defining defrule: hasElectrodomestics +j+j
+Defining defrule: hasAire +j+j
+Defining defrule: hasCalefaccio +j+j
+Defining defrule: hasPiscina +j+j
+Defining defrule: hasParquet +j+j
+Defining defmodule: Abs
+Defining defrule: necessitaTransportCotxe +j+j
+Defining defrule: necessitaTransportCert +j+j
+Defining defrule: necessitaTransportNoFeina +j+j
+Defining defrule: mobilitatReduida +j+j
+Defining defrule: serveiProperAbs +j+j+j+j
+Defining defrule: abitacionsNecessariesFamiliar +j+j
+Defining defrule: abitacionsNecessariesEn_Grup +j+j
+Defining defrule: abitacionsNecessariesIndividual +j+j
+Defining defmodule: Sol
+Defining defrule: preuRaonableAbs +j+j+j
+Defining defrule: facilTransportFeinaAbs +j+j+j+j+j
+Defining defrule: serveiCobertAbs +j+j+j+j+j+j
+Defining defrule: serveiMascotesAbs +j+j+j
+Defining defrule: garatgeReal +j+j+j
+Defining defrule: ascensorAbsMulti_Pis +j+j+j
+Defining defrule: ascensorAbsUnifamiliar +j+j
+Defining defrule: areaSatisfetaAbs +j+j+j
+Defining defrule: abitacionsSatisfetaAbs +j+j+j
+Defining defrule: lavabosSatisfetsAbs +j+j+j
+Defining defrule: balcoSatisfet +j+j+j
+Defining defrule: terrassaSatisfet +j+j+j
+Defining defrule: moblesSatisfet +j+j+j
+Defining defrule: electrodomesticsSatisfet +j+j+j
+Defining defrule: aireSatisfet +j+j+j
+Defining defrule: calefaccioSatisfet +j+j+j
+Defining defrule: piscinaSatisfet +j+j+j
+Defining defrule: parquetSatisfet +j+j+j
+Defining defrule: solveHouse +j+j+j
+Defining defmodule: Refine
+Defining deffunction: appendText
+Defining defrule: refineNotAccepted +j+j+j+j+j
+Defining defrule: refineAccepted +j+j+j
+Defining defrule: printHouseStep1 +j+j
+Defining defrule: printHouseStep2 +j+j
+Defining defrule: printHouseStep3 +j+j+j+j
+TRUE
+CLIPS> (reset)
+CLIPS> (run)
+Ets una persona individual (yes) o sou un grup de persones (no) (yes/no)? n
+Formeu una familia (yes/no)? y
+Biblioteques: Tens preferència? (yes/no) n
+Llocs_emblematics: Tens preferència? (yes/no) n
+Zona_Verda: Tens preferència? (yes/no) y
+T'agrada? (yes/no) y
+Vols els servei a prop? (yes/no) n
+Zona_comercial: Tens preferència? (yes/no) n
+Supermercat_i_Hipermercats: Tens preferència? (yes/no) n
+Hospital_o_CAP: Tens preferència? (yes/no) n
+Gimnas: Tens preferència? (yes/no) n
+Escoles: Tens preferència? (yes/no) y
+T'agrada? (yes/no) y
+Vols els servei a prop? (yes/no) y
+Transport_Public: Tens preferència? (yes/no) y
+T'agrada? (yes/no) y
+Vols els servei a prop? (yes/no) n
+Zona_Cultural: Tens preferència? (yes/no) n
+Zona_Oci_Nocturn: Tens preferència? (yes/no) n
+Platja: Tens preferència? (yes/no) n
+Poligons_Industrials: Tens preferència? (yes/no) n
+Tens parella? (yes/no) y
+Quants fills tens? 2
+Quants fills adicionals tindràs? 0
+Quanta gent gran tens al carrec? 1
+Treballes? (yes/no) y
+Quina es la latitud del teu treball? 41.44218
+Quina es la longitud del teu treball? 2.16765
+Tens cotxe? (yes/no) n
+Tens mascota? (yes/no) n
+Quina es la edat del familiar més vell? 75
+Quin és el teu tamany mínim? 150
+Ets estricte amb el teu rang de preus? (yes/no) y
+Preferiries un pis nou (>=2016)? (yes/no) n
+Quin es el preu maxim que estaries dispossat a pagar? 150000
+Quin es el preu minim que estaries dispossat a pagar? 75000
+Vols balco? (yes/no)n
+Vols terrassa? (yes/no)n
+Vols una casa amb mobles? (yes/no)y
+Vols electrodomestics? (yes/no)y
+Vols aire aire condicionat? (yes/no)n
+Vols calefaccio? (yes/no)y
+Vols piscina comunitaria? (yes/no)n
+Vols parquet? (yes/no)n
+Casa [Hab_Especial] recomanable en 41.4356 2.17074. Motius: 
+La casa costa 130000€
+La casa està a menys de 775.678201171105m de la feina
+Té bones vistes
+EXTRA: La casa te balco
+EXTRA: La casa te terrassa
+EXTRA: La casa te aire condicionat
+Casa [Hab_11] parcialment aceptable en 41.3936771629645 2.09519874058998. Motius: 
+La casa està a més de 8098.49983285461m de la feina
+La casa té 1 dormitoris simples i 0 dobles
+El servei [Escoles] es troba a 1169.475304998 m
+Casa [Hab_24] parcialment aceptable en 41.413276302849 2.19840150911737. Motius: 
+La casa està a més de 4111.29354800358m de la feina
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_34] parcialment aceptable en 41.4446269096386 2.16995739146369. Motius: 
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 3255.62323747992 m
+La casa no te electrodomestics
+Casa [Hab_5] parcialment aceptable en 41.4117739897149 2.19021966292402. Motius: 
+La casa està a més de 3869.36623590208m de la feina
+La casa té 1 lavabos
+No està solejat en cap moment
+La casa no te electrodomestics
+Casa [Hab_60] parcialment aceptable en 41.3615157282472 2.18662161161641. Motius: 
+La casa costa 602000€
+La casa està a més de 9107.9636327531m de la feina
+El servei [Escoles] es troba a 3617.42156753633 m
+La casa no te electrodomestics
+Casa [Hab_97] parcialment aceptable en 41.4199640685734 2.19905571718974. Motius: 
+La casa costa 327000€
+La casa està a més de 3599.66966554973m de la feina
+La casa té 1 lavabos
+La casa no te mobles
+Casa [Hab_96] parcialment aceptable en 41.4040252069334 2.148177919152. Motius: 
+La casa costa 425000€
+La casa està a més de 4542.6608633153m de la feina
+El pis no té ascensor i es troba al pis 2
+La casa no te electrodomestics
+Casa [Hab_22] parcialment aceptable en 41.477791056547 2.15979570387095. Motius: 
+La casa està a més de 4013.49634401271m de la feina
+El servei [Zona_Verda] es troba a 7002.0956911396 m
+El servei [Escoles] es troba a 4298.09585379991 m
+La casa no te electrodomestics
+Casa [Hab_12] parcialment aceptable en 41.3472553664712 2.16519851564621. Motius: 
+La casa costa 283000€
+La casa està a més de 10557.1183449482m de la feina
+El servei [Escoles] es troba a 4377.2213555309 m
+El servei [Transport_Public] es troba a 3337.58740338794 m
+Casa [Hab_1] parcialment aceptable en 41.4222784464025 2.19738247976294. Motius: 
+La casa costa 209000€
+La casa està a més de 3322.82587261233m de la feina
+El pis no té ascensor i es troba al pis 5
+La casa no te electrodomestics
+Casa [Hab_8] parcialment aceptable en 41.4331132419577 2.18648074841774. Motius: 
+La casa costa 236000€
+La casa està a més de 1865.60722271284m de la feina
+La casa té 3 dormitoris simples i 0 dobles
+La casa té 1 lavabos
+La casa no te calefaccio
+Casa [Hab_9] parcialment aceptable en 41.4523582635164 2.10668393150684. Motius: 
+La casa costa 576000€
+La casa està a més de 5205.90407158294m de la feina
+El servei [Zona_Verda] es troba a 5215.94912981496 m
+El servei [Escoles] es troba a 3631.13149887525 m
+La casa no te electrodomestics
+Casa [Hab_53] parcialment aceptable en 41.3478214941593 2.19535605480548. Motius: 
+La casa costa 186000€
+La casa està a més de 10743.7036281466m de la feina
+El servei [Escoles] es troba a 5266.36518103096 m
+El servei [Transport_Public] es troba a 4086.41295964124 m
+La casa no te mobles
+Casa [Hab_62] parcialment aceptable en 41.375832514837 2.04916204122454. Motius: 
+La casa costa 695000€
+La casa està a més de 12331.7604051851m de la feina
+El servei [Zona_Verda] es troba a 5848.51388482177 m
+El servei [Escoles] es troba a 5492.50124930258 m
+La casa no te calefaccio
+Casa [Hab_68] parcialment aceptable en 41.3256307718901 2.06404961927375. Motius: 
+La casa costa 553000€
+La casa està a més de 15577.543556727m de la feina
+El servei [Zona_Verda] es troba a 8240.44787918217 m
+El servei [Escoles] es troba a 8455.82097119973 m
+La casa no te electrodomestics
+Casa [Hab_81] parcialment aceptable en 41.4447676927938 2.25319039372312. Motius: 
+La casa costa 577000€
+La casa està a més de 7135.82832477812m de la feina
+La casa té 1 dormitoris simples i 1 dobles
+El servei [Zona_Verda] es troba a 7614.19527869688 m
+El servei [Escoles] es troba a 2887.92425267139 m
+Casa [Hab_83] parcialment aceptable en 41.4225894649713 2.19105959270921. Motius: 
+La casa costa 411000€
+La casa està a més de 2924.71852305462m de la feina
+La casa té 69m^2 d'area
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_95] parcialment aceptable en 41.4165113570198 2.19403261280176. Motius: 
+La casa està a més de 3603.41093702031m de la feina
+La casa té 122m^2 d'area
+La casa té 1 dormitoris simples i 0 dobles
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_87] parcialment aceptable en 41.3450891447358 2.10574861437724. Motius: 
+La casa costa 194000€
+La casa està a més de 11967.3176312286m de la feina
+El servei [Zona_Verda] es troba a 4827.06440421675 m
+El servei [Escoles] es troba a 4651.23734808077 m
+La casa no te mobles
+Casa [Hab_64] parcialment aceptable en 41.36982254406 2.10731443123366. Motius: 
+La casa costa 173000€
+La casa està a més de 9489.78372037357m de la feina
+La casa té 71m^2 d'area
+No està solejat en cap moment
+El servei [Escoles] es troba a 2471.54067396521 m
+Casa [Hab_59] parcialment aceptable en 41.4020340076735 2.13668294090124. Motius: 
+La casa costa 353000€
+La casa està a més de 5156.98476962299m de la feina
+La casa té 85m^2 d'area
+La casa té 1 lavabos
+La casa no te calefaccio
+Casa [Hab_58] parcialment aceptable en 41.4846986815134 2.04646300823524. Motius: 
+La casa està a més de 11150.131368139m de la feina
+El servei [Zona_Verda] es troba a 10756.2539347464 m
+El servei [Escoles] es troba a 8573.8726211447 m
+El servei [Transport_Public] es troba a 3254.13661135253 m
+La casa no te calefaccio
+Casa [Hab_43] parcialment aceptable en 41.3587090788515 2.09684504257928. Motius: 
+La casa costa 453000€
+La casa està a més de 11001.1039099593m de la feina
+El servei [Zona_Verda] es troba a 3676.80218206219 m
+El servei [Escoles] es troba a 3917.6299883634 m
+La casa no te electrodomestics
+Casa [Hab_39] parcialment aceptable en 41.4780515594263 2.16808247642655. Motius: 
+La casa costa 264000€
+La casa està a més de 3988.8982239605m de la feina
+El pis no té ascensor i es troba al pis 8
+El servei [Zona_Verda] es troba a 6975.11413487689 m
+El servei [Escoles] es troba a 4104.00210198151 m
+Casa [Hab_38] parcialment aceptable en 41.3549402163771 2.16181578438807. Motius: 
+La casa costa 295000€
+La casa està a més de 9712.81972967058m de la feina
+La casa té 1 lavabos
+No està solejat en cap moment
+El servei [Escoles] es troba a 3504.67527935073 m
+Casa [Hab_33] parcialment aceptable en 41.4203667718669 2.16888456496148. Motius: 
+La casa costa 418000€
+La casa està a més de 2427.70303452517m de la feina
+El duplex no té ascensor i té 10 plantes
+El servei [Escoles] es troba a 1236.77172233949 m
+La casa no te mobles
+Casa [Hab_25] parcialment aceptable en 41.4878806505219 2.09425132922164. Motius: 
+La casa costa 600000€
+La casa està a més de 7951.62052567315m de la feina
+El servei [Zona_Verda] es troba a 9242.60035517906 m
+El servei [Escoles] es troba a 7590.34250343789 m
+La casa no te mobles
+Casa [Hab_19] parcialment aceptable en 41.4713723353534 2.05437541589659. Motius: 
+La casa està a més de 9982.32232880088m de la feina
+La casa té 0 dormitoris simples i 1 dobles
+El servei [Zona_Verda] es troba a 9153.07247240983 m
+El servei [Escoles] es troba a 6975.68813921776 m
+La casa no te mobles
+Casa [Hab_17] parcialment aceptable en 41.3527248512623 2.13893283410764. Motius: 
+La casa costa 418000€
+La casa està a més de 10231.3092777806m de la feina
+No està solejat en cap moment
+El servei [Escoles] es troba a 3146.43057926144 m
+La casa no te mobles
+Casa [Hab_0] parcialment aceptable en 41.3755290717128 2.16597694661397. Motius: 
+La casa costa 267000€
+La casa està a més de 7412.55837738839m de la feina
+No està solejat en cap moment
+El servei [Escoles] es troba a 2259.89070487856 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_2] parcialment aceptable en 41.4063243990713 2.25815553111584. Motius: 
+La casa costa 713000€
+La casa està a més de 8534.61933941607m de la feina
+La casa té 86m^2 d'area
+El servei [Zona_Verda] es troba a 6651.18006421075 m
+El servei [Escoles] es troba a 4540.433108743 m
+El servei [Transport_Public] es troba a 3023.51358826383 m
+Casa [Hab_13] parcialment aceptable en 41.3459337592914 2.14177216263609. Motius: 
+La casa costa 257000€
+La casa està a més de 10917.6228845965m de la feina
+El servei [Escoles] es troba a 3912.22518507703 m
+El servei [Transport_Public] es troba a 3227.15893238693 m
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_42] parcialment aceptable en 41.3618702510907 2.12551071393378. Motius: 
+La casa costa 53000€
+La casa està a més de 9596.79278212164m de la feina
+El pis no té ascensor i es troba al pis 7
+La casa té 1 dormitoris simples i 0 dobles
+El servei [Escoles] es troba a 2297.80880837496 m
+La casa no te electrodomestics
+Casa [Hab_49] parcialment aceptable en 41.3919228405383 2.0631155090239. Motius: 
+La casa costa 61000€
+La casa està a més de 10354.3139031743m de la feina
+El servei [Zona_Verda] es troba a 4473.0688044865 m
+El servei [Escoles] es troba a 3787.61674028598 m
+El servei [Transport_Public] es troba a 3898.9691877919 m
+La casa no te electrodomestics
+Casa [Hab_50] parcialment aceptable en 41.4511708395949 2.21686111758887. Motius: 
+La casa costa 684000€
+La casa està a més de 4221.75755793963m de la feina
+La casa té 103m^2 d'area
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 5537.23320588998 m
+La casa no te mobles
+Casa [Hab_57] parcialment aceptable en 41.4802534288104 2.07892191356873. Motius: 
+La casa costa 638000€
+La casa està a més de 8519.97651575597m de la feina
+El duplex no té ascensor i té 10 plantes
+El servei [Zona_Verda] es troba a 9056.4428008055 m
+El servei [Escoles] es troba a 6987.61497334529 m
+La casa no te electrodomestics
+Casa [Hab_67] parcialment aceptable en 41.4526474509071 2.20456027795514. Motius: 
+La casa costa 195000€
+La casa està a més de 3289.20575567379m de la feina
+La casa té 0 dormitoris simples i 1 dobles
+El servei [Zona_Verda] es troba a 5015.69611222775 m
+El servei [Escoles] es troba a 1428.79907348323 m
+La casa no te mobles
+Casa [Hab_82] parcialment aceptable en 41.3431654883517 2.1010256767008. Motius: 
+La casa costa 205000€
+La casa està a més de 12333.1161658177m de la feina
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 5135.32955108647 m
+El servei [Escoles] es troba a 5032.40680440958 m
+La casa no te mobles
+Casa [Hab_84] parcialment aceptable en 41.4228370861312 2.24421200853075. Motius: 
+La casa costa 587000€
+La casa està a més de 6735.37897287403m de la feina
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 6005.22019804236 m
+El servei [Escoles] es troba a 3339.32073288946 m
+La casa no te calefaccio
+Casa [Hab_86] parcialment aceptable en 41.4439990783862 2.21608564637424. Motius: 
+La casa costa 366000€
+La casa està a més de 4042.33090182265m de la feina
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 4945.01829115306 m
+El servei [Escoles] es troba a 1309.90320603616 m
+La casa no te calefaccio
+Casa [Hab_92] parcialment aceptable en 41.4170035735734 2.21168464458475. Motius: 
+La casa costa 38000€
+La casa està a més de 4616.79593195628m de la feina
+La casa té 1 dormitoris simples i 1 dobles
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 3316.0673095899 m
+La casa no te mobles
+Casa [Hab_71] parcialment aceptable en 41.4231228753332 2.10066289526606. Motius: 
+La casa costa 223000€
+La casa està a més de 5973.01520446987m de la feina
+La casa té 3 dormitoris simples i 0 dobles
+No està solejat en cap moment
+El servei [Transport_Public] es troba a 4409.26695650318 m
+La casa no te mobles
+Casa [Hab_66] parcialment aceptable en 41.3458296377324 2.04765827447196. Motius: 
+La casa costa 39000€
+La casa està a més de 14661.7842362008m de la feina
+El servei [Zona_Verda] es troba a 7471.79450169695 m
+El servei [Escoles] es troba a 7703.87363748649 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_30] parcialment aceptable en 41.4007424512248 2.05647417247904. Motius: 
+La casa costa 302000€
+La casa està a més de 10351.9256788889m de la feina
+La casa té 0 dormitoris simples i 1 dobles
+El servei [Zona_Verda] es troba a 4869.52729617827 m
+El servei [Escoles] es troba a 4277.98215080252 m
+El servei [Transport_Public] es troba a 4948.37922298867 m
+Casa [Hab_27] parcialment aceptable en 41.4054544716389 2.20685209830253. Motius: 
+La casa costa 313000€
+La casa està a més de 5230.70093092252m de la feina
+La casa té 1 lavabos
+El servei [Escoles] es troba a 1172.56639662514 m
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_15] parcialment aceptable en 41.4112113858886 2.12636113784888. Motius: 
+La casa costa 377000€
+La casa està a més de 4869.1243000414m de la feina
+La casa té 116m^2 d'area
+La casa té 1 lavabos
+No està solejat en cap moment
+El servei [Transport_Public] es troba a 3232.41983113317 m
+La casa no te electrodomestics
+Casa [Hab_18] parcialment aceptable en 41.3287925277716 2.07471259415257. Motius: 
+La casa costa 330000€
+La casa està a més de 14801.3933242688m de la feina
+La casa té 76m^2 d'area
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 7481.84895824615 m
+El servei [Escoles] es troba a 7608.85029892407 m
+La casa no te calefaccio
+Casa [Hab_20] parcialment aceptable en 41.4022589655292 2.0618859875243. Motius: 
+La casa costa 41000€
+La casa està a més de 9872.82400883018m de la feina
+El servei [Zona_Verda] es troba a 4413.71311737105 m
+El servei [Escoles] es troba a 3842.20813801575 m
+El servei [Transport_Public] es troba a 4602.27827872836 m
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_21] parcialment aceptable en 41.3997113486052 2.07315479938327. Motius: 
+La casa costa 622000€
+La casa està a més de 9185.93231551049m de la feina
+El duplex no té ascensor i té 3 plantes
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 3488.96093186443 m
+El servei [Escoles] es troba a 2882.53524916354 m
+El servei [Transport_Public] es troba a 3635.55911317782 m
+Casa [Hab_26] parcialment aceptable en 41.409897024521 2.0500164832736. Motius: 
+La casa costa 166000€
+La casa està a més de 10443.9977399003m de la feina
+El pis no té ascensor i es troba al pis 6
+El servei [Zona_Verda] es troba a 5463.03822386114 m
+El servei [Escoles] es troba a 4488.97751264607 m
+El servei [Transport_Public] es troba a 5871.98220872511 m
+La casa no te calefaccio
+Casa [Hab_37] parcialment aceptable en 41.3592138131556 2.118560607837. Motius: 
+La casa costa 370000€
+La casa està a més de 10093.2012219804m de la feina
+El duplex no té ascensor i té 3 plantes
+La casa té 112m^2 d'area
+El servei [Zona_Verda] es troba a 3132.19694821588 m
+El servei [Escoles] es troba a 2768.48304839352 m
+La casa no te calefaccio
+Casa [Hab_45] parcialment aceptable en 41.3627311078382 2.26852381883823. Motius: 
+La casa costa 171000€
+La casa està a més de 12199.6188173625m de la feina
+El duplex no té ascensor i té 8 plantes
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 7868.17225238006 m
+El servei [Escoles] es troba a 7928.73936963039 m
+El servei [Transport_Public] es troba a 7240.79457276742 m
+Casa [Hab_46] parcialment aceptable en 41.4802413470956 2.24581034548021. Motius: 
+La casa costa 695000€
+La casa està a més de 7767.37933015763m de la feina
+El servei [Zona_Verda] es troba a 9551.60324410106 m
+El servei [Escoles] es troba a 3458.67390929485 m
+El servei [Transport_Public] es troba a 5048.19518801728 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_75] parcialment aceptable en 41.3988804760158 2.13719166424882. Motius: 
+La casa costa 667000€
+La casa està a més de 5443.45498621835m de la feina
+La casa té 126m^2 d'area
+La casa té 1 lavabos
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_89] parcialment aceptable en 41.3665433709686 2.09302794164999. Motius: 
+La casa costa 183000€
+La casa està a més de 10462.7626409368m de la feina
+La casa té 78m^2 d'area
+La casa té 1 dormitoris simples i 0 dobles
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 3133.30725962259 m
+El servei [Escoles] es troba a 3686.04412865998 m
+Casa [Hab_90] parcialment aceptable en 41.3645881475321 2.19684864523604. Motius: 
+La casa costa 648000€
+La casa està a més de 8964.92703566963m de la feina
+El pis no té ascensor i es troba al pis 9
+La casa té 1 dormitoris simples i 1 dobles
+El servei [Escoles] es troba a 3554.80796101212 m
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_91] parcialment aceptable en 41.4775866858802 2.0891038473046. Motius: 
+La casa costa 47000€
+La casa està a més de 7638.21359094084m de la feina
+La casa té 130m^2 d'area
+El servei [Zona_Verda] es troba a 8380.65362396159 m
+El servei [Escoles] es troba a 6508.75974298295 m
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_99] parcialment aceptable en 41.3280968022213 2.26133179104055. Motius: 
+La casa costa 389000€
+La casa està a més de 14899.8492900874m de la feina
+El servei [Zona_Verda] es troba a 8675.70543807811 m
+El servei [Escoles] es troba a 10024.9334351696 m
+El servei [Transport_Public] es troba a 8809.70840853392 m
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_79] parcialment aceptable en 41.4715644835755 2.0906611689205. Motius: 
+La casa costa 436000€
+La casa està a més de 7199.98291606203m de la feina
+La casa té 1 dormitoris simples i 0 dobles
+El servei [Zona_Verda] es troba a 7729.25040159524 m
+El servei [Escoles] es troba a 5826.87161246092 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_61] parcialment aceptable en 41.4237578035363 2.25620019327155. Motius: 
+La casa costa 510000€
+La casa està a més de 7661.03673800592m de la feina
+El servei [Zona_Verda] es troba a 6963.45945814085 m
+El servei [Escoles] es troba a 4337.61482439837 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_47] parcialment aceptable en 41.3972549890712 2.16668854504527. Motius: 
+La casa costa 622000€
+La casa està a més de 4996.07655120494m de la feina
+La casa té 1 lavabos
+No està solejat en cap moment
+El servei [Escoles] es troba a 1081.61685911373 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_40] parcialment aceptable en 41.4130304459405 2.24105184198025. Motius: 
+La casa costa 518000€
+La casa està a més de 6925.10795549034m de la feina
+La casa té 110m^2 d'area
+La casa té 1 dormitoris simples i 1 dobles
+El servei [Zona_Verda] es troba a 5381.80896809949 m
+El servei [Escoles] es troba a 3003.86671199983 m
+La casa no te electrodomestics
+Casa [Hab_36] parcialment aceptable en 41.3777220230793 2.05049372428104. Motius: 
+La casa costa 696000€
+La casa està a més de 12117.3876074943m de la feina
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 5694.51427204885 m
+El servei [Escoles] es troba a 5299.12896861095 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_31] parcialment aceptable en 41.4622931989565 2.14047365663644. Motius: 
+La casa costa 291000€
+La casa està a més de 3183.03537808105m de la feina
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 5748.16850431452 m
+El servei [Escoles] es troba a 3983.90752012371 m
+El servei [Transport_Public] es troba a 3042.72835286104 m
+La casa no te calefaccio
+Casa [Hab_6] parcialment aceptable en 41.473880921472 2.07877825225168. Motius: 
+La casa costa 242000€
+La casa està a més de 8202.12907701805m de la feina
+La casa té 3 dormitoris simples i 0 dobles
+El servei [Zona_Verda] es troba a 8466.47227521557 m
+El servei [Escoles] es troba a 6313.60687766977 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_4] parcialment aceptable en 41.3271354336107 2.16011343544047. Motius: 
+La casa costa 223000€
+La casa està a més de 12807.8150365887m de la feina
+La casa té 3 dormitoris simples i 0 dobles
+El servei [Zona_Verda] es troba a 4468.68356402206 m
+El servei [Escoles] es troba a 6263.64600371163 m
+El servei [Transport_Public] es troba a 5357.61747512522 m
+La casa no te mobles
+Casa [Hab_3] parcialment aceptable en 41.3488388066975 2.23239033552564. Motius: 
+La casa costa 350000€
+La casa està a més de 11699.9115969944m de la feina
+El servei [Zona_Verda] es troba a 5482.32025998089 m
+El servei [Escoles] es troba a 6690.79856388304 m
+El servei [Transport_Public] es troba a 5470.54311368431 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_14] parcialment aceptable en 41.4830108518356 2.20716245877761. Motius: 
+La casa costa 670000€
+La casa està a més de 5608.37092865996m de la feina
+La casa té 54m^2 d'area
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 8113.25249586373 m
+El servei [Escoles] es troba a 3323.62521257626 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_23] parcialment aceptable en 41.359129241187 2.0597295906434. Motius: 
+La casa costa 456000€
+La casa està a més de 12896.0066327449m de la feina
+La casa té 110m^2 d'area
+La casa té 2 dormitoris simples i 0 dobles
+El servei [Zona_Verda] es troba a 5782.25271268111 m
+El servei [Escoles] es troba a 5928.29124489064 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_35] parcialment aceptable en 41.4539929611322 2.07044118389719. Motius: 
+La casa costa 517000€
+La casa està a més de 8207.83147649709m de la feina
+La casa té 137m^2 d'area
+La casa té 3 dormitoris simples i 0 dobles
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 6802.9930544717 m
+El servei [Escoles] es troba a 4624.79421211944 m
+La casa no te mobles
+Casa [Hab_54] parcialment aceptable en 41.3334608028829 2.04679291602389. Motius: 
+La casa està a més de 15741.639156185m de la feina
+La casa té 1 lavabos
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 8454.11877355886 m
+El servei [Escoles] es troba a 8836.1375812076 m
+El servei [Transport_Public] es troba a 3303.33343285316 m
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_63] parcialment aceptable en 41.3358622983032 2.09168330991494. Motius: 
+La casa costa 369000€
+La casa està a més de 13413.473824594m de la feina
+La casa té 102m^2 d'area
+La casa té 1 lavabos
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 6159.28817655776 m
+El servei [Escoles] es troba a 6135.57253317658 m
+La casa no te mobles
+Casa [Hab_76] parcialment aceptable en 41.3334001043287 2.138147285492. Motius: 
+La casa costa 556000€
+La casa està a més de 12343.6385576816m de la feina
+La casa té 2 dormitoris simples i 0 dobles
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 4027.47781696925 m
+El servei [Escoles] es troba a 5294.69451832277 m
+El servei [Transport_Public] es troba a 4023.64343915606 m
+La casa no te calefaccio
+Casa [Hab_80] parcialment aceptable en 41.4452347781253 2.18668788480834. Motius: 
+La casa costa 618000€
+La casa està a més de 1622.80156499372m de la feina
+El pis no té ascensor i es troba al pis 5
+La casa té 81m^2 d'area
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 3579.5169887205 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_77] parcialment aceptable en 41.4339238707836 2.2612876155599. Motius: 
+La casa costa 233000€
+La casa està a més de 7859.40348544669m de la feina
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 7828.86625818496 m
+El servei [Escoles] es troba a 4073.75909645229 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_72] parcialment aceptable en 41.383205148648 2.20883087795542. Motius: 
+La casa costa 43000€
+La casa està a més de 7402.49817018858m de la feina
+El duplex no té ascensor i té 8 plantes
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 3001.9845286434 m
+El servei [Escoles] es troba a 2765.76775581482 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_70] parcialment aceptable en 41.4275075365378 2.10544468395522. Motius: 
+La casa costa 264000€
+La casa està a més de 5436.26693029689m de la feina
+La casa té 1 dormitoris simples i 1 dobles
+No està solejat en cap moment
+El servei [Transport_Public] es troba a 4828.6880456664 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_69] parcialment aceptable en 41.3275997126718 2.09466266716053. Motius: 
+La casa està a més de 14121.0737856119m de la feina
+El pis no té ascensor i es troba al pis 9
+La casa té 2 dormitoris simples i 0 dobles
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 6724.07272511328 m
+El servei [Escoles] es troba a 6803.20732268506 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_65] parcialment aceptable en 41.4066321920953 2.22500462678427. Motius: 
+La casa costa 289000€
+La casa està a més de 6204.21646002402m de la feina
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 3917.05478707117 m
+El servei [Escoles] es troba a 1945.8028257427 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_56] parcialment aceptable en 41.3654898571623 2.22501738552498. Motius: 
+La casa costa 379000€
+La casa està a més de 9778.14059411418m de la feina
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 4239.72383765966 m
+El servei [Escoles] es troba a 4966.34797099654 m
+El servei [Transport_Public] es troba a 3814.99293225532 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_52] parcialment aceptable en 41.4244708069811 2.25197319294562. Motius: 
+La casa costa 192000€
+La casa està a més de 7300.26402089532m de la feina
+El duplex no té ascensor i té 9 plantes
+La casa té 1 dormitoris simples i 1 dobles
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 6669.79325274437 m
+El servei [Escoles] es troba a 4010.9587222523 m
+La casa no te mobles
+Casa [Hab_48] parcialment aceptable en 41.4297136994801 2.23467668389513. Motius: 
+La casa costa 466000€
+La casa està a més de 5756.88538098858m de la feina
+El duplex no té ascensor i té 10 plantes
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 5566.98779731834 m
+El servei [Escoles] es troba a 2893.79927561555 m
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_29] parcialment aceptable en 41.4133887809039 2.14055516748034. Motius: 
+La casa costa 218000€
+La casa està a més de 3918.18398493972m de la feina
+El pis no té ascensor i es troba al pis 7
+La casa té 2 dormitoris simples i 0 dobles
+El servei [Transport_Public] es troba a 3143.71779721046 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_28] parcialment aceptable en 41.4721850748863 2.16745364782244. Motius: 
+La casa està a més de 3336.45222596129m de la feina
+El pis no té ascensor i es troba al pis 6
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 6325.18328605222 m
+El servei [Escoles] es troba a 3490.54682086559 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_16] parcialment aceptable en 41.487508289386 2.25936620827649. Motius: 
+La casa està a més de 9154.7132384712m de la feina
+El pis no té ascensor i es troba al pis 2
+La casa té 128m^2 d'area
+El servei [Zona_Verda] es troba a 10906.8855569248 m
+El servei [Escoles] es troba a 4796.47485067341 m
+El servei [Transport_Public] es troba a 6173.43247526393 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_10] parcialment aceptable en 41.3614627148959 2.20738145601262. Motius: 
+La casa costa 184000€
+La casa està a més de 9567.57807896003m de la feina
+El duplex no té ascensor i té 8 plantes
+El servei [Escoles] es troba a 4293.40666581097 m
+El servei [Transport_Public] es troba a 3049.41690354848 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_7] parcialment aceptable en 41.4858387767749 2.22119521873118. Motius: 
+La casa costa 731000€
+La casa està a més de 6593.51817891638m de la feina
+El pis no té ascensor i es troba al pis 1
+La casa té 1 lavabos
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 8895.37846236512 m
+El servei [Escoles] es troba a 3419.43667127503 m
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_41] parcialment aceptable en 41.4064874319581 2.06634065985981. Motius: 
+La casa costa 229000€
+La casa està a més de 9332.83103455733m de la feina
+La casa té 1 dormitoris simples i 1 dobles
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 4064.36947057728 m
+El servei [Escoles] es troba a 3338.82443425312 m
+El servei [Transport_Public] es troba a 4509.01582840751 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_44] parcialment aceptable en 41.394397871026 2.23230724853764. Motius: 
+La casa costa 462000€
+La casa està a més de 7569.48283832352m de la feina
+El duplex no té ascensor i té 8 plantes
+La casa té 1 dormitoris simples i 0 dobles
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 4507.43454797653 m
+El servei [Escoles] es troba a 3290.79397175753 m
+El servei [Transport_Public] es troba a 3289.64628577415 m
+La casa no te electrodomestics
+Casa [Hab_55] parcialment aceptable en 41.4627032069554 2.22961095526636. Motius: 
+La casa està a més de 5645.68346178428m de la feina
+La casa té 129m^2 d'area
+La casa té 1 dormitoris simples i 0 dobles
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 7198.8211795434 m
+El servei [Escoles] es troba a 1089.10860846653 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_73] parcialment aceptable en 41.4675202344078 2.1358782022127. Motius: 
+La casa costa 239000€
+La casa està a més de 3866.56401761097m de la feina
+La casa té 1 dormitoris simples i 0 dobles
+La casa té 1 lavabos
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 6314.64277424197 m
+El servei [Escoles] es troba a 4634.04287274393 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_78] parcialment aceptable en 41.3509263138947 2.06185560289035. Motius: 
+La casa costa 440000€
+La casa està a més de 13447.4707559011m de la feina
+El pis no té ascensor i es troba al pis 9
+La casa té 114m^2 d'area
+El servei [Zona_Verda] es troba a 6201.01094929841 m
+El servei [Escoles] es troba a 6524.73303325697 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_88] parcialment aceptable en 41.4122026823163 2.25258679551835. Motius: 
+La casa costa 311000€
+La casa està a més de 7826.78399046064m de la feina
+El duplex no té ascensor i té 4 plantes
+La casa té 1 lavabos
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 6294.49609377718 m
+El servei [Escoles] es troba a 3970.13085824263 m
+La casa no te mobles
+La casa no te electrodomestics
+Casa [Hab_94] parcialment aceptable en 41.4862574126906 2.23883558354063. Motius: 
+La casa costa 503000€
+La casa està a més de 7694.52154635515m de la feina
+La casa té 1 dormitoris simples i 0 dobles
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 9715.54481342943 m
+El servei [Escoles] es troba a 3758.30786134114 m
+El servei [Transport_Public] es troba a 4457.98065278298 m
+La casa no te mobles
+La casa no te calefaccio
+Casa [Hab_93] parcialment aceptable en 41.3643499511944 2.23128131427634. Motius: 
+La casa costa 681000€
+La casa està a més de 10151.9762460963m de la feina
+La casa té 0 dormitoris simples i 1 dobles
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 4777.42000100937 m
+El servei [Escoles] es troba a 5457.80144413893 m
+El servei [Transport_Public] es troba a 4327.22250969907 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_85] parcialment aceptable en 41.3316507551996 2.11835829943888. Motius: 
+La casa costa 389000€
+La casa està a més de 12959.9860604177m de la feina
+La casa té 1 lavabos
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 5025.07836444282 m
+El servei [Escoles] es troba a 5707.52233200207 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_51] parcialment aceptable en 41.4714152088142 2.25446149484915. Motius: 
+La casa costa 41000€
+La casa està a més de 7931.30289961366m de la feina
+La casa té 1 lavabos
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 9358.77527549011 m
+El servei [Escoles] es troba a 3299.88782225603 m
+El servei [Transport_Public] es troba a 4503.99605977386 m
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_32] parcialment aceptable en 41.4486411773779 2.11574114195442. Motius: 
+La casa costa 266000€
+La casa està a més de 4385.86061221891m de la feina
+La casa té 1 lavabos
+El servei [Zona_Verda] es troba a 4526.56438757985 m
+El servei [Escoles] es troba a 3392.3329041694 m
+El servei [Transport_Public] es troba a 3774.26723746281 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_74] parcialment aceptable en 41.3956295201936 2.08157351517294. Motius: 
+La casa costa 379000€
+La casa està a més de 8849.19397863236m de la feina
+El pis no té ascensor i es troba al pis 5
+La casa té 135m^2 d'area
+La casa té 3 dormitoris simples i 0 dobles
+La casa té 1 lavabos
+El servei [Escoles] es troba a 2200.01775895278 m
+La casa no te mobles
+La casa no te electrodomestics
+La casa no te calefaccio
+Casa [Hab_98] parcialment aceptable en 41.328129488144 2.17305317936157. Motius: 
+La casa costa 634000€
+La casa està a més de 12689.8471176013m de la feina
+La casa té 1 dormitoris simples i 1 dobles
+La casa té 1 lavabos
+No està solejat en cap moment
+El servei [Zona_Verda] es troba a 4358.38335892102 m
+El servei [Escoles] es troba a 6560.01007904763 m
+El servei [Transport_Public] es troba a 5551.3986021293 m
+La casa no te mobles
+La casa no te electrodomestics
+CLIPS> (exit)

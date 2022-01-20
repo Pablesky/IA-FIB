@@ -1,0 +1,826 @@
+         CLIPS (6.31 6/12/19)
+CLIPS> (load ontologia.clips)
+Defining defclass: Solicitant
+Defining defclass: En_Grup
+Defining defclass: Familiar
+Defining defclass: Individual
+Defining defclass: Servei
+Defining defclass: Biblioteques
+Defining defclass: Escoles
+Defining defclass: Gimnas
+Defining defclass: Hospital_o_CAP
+Defining defclass: Llocs_emblematics
+Defining defclass: Platja
+Defining defclass: Poligons_Industrials
+Defining defclass: Supermercat_i_Hipermercats
+Defining defclass: Transport_Public
+Defining defclass: Zona_Cultural
+Defining defclass: Zona_Oci_Nocturn
+Defining defclass: Zona_Verda
+Defining defclass: Zona_comercial
+Defining defclass: Habitatge
+Defining defclass: Multi_Pis
+Defining defclass: Duplex
+Defining defclass: Pis
+Defining defclass: Unifamiliar
+Defining defclass: Lloc_de_treball
+Defining definstances: instances
+TRUE
+CLIPS> (load data.clips)
+Defining definstances: services_Biblioteques
+Defining definstances: services_Llocs_emblematics
+Defining definstances: services_Zona_Verda
+Defining definstances: services_Zona_comercial
+Defining definstances: services_Supermercat_i_Hipermercats
+Defining definstances: services_Hospital_o_CAP
+Defining definstances: services_Gimnas
+Defining definstances: services_Escoles
+Defining definstances: services_Transport_Public
+Defining definstances: services_Zona_Cultural
+Defining definstances: services_Zona_Oci_Nocturn
+Defining definstances: services_Platja
+Defining definstances: services_Poligons_Industrials
+TRUE
+CLIPS> (load habitatges.clips)
+Defining definstances: Habitatges
+TRUE
+CLIPS> (load rules.clips)
+Defining deffunction: ask-number
+Defining deffunction: ask-int
+Defining deffunction: ask-question
+Defining deffunction: yes-or-no-p
+Defining defglobal: R
+Defining deffunction: calcDistance
+Defining deffunction: prettyPrint
+
+[CSTRCPSR1] WARNING: Redefining defmodule: MAIN
+Defining defclass: infoServeis
+Defining definstances: num_serveis
+Defining defrule: count_serveis +j+j+j
+Defining defrule: start +j+j
+Defining defmodule: Real
+Defining defrule: initWelcomeMessage +j+j
+Defining defrule: enGrupNum +j+j
+Defining defrule: FamiliarParella +j+j
+Defining defrule: FamiliarFills +j+j
+Defining defrule: FamiliarFillsFuturs +j+j
+Defining defrule: FamiliarPersonesGransAlCarrec +j+j
+Defining defrule: forServiceAsk =j+j+j
+Defining defrule: workAsk +j+j
+Defining defrule: hasCar +j+j
+Defining defrule: hasPet +j+j
+Defining defrule: howOldIndividual +j+j
+Defining defrule: howOldEn_Grup +j+j
+Defining defrule: howOldFamiliar +j+j
+Defining defrule: minSize +j+j
+Defining defrule: isEstricte +j+j
+Defining defrule: prefereixNou +j+j
+Defining defrule: numDorms =j+j
+Defining defrule: maxPreu +j+j
+Defining defrule: minPreu +j+j
+Defining defrule: hasBalco +j+j
+Defining defrule: hasTerrassa +j+j
+Defining defrule: hasMobles +j+j
+Defining defrule: hasElectrodomestics +j+j
+Defining defrule: hasAire +j+j
+Defining defrule: hasCalefaccio +j+j
+Defining defrule: hasPiscina +j+j
+Defining defrule: hasParquet +j+j
+Defining defmodule: Abs
+Defining defrule: necessitaTransportCotxe +j+j
+Defining defrule: necessitaTransportCert +j+j
+Defining defrule: necessitaTransportNoFeina +j+j
+Defining defrule: mobilitatReduida +j+j
+Defining defrule: serveiProperAbs +j+j+j+j
+Defining defrule: abitacionsNecessariesFamiliar +j+j
+Defining defrule: abitacionsNecessariesEn_Grup +j+j
+Defining defrule: abitacionsNecessariesIndividual +j+j
+Defining defmodule: Sol
+Defining defrule: preuRaonableAbs +j+j+j
+Defining defrule: facilTransportFeinaAbs +j+j+j+j+j
+Defining defrule: serveiCobertAbs +j+j+j+j+j+j
+Defining defrule: serveiMascotesAbs +j+j+j
+Defining defrule: garatgeReal +j+j+j
+Defining defrule: ascensorAbsMulti_Pis +j+j+j
+Defining defrule: ascensorAbsUnifamiliar +j+j
+Defining defrule: areaSatisfetaAbs +j+j+j
+Defining defrule: abitacionsSatisfetaAbs +j+j+j
+Defining defrule: lavabosSatisfetsAbs +j+j+j
+Defining defrule: balcoSatisfet +j+j+j
+Defining defrule: terrassaSatisfet +j+j+j
+Defining defrule: moblesSatisfet +j+j+j
+Defining defrule: electrodomesticsSatisfet +j+j+j
+Defining defrule: aireSatisfet +j+j+j
+Defining defrule: calefaccioSatisfet +j+j+j
+Defining defrule: piscinaSatisfet +j+j+j
+Defining defrule: parquetSatisfet +j+j+j
+Defining defrule: solveHouse +j+j+j
+Defining defmodule: Refine
+Defining deffunction: appendText
+Defining defrule: refineNotAccepted +j+j+j+j+j
+Defining defrule: refineAccepted +j+j+j
+Defining defrule: printHouseStep1 +j+j
+Defining defrule: printHouseStep2 +j+j
+Defining defrule: printHouseStep3 +j+j+j+j
+TRUE
+CLIPS> (reset)
+CLIPS> (run)
+Ets una persona individual (yes) o sou un grup de persones (no) (yes/no)? y
+Biblioteques: Tens preferència? (yes/no) n
+Llocs_emblematics: Tens preferència? (yes/no) n
+Zona_Verda: Tens preferència? (yes/no) n
+Zona_comercial: Tens preferència? (yes/no) y
+T'agrada? (yes/no) y
+Vols els servei a prop? (yes/no) n
+Supermercat_i_Hipermercats: Tens preferència? (yes/no) n
+Hospital_o_CAP: Tens preferència? (yes/no) y
+T'agrada? (yes/no) y
+Vols els servei a prop? (yes/no) y
+Gimnas: Tens preferència? (yes/no) n
+Escoles: Tens preferència? (yes/no) n
+Transport_Public: Tens preferència? (yes/no) n
+Zona_Cultural: Tens preferència? (yes/no) n
+Zona_Oci_Nocturn: Tens preferència? (yes/no) y
+T'agrada? (yes/no) y
+Vols els servei a prop? (yes/no) n
+Platja: Tens preferència? (yes/no) y
+T'agrada? (yes/no) y
+Vols els servei a prop? (yes/no) n
+Poligons_Industrials: Tens preferència? (yes/no) n
+Treballes? (yes/no) n
+Tens cotxe? (yes/no) n
+Tens mascota? (yes/no) n
+Quina es la teva edat? 25
+Quin és el teu tamany mínim? 100
+Ets estricte amb el teu rang de preus? (yes/no) n
+Preferiries un pis nou (>=2016)? (yes/no) n
+Quin es el preu maxim que estaries dispossat a pagar? 300000
+Quin es el preu minim que estaries dispossat a pagar? 50000
+Vols balco? (yes/no)y
+Vols terrassa? (yes/no)n
+Vols una casa amb mobles? (yes/no)y
+Vols electrodomestics? (yes/no)n
+Vols aire aire condicionat? (yes/no)n
+Vols calefaccio? (yes/no)n
+Vols piscina comunitaria? (yes/no)y
+Vols parquet? (yes/no)y
+Casa [Hab_Especial] recomanable en 41.3280968022213 2.26133179104055. Motius: 
+La casa costa 250000€
+És un àtic
+Està solejat tot el dia
+Té bones vistes
+El servei [Zona_comercial] es troba a 0.0 m
+El servei [Zona_Oci_Nocturn] es troba a 0.0 m
+El servei [Platja] es troba a 0.0 m
+EXTRA: La casa te terrassa
+EXTRA: La casa te electrodomestics
+EXTRA: La casa te aire condicionat
+EXTRA: La casa te calefaccio
+Casa [Hab_24] parcialment aceptable en 41.413276302849 2.19840150911737. Motius: 
+El servei [Hospital_o_CAP] es troba a 1797.88179294511 m
+Casa [Hab_72] parcialment aceptable en 41.383205148648 2.20883087795542. Motius: 
+La casa costa 43000€
+El servei [Hospital_o_CAP] es troba a 1253.74390620641 m
+Casa [Hab_65] parcialment aceptable en 41.4066321920953 2.22500462678427. Motius: 
+El servei [Hospital_o_CAP] es troba a 3574.89024846176 m
+La casa no te mobles
+Casa [Hab_0] parcialment aceptable en 41.3755290717128 2.16597694661397. Motius: 
+No està solejat en cap moment
+El servei [Hospital_o_CAP] es troba a 1921.90203001819 m
+Casa [Hab_1] parcialment aceptable en 41.4222784464025 2.19738247976294. Motius: 
+El servei [Hospital_o_CAP] es troba a 2103.54679448782 m
+La casa no te balco
+La casa no te parquet
+Casa [Hab_64] parcialment aceptable en 41.36982254406 2.10731443123366. Motius: 
+La casa té 71m^2 d'area
+No està solejat en cap moment
+El servei [Platja] es troba a 6824.13269658386 m
+Casa [Hab_77] parcialment aceptable en 41.4339238707836 2.2612876155599. Motius: 
+El servei [Zona_comercial] es troba a 4594.28410035436 m
+El servei [Hospital_o_CAP] es troba a 4030.89546531505 m
+La casa no te mobles
+Casa [Hab_92] parcialment aceptable en 41.4170035735734 2.21168464458475. Motius: 
+La casa costa 38000€
+El servei [Hospital_o_CAP] es troba a 2330.91200189995 m
+La casa no te mobles
+Casa [Hab_96] parcialment aceptable en 41.4040252069334 2.148177919152. Motius: 
+La casa costa 425000€
+El servei [Platja] es troba a 4566.07582283761 m
+La casa no te parquet
+Casa [Hab_81] parcialment aceptable en 41.4447676927938 2.25319039372312. Motius: 
+La casa costa 577000€
+El servei [Zona_comercial] es troba a 4580.97511204821 m
+El servei [Hospital_o_CAP] es troba a 3416.45293831525 m
+Casa [Hab_27] parcialment aceptable en 41.4054544716389 2.20685209830253. Motius: 
+El servei [Hospital_o_CAP] es troba a 2540.49701202581 m
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_8] parcialment aceptable en 41.4331132419577 2.18648074841774. Motius: 
+El servei [Hospital_o_CAP] es troba a 2293.45894843593 m
+El servei [Platja] es troba a 4136.16799327933 m
+La casa no te parquet
+Casa [Hab_4] parcialment aceptable en 41.3271354336107 2.16011343544047. Motius: 
+El servei [Hospital_o_CAP] es troba a 5060.73511747743 m
+El servei [Zona_Oci_Nocturn] es troba a 6827.94695846495 m
+El servei [Platja] es troba a 5372.0719872855 m
+La casa no te mobles
+Casa [Hab_11] parcialment aceptable en 41.3936771629645 2.09519874058998. Motius: 
+El servei [Zona_comercial] es troba a 3369.0648283495 m
+El servei [Hospital_o_CAP] es troba a 1188.0983071595 m
+El servei [Platja] es troba a 8229.2235241958 m
+La casa no te balco
+Casa [Hab_34] parcialment aceptable en 41.4446269096386 2.16995739146369. Motius: 
+El servei [Hospital_o_CAP] es troba a 2971.57915129832 m
+El servei [Platja] es troba a 5899.33675039058 m
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_60] parcialment aceptable en 41.3615157282472 2.18662161161641. Motius: 
+La casa costa 602000€
+El servei [Zona_comercial] es troba a 3077.39807930722 m
+El servei [Hospital_o_CAP] es troba a 2628.26844281838 m
+La casa no te parquet
+Casa [Hab_68] parcialment aceptable en 41.3256307718901 2.06404961927375. Motius: 
+La casa costa 553000€
+El servei [Hospital_o_CAP] es troba a 3972.72965334126 m
+El servei [Zona_Oci_Nocturn] es troba a 8153.46465949084 m
+El servei [Platja] es troba a 11558.0860589094 m
+Casa [Hab_97] parcialment aceptable en 41.4199640685734 2.19905571718974. Motius: 
+El servei [Hospital_o_CAP] es troba a 2105.73110538111 m
+La casa no te mobles
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_87] parcialment aceptable en 41.3450891447358 2.10574861437724. Motius: 
+El servei [Zona_Oci_Nocturn] es troba a 5021.57117935322 m
+El servei [Platja] es troba a 7498.46415824127 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_59] parcialment aceptable en 41.4020340076735 2.13668294090124. Motius: 
+La casa costa 353000€
+La casa té 85m^2 d'area
+El servei [Platja] es troba a 5331.95105704524 m
+La casa no te parquet
+Casa [Hab_55] parcialment aceptable en 41.4627032069554 2.22961095526636. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 3555.16185074483 m
+El servei [Hospital_o_CAP] es troba a 3074.00997709129 m
+La casa no te mobles
+Casa [Hab_43] parcialment aceptable en 41.3587090788515 2.09684504257928. Motius: 
+La casa costa 453000€
+El servei [Hospital_o_CAP] es troba a 1668.49656975357 m
+El servei [Zona_Oci_Nocturn] es troba a 3674.27849010067 m
+El servei [Platja] es troba a 7804.90013606927 m
+Casa [Hab_12] parcialment aceptable en 41.3472553664712 2.16519851564621. Motius: 
+El servei [Hospital_o_CAP] es troba a 4785.49778174172 m
+El servei [Zona_Oci_Nocturn] es troba a 4584.12636263091 m
+El servei [Platja] es troba a 3244.55413253776 m
+La casa no te balco
+La casa no te parquet
+Casa [Hab_13] parcialment aceptable en 41.3459337592914 2.14177216263609. Motius: 
+El servei [Hospital_o_CAP] es troba a 3136.49880498663 m
+El servei [Zona_Oci_Nocturn] es troba a 4908.77015790822 m
+El servei [Platja] es troba a 4787.65031856315 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_19] parcialment aceptable en 41.4713723353534 2.05437541589659. Motius: 
+El servei [Zona_comercial] es troba a 11243.353539264 m
+El servei [Zona_Oci_Nocturn] es troba a 3608.69564754224 m
+El servei [Platja] es troba a 15265.5618285645 m
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_29] parcialment aceptable en 41.4133887809039 2.14055516748034. Motius: 
+El servei [Hospital_o_CAP] es troba a 1200.66848703931 m
+El servei [Platja] es troba a 5664.18949440577 m
+La casa no te balco
+La casa no te mobles
+La casa no te pisicina comunitaria
+Casa [Hab_37] parcialment aceptable en 41.3592138131556 2.118560607837. Motius: 
+La casa costa 370000€
+El servei [Hospital_o_CAP] es troba a 1957.25065701583 m
+El servei [Zona_Oci_Nocturn] es troba a 3498.64055269728 m
+El servei [Platja] es troba a 6013.06403547017 m
+La casa no te parquet
+Casa [Hab_38] parcialment aceptable en 41.3549402163771 2.16181578438807. Motius: 
+No està solejat en cap moment
+El servei [Hospital_o_CAP] es troba a 3917.70698209349 m
+El servei [Zona_Oci_Nocturn] es troba a 3732.93794429391 m
+La casa no te balco
+La casa no te pisicina comunitaria
+Casa [Hab_42] parcialment aceptable en 41.3618702510907 2.12551071393378. Motius: 
+El servei [Hospital_o_CAP] es troba a 2103.04207376291 m
+El servei [Zona_Oci_Nocturn] es troba a 3257.552604004 m
+El servei [Platja] es troba a 5387.49337310303 m
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_44] parcialment aceptable en 41.394397871026 2.23230724853764. Motius: 
+La casa costa 462000€
+El servei [Hospital_o_CAP] es troba a 3386.99112180495 m
+El servei [Zona_Oci_Nocturn] es troba a 3093.6454374556 m
+La casa no te balco
+La casa no te parquet
+Casa [Hab_45] parcialment aceptable en 41.3627311078382 2.26852381883823. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 3897.67655086117 m
+El servei [Hospital_o_CAP] es troba a 3897.67655086117 m
+El servei [Zona_Oci_Nocturn] es troba a 3897.67655086117 m
+El servei [Platja] es troba a 3897.67655086117 m
+Casa [Hab_49] parcialment aceptable en 41.3919228405383 2.0631155090239. Motius: 
+El servei [Zona_comercial] es troba a 5042.72037819801 m
+El servei [Hospital_o_CAP] es troba a 2212.59872585837 m
+El servei [Zona_Oci_Nocturn] es troba a 3964.96616617399 m
+El servei [Platja] es troba a 10782.5919997555 m
+La casa no te balco
+Casa [Hab_52] parcialment aceptable en 41.4244708069811 2.25197319294562. Motius: 
+El servei [Zona_comercial] es troba a 3374.78121691331 m
+El servei [Hospital_o_CAP] es troba a 3559.98212334302 m
+El servei [Zona_Oci_Nocturn] es troba a 3828.91227021435 m
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_57] parcialment aceptable en 41.4802534288104 2.07892191356873. Motius: 
+La casa costa 638000€
+El servei [Zona_comercial] es troba a 9824.04153104455 m
+El servei [Hospital_o_CAP] es troba a 2919.37103075042 m
+El servei [Platja] es troba a 14255.4373203047 m
+La casa no te parquet
+Casa [Hab_75] parcialment aceptable en 41.3988804760158 2.13719166424882. Motius: 
+La casa costa 667000€
+El servei [Platja] es troba a 5133.78675895394 m
+La casa no te balco
+La casa no te mobles
+La casa no te pisicina comunitaria
+Casa [Hab_78] parcialment aceptable en 41.3509263138947 2.06185560289035. Motius: 
+La casa costa 440000€
+El servei [Hospital_o_CAP] es troba a 2643.84640532542 m
+El servei [Zona_Oci_Nocturn] es troba a 5959.1055917984 m
+El servei [Platja] es troba a 10834.6151680468 m
+La casa no te mobles
+Casa [Hab_84] parcialment aceptable en 41.4228370861312 2.24421200853075. Motius: 
+La casa costa 587000€
+El servei [Hospital_o_CAP] es troba a 3080.49373674761 m
+El servei [Zona_Oci_Nocturn] es troba a 4205.18860069173 m
+La casa no te balco
+La casa no te parquet
+Casa [Hab_88] parcialment aceptable en 41.4122026823163 2.25258679551835. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 3020.01054284565 m
+El servei [Hospital_o_CAP] es troba a 4353.60098613024 m
+El servei [Zona_Oci_Nocturn] es troba a 5152.71222016138 m
+La casa no te mobles
+Casa [Hab_90] parcialment aceptable en 41.3645881475321 2.19684864523604. Motius: 
+La casa costa 648000€
+El servei [Zona_comercial] es troba a 3310.18485862384 m
+El servei [Hospital_o_CAP] es troba a 2228.98803979601 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_99] parcialment aceptable en 41.3280968022213 2.26133179104055. Motius: 
+La casa costa 389000€
+La casa no te balco
+La casa no te mobles
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_95] parcialment aceptable en 41.4165113570198 2.19403261280176. Motius: 
+El servei [Hospital_o_CAP] es troba a 1556.36488944372 m
+La casa no te balco
+La casa no te mobles
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_83] parcialment aceptable en 41.4225894649713 2.19105959270921. Motius: 
+La casa costa 411000€
+La casa té 69m^2 d'area
+El servei [Hospital_o_CAP] es troba a 1698.67076852931 m
+El servei [Platja] es troba a 3024.28783948421 m
+La casa no te pisicina comunitaria
+Casa [Hab_76] parcialment aceptable en 41.3334001043287 2.138147285492. Motius: 
+La casa costa 556000€
+El servei [Hospital_o_CAP] es troba a 3100.74018021023 m
+El servei [Zona_Oci_Nocturn] es troba a 6285.75570094248 m
+El servei [Platja] es troba a 5906.97722653506 m
+La casa no te pisicina comunitaria
+Casa [Hab_51] parcialment aceptable en 41.4714152088142 2.25446149484915. Motius: 
+La casa costa 41000€
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 5772.33869864009 m
+El servei [Hospital_o_CAP] es troba a 5066.29114674957 m
+La casa no te balco
+Casa [Hab_47] parcialment aceptable en 41.3972549890712 2.16668854504527. Motius: 
+La casa costa 622000€
+No està solejat en cap moment
+El servei [Hospital_o_CAP] es troba a 1368.32598271617 m
+La casa no te mobles
+La casa no te pisicina comunitaria
+Casa [Hab_40] parcialment aceptable en 41.4130304459405 2.24105184198025. Motius: 
+La casa costa 518000€
+El servei [Hospital_o_CAP] es troba a 3612.31166131559 m
+El servei [Zona_Oci_Nocturn] es troba a 4414.29622623823 m
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_31] parcialment aceptable en 41.4622931989565 2.14047365663644. Motius: 
+El servei [Zona_comercial] es troba a 4481.91581116935 m
+El servei [Hospital_o_CAP] es troba a 3851.29193838736 m
+El servei [Zona_Oci_Nocturn] es troba a 3798.41049236318 m
+El servei [Platja] es troba a 8970.76049942686 m
+La casa no te pisicina comunitaria
+Casa [Hab_9] parcialment aceptable en 41.4523582635164 2.10668393150684. Motius: 
+La casa costa 576000€
+El servei [Zona_comercial] es troba a 6431.11775354571 m
+El servei [Hospital_o_CAP] es troba a 4047.55063867769 m
+El servei [Platja] es troba a 10490.9242333336 m
+La casa no te pisicina comunitaria
+Casa [Hab_5] parcialment aceptable en 41.4117739897149 2.19021966292402. Motius: 
+No està solejat en cap moment
+El servei [Hospital_o_CAP] es troba a 1098.24938676945 m
+La casa no te balco
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_2] parcialment aceptable en 41.4063243990713 2.25815553111584. Motius: 
+La casa costa 713000€
+La casa té 86m^2 d'area
+El servei [Zona_comercial] es troba a 3495.20078296105 m
+El servei [Hospital_o_CAP] es troba a 5136.66846441793 m
+El servei [Zona_Oci_Nocturn] es troba a 5586.20765287439 m
+La casa no te pisicina comunitaria
+Casa [Hab_10] parcialment aceptable en 41.3614627148959 2.20738145601262. Motius: 
+El servei [Zona_comercial] es troba a 4190.89218264713 m
+El servei [Hospital_o_CAP] es troba a 2798.8040807094 m
+La casa no te balco
+La casa no te mobles
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_15] parcialment aceptable en 41.4112113858886 2.12636113784888. Motius: 
+La casa costa 377000€
+No està solejat en cap moment
+El servei [Hospital_o_CAP] es troba a 1733.84959066872 m
+El servei [Platja] es troba a 6545.95872220299 m
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_16] parcialment aceptable en 41.487508289386 2.25936620827649. Motius: 
+El servei [Zona_comercial] es troba a 7256.9240581235 m
+El servei [Hospital_o_CAP] es troba a 6720.57731984184 m
+El servei [Zona_Oci_Nocturn] es troba a 3137.83382082343 m
+El servei [Platja] es troba a 3640.30647118688 m
+La casa no te balco
+La casa no te parquet
+Casa [Hab_17] parcialment aceptable en 41.3527248512623 2.13893283410764. Motius: 
+La casa costa 418000€
+No està solejat en cap moment
+El servei [Hospital_o_CAP] es troba a 3028.80775508966 m
+El servei [Zona_Oci_Nocturn] es troba a 4139.81300355188 m
+El servei [Platja] es troba a 4618.49382038647 m
+La casa no te mobles
+Casa [Hab_22] parcialment aceptable en 41.477791056547 2.15979570387095. Motius: 
+El servei [Zona_comercial] es troba a 5027.50021298002 m
+El servei [Hospital_o_CAP] es troba a 5757.09184709998 m
+El servei [Zona_Oci_Nocturn] es troba a 5061.73597065052 m
+El servei [Platja] es troba a 8303.13882331584 m
+La casa no te balco
+La casa no te pisicina comunitaria
+Casa [Hab_26] parcialment aceptable en 41.409897024521 2.0500164832736. Motius: 
+El servei [Zona_comercial] es troba a 7270.31803496317 m
+El servei [Hospital_o_CAP] es troba a 4479.71470139267 m
+El servei [Zona_Oci_Nocturn] es troba a 5510.46274732066 m
+El servei [Platja] es troba a 12341.7756074274 m
+La casa no te balco
+La casa no te parquet
+Casa [Hab_33] parcialment aceptable en 41.4203667718669 2.16888456496148. Motius: 
+La casa costa 418000€
+El servei [Hospital_o_CAP] es troba a 1055.45654190481 m
+El servei [Platja] es troba a 4227.77528856262 m
+La casa no te balco
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_39] parcialment aceptable en 41.4780515594263 2.16808247642655. Motius: 
+El servei [Zona_comercial] es troba a 4851.34062375257 m
+El servei [Hospital_o_CAP] es troba a 5835.65491401374 m
+El servei [Zona_Oci_Nocturn] es troba a 5400.15510528896 m
+El servei [Platja] es troba a 7724.68885708746 m
+La casa no te balco
+La casa no te parquet
+Casa [Hab_46] parcialment aceptable en 41.4802413470956 2.24581034548021. Motius: 
+La casa costa 695000€
+El servei [Zona_comercial] es troba a 5894.63032034469 m
+El servei [Hospital_o_CAP] es troba a 5431.58961685562 m
+El servei [Platja] es troba a 3084.04856383458 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_50] parcialment aceptable en 41.4511708395949 2.21686111758887. Motius: 
+La casa costa 684000€
+El servei [Hospital_o_CAP] es troba a 1502.66737480808 m
+El servei [Zona_Oci_Nocturn] es troba a 3873.53959229964 m
+La casa no te balco
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_67] parcialment aceptable en 41.4526474509071 2.20456027795514. Motius: 
+El servei [Hospital_o_CAP] es troba a 1788.5689860811 m
+El servei [Zona_Oci_Nocturn] es troba a 4349.2061868977 m
+El servei [Platja] es troba a 3709.1977399952 m
+La casa no te balco
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_69] parcialment aceptable en 41.3275997126718 2.09466266716053. Motius: 
+No està solejat en cap moment
+El servei [Hospital_o_CAP] es troba a 2069.27015837419 m
+El servei [Zona_Oci_Nocturn] es troba a 7075.95693744904 m
+El servei [Platja] es troba a 9200.3152730343 m
+La casa no te balco
+La casa no te pisicina comunitaria
+Casa [Hab_73] parcialment aceptable en 41.4675202344078 2.1358782022127. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 5158.46892462009 m
+El servei [Hospital_o_CAP] es troba a 4462.30570034131 m
+El servei [Zona_Oci_Nocturn] es troba a 3228.5358453682 m
+El servei [Platja] es troba a 9566.2861403821 m
+La casa no te balco
+Casa [Hab_74] parcialment aceptable en 41.3956295201936 2.08157351517294. Motius: 
+La casa costa 379000€
+El servei [Zona_comercial] es troba a 4524.9329773184 m
+El servei [Hospital_o_CAP] es troba a 2117.48507267796 m
+El servei [Platja] es troba a 9385.48830809128 m
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_82] parcialment aceptable en 41.3431654883517 2.1010256767008. Motius: 
+No està solejat en cap moment
+El servei [Zona_Oci_Nocturn] es troba a 5279.83254124896 m
+El servei [Platja] es troba a 7944.28152659905 m
+La casa no te mobles
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_86] parcialment aceptable en 41.4439990783862 2.21608564637424. Motius: 
+La casa costa 366000€
+No està solejat en cap moment
+El servei [Zona_Oci_Nocturn] es troba a 4193.4532693411 m
+La casa no te balco
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_89] parcialment aceptable en 41.3665433709686 2.09302794164999. Motius: 
+La casa té 78m^2 d'area
+El servei [Hospital_o_CAP] es troba a 1423.29003939022 m
+El servei [Zona_Oci_Nocturn] es troba a 3001.43446526503 m
+El servei [Platja] es troba a 8027.0368284234 m
+La casa no te balco
+La casa no te pisicina comunitaria
+Casa [Hab_91] parcialment aceptable en 41.4775866858802 2.0891038473046. Motius: 
+La casa costa 47000€
+El servei [Zona_comercial] es troba a 8944.58391665257 m
+El servei [Hospital_o_CAP] es troba a 3718.73143812288 m
+El servei [Platja] es troba a 13430.1632319763 m
+La casa no te mobles
+La casa no te pisicina comunitaria
+Casa [Hab_79] parcialment aceptable en 41.4715644835755 2.0906611689205. Motius: 
+La casa costa 436000€
+El servei [Zona_comercial] es troba a 8497.26141689177 m
+El servei [Hospital_o_CAP] es troba a 3855.00583311101 m
+El servei [Platja] es troba a 12882.4942770163 m
+La casa no te balco
+La casa no te parquet
+Casa [Hab_62] parcialment aceptable en 41.375832514837 2.04916204122454. Motius: 
+La casa costa 695000€
+El servei [Zona_comercial] es troba a 3919.35231900778 m
+El servei [Hospital_o_CAP] es troba a 1968.63883421985 m
+El servei [Zona_Oci_Nocturn] es troba a 5364.4981933348 m
+El servei [Platja] es troba a 11692.4011361472 m
+La casa no te parquet
+Casa [Hab_61] parcialment aceptable en 41.4237578035363 2.25620019327155. Motius: 
+La casa costa 510000€
+El servei [Zona_comercial] es troba a 3653.30114728012 m
+El servei [Hospital_o_CAP] es troba a 3913.80866908456 m
+El servei [Zona_Oci_Nocturn] es troba a 3835.75658133415 m
+La casa no te mobles
+La casa no te pisicina comunitaria
+Casa [Hab_53] parcialment aceptable en 41.3478214941593 2.19535605480548. Motius: 
+El servei [Zona_comercial] es troba a 4667.7612261253 m
+El servei [Hospital_o_CAP] es troba a 4081.57381752348 m
+El servei [Zona_Oci_Nocturn] es troba a 4173.27571464098 m
+La casa no te balco
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_36] parcialment aceptable en 41.3777220230793 2.05049372428104. Motius: 
+La casa costa 696000€
+El servei [Zona_comercial] es troba a 4023.38489854618 m
+El servei [Hospital_o_CAP] es troba a 1901.69350962645 m
+El servei [Zona_Oci_Nocturn] es troba a 5198.85785103938 m
+El servei [Platja] es troba a 11594.3833311848 m
+La casa no te balco
+Casa [Hab_35] parcialment aceptable en 41.4539929611322 2.07044118389719. Motius: 
+La casa costa 517000€
+El servei [Zona_comercial] es troba a 8970.20409480098 m
+El servei [Hospital_o_CAP] es troba a 3170.2920546143 m
+El servei [Zona_Oci_Nocturn] es troba a 3268.40237145891 m
+El servei [Platja] es troba a 13047.8165362834 m
+La casa no te mobles
+Casa [Hab_32] parcialment aceptable en 41.4486411773779 2.11574114195442. Motius: 
+El servei [Zona_comercial] es troba a 5590.65448119439 m
+El servei [Hospital_o_CAP] es troba a 3219.04957856878 m
+El servei [Zona_Oci_Nocturn] es troba a 3293.14303448619 m
+El servei [Platja] es troba a 9641.76707412832 m
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_6] parcialment aceptable en 41.473880921472 2.07877825225168. Motius: 
+El servei [Zona_comercial] es troba a 9494.17741660867 m
+El servei [Hospital_o_CAP] es troba a 2849.14989023804 m
+El servei [Platja] es troba a 13802.0734086979 m
+La casa no te balco
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_3] parcialment aceptable en 41.3488388066975 2.23239033552564. Motius: 
+La casa costa 350000€
+El servei [Zona_comercial] es troba a 3340.32414826245 m
+El servei [Hospital_o_CAP] es troba a 3340.32414826245 m
+El servei [Zona_Oci_Nocturn] es troba a 3340.32414826245 m
+El servei [Platja] es troba a 3340.32414826245 m
+La casa no te mobles
+Casa [Hab_14] parcialment aceptable en 41.4830108518356 2.20716245877761. Motius: 
+La casa costa 670000€
+La casa té 54m^2 d'area
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 4744.31635240885 m
+El servei [Hospital_o_CAP] es troba a 5037.76961697308 m
+El servei [Zona_Oci_Nocturn] es troba a 5274.49687652011 m
+El servei [Platja] es troba a 5377.22000201997 m
+Casa [Hab_23] parcialment aceptable en 41.359129241187 2.0597295906434. Motius: 
+La casa costa 456000€
+El servei [Hospital_o_CAP] es troba a 1904.51431736502 m
+El servei [Zona_Oci_Nocturn] es troba a 5465.15711369188 m
+El servei [Platja] es troba a 10866.5309751277 m
+La casa no te mobles
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_30] parcialment aceptable en 41.4007424512248 2.05647417247904. Motius: 
+El servei [Zona_comercial] es troba a 6136.3327465846 m
+El servei [Hospital_o_CAP] es troba a 3330.35285819799 m
+El servei [Zona_Oci_Nocturn] es troba a 4665.98082242285 m
+El servei [Platja] es troba a 11553.3848814672 m
+La casa no te balco
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_66] parcialment aceptable en 41.3458296377324 2.04765827447196. Motius: 
+La casa costa 39000€
+El servei [Hospital_o_CAP] es troba a 3693.98441727741 m
+El servei [Zona_Oci_Nocturn] es troba a 7197.91473639811 m
+El servei [Platja] es troba a 12113.1284968887 m
+La casa no te balco
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_85] parcialment aceptable en 41.3316507551996 2.11835829943888. Motius: 
+La casa costa 389000€
+No està solejat en cap moment
+El servei [Hospital_o_CAP] es troba a 1875.56798462163 m
+El servei [Zona_Oci_Nocturn] es troba a 6531.92284931941 m
+El servei [Platja] es troba a 7300.84093881959 m
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_93] parcialment aceptable en 41.3643499511944 2.23128131427634. Motius: 
+La casa costa 681000€
+El servei [Zona_comercial] es troba a 4747.9543791996 m
+El servei [Hospital_o_CAP] es troba a 3840.94162170109 m
+El servei [Zona_Oci_Nocturn] es troba a 3706.07496254533 m
+El servei [Platja] es troba a 3581.93718730158 m
+La casa no te balco
+La casa no te parquet
+Casa [Hab_80] parcialment aceptable en 41.4452347781253 2.18668788480834. Motius: 
+La casa costa 618000€
+La casa té 81m^2 d'area
+No està solejat en cap moment
+El servei [Hospital_o_CAP] es troba a 2356.70289041695 m
+El servei [Platja] es troba a 4681.9945485127 m
+La casa no te balco
+La casa no te pisicina comunitaria
+Casa [Hab_58] parcialment aceptable en 41.4846986815134 2.04646300823524. Motius: 
+El servei [Zona_comercial] es troba a 12440.1903975542 m
+El servei [Hospital_o_CAP] es troba a 1097.72076916984 m
+El servei [Zona_Oci_Nocturn] es troba a 4345.49435093975 m
+El servei [Platja] es troba a 16661.7258857228 m
+La casa no te balco
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_48] parcialment aceptable en 41.4297136994801 2.23467668389513. Motius: 
+La casa costa 466000€
+El servei [Hospital_o_CAP] es troba a 2007.96766086698 m
+El servei [Zona_Oci_Nocturn] es troba a 3934.33566201717 m
+La casa no te balco
+La casa no te mobles
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_41] parcialment aceptable en 41.4064874319581 2.06634065985981. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 6044.60470493603 m
+El servei [Hospital_o_CAP] es troba a 3724.24850112809 m
+El servei [Zona_Oci_Nocturn] es troba a 4115.55037963626 m
+El servei [Platja] es troba a 10929.3043292662 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_28] parcialment aceptable en 41.4721850748863 2.16745364782244. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 4241.30450661439 m
+El servei [Hospital_o_CAP] es troba a 5370.89847403038 m
+El servei [Zona_Oci_Nocturn] es troba a 4745.76040193661 m
+El servei [Platja] es troba a 7440.73610263204 m
+La casa no te mobles
+La casa no te pisicina comunitaria
+Casa [Hab_25] parcialment aceptable en 41.4878806505219 2.09425132922164. Motius: 
+La casa costa 600000€
+El servei [Zona_comercial] es troba a 9258.96385897777 m
+El servei [Hospital_o_CAP] es troba a 4379.18686957327 m
+El servei [Platja] es troba a 13688.55175273 m
+La casa no te balco
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_21] parcialment aceptable en 41.3997113486052 2.07315479938327. Motius: 
+La casa costa 622000€
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 5297.90080792287 m
+El servei [Hospital_o_CAP] es troba a 2935.46862039653 m
+El servei [Zona_Oci_Nocturn] es troba a 3299.87205704558 m
+El servei [Platja] es troba a 10175.0759618691 m
+La casa no te pisicina comunitaria
+Casa [Hab_20] parcialment aceptable en 41.4022589655292 2.0618859875243. Motius: 
+La casa costa 41000€
+El servei [Zona_comercial] es troba a 6184.89312703409 m
+El servei [Hospital_o_CAP] es troba a 3338.20454342528 m
+El servei [Zona_Oci_Nocturn] es troba a 4281.02608753396 m
+El servei [Platja] es troba a 11156.0054501555 m
+La casa no te balco
+La casa no te mobles
+Casa [Hab_54] parcialment aceptable en 41.3334608028829 2.04679291602389. Motius: 
+No està solejat en cap moment
+El servei [Hospital_o_CAP] es troba a 4924.43834475655 m
+El servei [Zona_Oci_Nocturn] es troba a 8246.95537111844 m
+El servei [Platja] es troba a 12563.1623839264 m
+La casa no te balco
+La casa no te mobles
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_71] parcialment aceptable en 41.4231228753332 2.10066289526606. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 4713.05114103449 m
+El servei [Hospital_o_CAP] es troba a 3370.10366342487 m
+El servei [Zona_Oci_Nocturn] es troba a 3763.69230215378 m
+El servei [Platja] es troba a 9060.89407440248 m
+La casa no te balco
+La casa no te mobles
+La casa no te pisicina comunitaria
+Casa [Hab_94] parcialment aceptable en 41.4862574126906 2.23883558354063. Motius: 
+La casa costa 503000€
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 6066.93360986315 m
+El servei [Hospital_o_CAP] es troba a 5781.4437673187 m
+El servei [Zona_Oci_Nocturn] es troba a 3561.20671932793 m
+El servei [Platja] es troba a 3937.74688879264 m
+La casa no te mobles
+La casa no te parquet
+Casa [Hab_70] parcialment aceptable en 41.4275075365378 2.10544468395522. Motius: 
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 4893.59860125532 m
+El servei [Hospital_o_CAP] es troba a 2966.9600512554 m
+El servei [Zona_Oci_Nocturn] es troba a 4181.19553840587 m
+El servei [Platja] es troba a 8968.76062127873 m
+La casa no te balco
+La casa no te mobles
+La casa no te pisicina comunitaria
+Casa [Hab_56] parcialment aceptable en 41.3654898571623 2.22501738552498. Motius: 
+La casa costa 379000€
+El servei [Zona_comercial] es troba a 4630.11329001159 m
+El servei [Hospital_o_CAP] es troba a 3348.64981293052 m
+El servei [Zona_Oci_Nocturn] es troba a 3228.4658354981 m
+El servei [Platja] es troba a 3044.92264284643 m
+La casa no te mobles
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_18] parcialment aceptable en 41.3287925277716 2.07471259415257. Motius: 
+La casa té 76m^2 d'area
+No està solejat en cap moment
+El servei [Hospital_o_CAP] es troba a 3037.9026078235 m
+El servei [Zona_Oci_Nocturn] es troba a 7445.83120525007 m
+El servei [Platja] es troba a 10603.2592557927 m
+La casa no te balco
+La casa no te pisicina comunitaria
+La casa no te parquet
+Casa [Hab_7] parcialment aceptable en 41.4858387767749 2.22119521873118. Motius: 
+La casa costa 731000€
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 5349.30608594096 m
+El servei [Hospital_o_CAP] es troba a 5367.96656720867 m
+El servei [Zona_Oci_Nocturn] es troba a 4499.82079097609 m
+El servei [Platja] es troba a 4758.82888370792 m
+La casa no te balco
+La casa no te mobles
+La casa no te pisicina comunitaria
+Casa [Hab_98] parcialment aceptable en 41.328129488144 2.17305317936157. Motius: 
+La casa costa 634000€
+No està solejat en cap moment
+El servei [Zona_comercial] es troba a 3073.56129304495 m
+El servei [Hospital_o_CAP] es troba a 6036.34283101186 m
+El servei [Zona_Oci_Nocturn] es troba a 6662.30353579355 m
+El servei [Platja] es troba a 4873.6355238239 m
+La casa no te balco
+La casa no te mobles
+La casa no te pisicina comunitaria
+Casa [Hab_63] parcialment aceptable en 41.3358622983032 2.09168330991494. Motius: 
+La casa costa 369000€
+No està solejat en cap moment
+El servei [Hospital_o_CAP] es troba a 1441.43065655486 m
+El servei [Zona_Oci_Nocturn] es troba a 6234.16194235341 m
+El servei [Platja] es troba a 8985.81271154178 m
+La casa no te balco
+La casa no te mobles
+La casa no te pisicina comunitaria
+La casa no te parquet
+CLIPS> (exit)

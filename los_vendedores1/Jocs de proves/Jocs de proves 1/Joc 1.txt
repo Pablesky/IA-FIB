@@ -1,0 +1,614 @@
+         CLIPS (6.31 6/12/19)
+CLIPS> (load ontologia.clips)
+Defining defclass: Solicitant
+Defining defclass: En_Grup
+Defining defclass: Familiar
+Defining defclass: Individual
+Defining defclass: Servei
+Defining defclass: Biblioteques
+Defining defclass: Escoles
+Defining defclass: Gimnas
+Defining defclass: Hospital_o_CAP
+Defining defclass: Llocs_emblematics
+Defining defclass: Platja
+Defining defclass: Poligons_Industrials
+Defining defclass: Supermercat_i_Hipermercats
+Defining defclass: Transport_Public
+Defining defclass: Zona_Cultural
+Defining defclass: Zona_Oci_Nocturn
+Defining defclass: Zona_Verda
+Defining defclass: Zona_comercial
+Defining defclass: Habitatge
+Defining defclass: Multi_Pis
+Defining defclass: Duplex
+Defining defclass: Pis
+Defining defclass: Unifamiliar
+Defining defclass: Lloc_de_treball
+Defining definstances: instances
+TRUE
+CLIPS> (load data.clips)
+Defining definstances: services_Biblioteques
+Defining definstances: services_Llocs_emblematics
+Defining definstances: services_Zona_Verda
+Defining definstances: services_Zona_comercial
+Defining definstances: services_Supermercat_i_Hipermercats
+Defining definstances: services_Hospital_o_CAP
+Defining definstances: services_Gimnas
+Defining definstances: services_Escoles
+Defining definstances: services_Transport_Public
+Defining definstances: services_Zona_Cultural
+Defining definstances: services_Zona_Oci_Nocturn
+Defining definstances: services_Platja
+Defining definstances: services_Poligons_Industrials
+TRUE
+CLIPS> (load habitatges.clips)
+Defining definstances: Habitatges
+TRUE
+CLIPS> (load rules.clips)
+Defining deffunction: ask-number
+Defining deffunction: ask-int
+Defining deffunction: ask-question
+Defining deffunction: yes-or-no-p
+Defining defglobal: R
+Defining deffunction: calcDistance
+Defining deffunction: prettyPrint
+
+[CSTRCPSR1] WARNING: Redefining defmodule: MAIN
+Defining defclass: infoServeis
+Defining definstances: num_serveis
+Defining defrule: count_serveis +j+j+j
+Defining defrule: start +j+j
+Defining defmodule: Real
+Defining defrule: initWelcomeMessage +j+j
+Defining defrule: enGrupNum +j+j
+Defining defrule: FamiliarParella +j+j
+Defining defrule: FamiliarFills +j+j
+Defining defrule: FamiliarFillsFuturs +j+j
+Defining defrule: FamiliarPersonesGransAlCarrec +j+j
+Defining defrule: forServiceAsk =j+j+j
+Defining defrule: workAsk +j+j
+Defining defrule: hasCar +j+j
+Defining defrule: hasPet +j+j
+Defining defrule: howOldIndividual +j+j
+Defining defrule: howOldEn_Grup +j+j
+Defining defrule: howOldFamiliar +j+j
+Defining defrule: minSize +j+j
+Defining defrule: isEstricte +j+j
+Defining defrule: prefereixNou +j+j
+Defining defrule: numDorms =j+j
+Defining defrule: maxPreu +j+j
+Defining defrule: minPreu +j+j
+Defining defrule: hasBalco +j+j
+Defining defrule: hasTerrassa +j+j
+Defining defrule: hasMobles +j+j
+Defining defrule: hasElectrodomestics +j+j
+Defining defrule: hasAire +j+j
+Defining defrule: hasCalefaccio +j+j
+Defining defrule: hasPiscina +j+j
+Defining defrule: hasParquet +j+j
+Defining defmodule: Abs
+Defining defrule: necessitaTransportCotxe +j+j
+Defining defrule: necessitaTransportCert +j+j
+Defining defrule: necessitaTransportNoFeina +j+j
+Defining defrule: mobilitatReduida +j+j
+Defining defrule: serveiProperAbs +j+j+j+j
+Defining defrule: abitacionsNecessariesFamiliar +j+j
+Defining defrule: abitacionsNecessariesEn_Grup +j+j
+Defining defrule: abitacionsNecessariesIndividual +j+j
+Defining defmodule: Sol
+Defining defrule: preuRaonableAbs +j+j+j
+Defining defrule: facilTransportFeinaAbs +j+j+j+j+j
+Defining defrule: serveiCobertAbs +j+j+j+j+j+j
+Defining defrule: serveiMascotesAbs +j+j+j
+Defining defrule: garatgeReal +j+j+j
+Defining defrule: ascensorAbsMulti_Pis +j+j+j
+Defining defrule: ascensorAbsUnifamiliar +j+j
+Defining defrule: areaSatisfetaAbs +j+j+j
+Defining defrule: abitacionsSatisfetaAbs +j+j+j
+Defining defrule: lavabosSatisfetsAbs +j+j+j
+Defining defrule: balcoSatisfet +j+j+j
+Defining defrule: terrassaSatisfet +j+j+j
+Defining defrule: moblesSatisfet +j+j+j
+Defining defrule: electrodomesticsSatisfet +j+j+j
+Defining defrule: aireSatisfet +j+j+j
+Defining defrule: calefaccioSatisfet +j+j+j
+Defining defrule: piscinaSatisfet +j+j+j
+Defining defrule: parquetSatisfet +j+j+j
+Defining defrule: solveHouse +j+j+j
+Defining defmodule: Refine
+Defining deffunction: appendText
+Defining defrule: refineNotAccepted +j+j+j+j+j
+Defining defrule: refineAccepted +j+j+j
+Defining defrule: printHouseStep1 +j+j
+Defining defrule: printHouseStep2 +j+j
+Defining defrule: printHouseStep3 +j+j+j+j
+TRUE
+CLIPS> (reset)
+CLIPS> (run)
+Ets una persona individual (yes) o sou un grup de persones (no) (yes/no)? y
+Biblioteques: Tens preferència? (yes/no) n
+Llocs_emblematics: Tens preferència? (yes/no) n
+Zona_Verda: Tens preferència? (yes/no) n
+Zona_comercial: Tens preferència? (yes/no) n
+Supermercat_i_Hipermercats: Tens preferència? (yes/no) n
+Hospital_o_CAP: Tens preferència? (yes/no) n
+Gimnas: Tens preferència? (yes/no) n
+Escoles: Tens preferència? (yes/no) n
+Transport_Public: Tens preferència? (yes/no) n
+Zona_Cultural: Tens preferència? (yes/no) y
+T'agrada? (yes/no) y
+Vols els servei a prop? (yes/no) y
+Zona_Oci_Nocturn: Tens preferència? (yes/no) n
+Platja: Tens preferència? (yes/no) n
+Poligons_Industrials: Tens preferència? (yes/no) n
+Treballes? (yes/no) n
+Tens cotxe? (yes/no) y
+Tens mascota? (yes/no) n
+Quina es la teva edat? 28
+Quin és el teu tamany mínim? 150
+Ets estricte amb el teu rang de preus? (yes/no) n
+Preferiries un pis nou (>=2016)? (yes/no) n
+Quin es el preu maxim que estaries dispossat a pagar? 730000
+Quin es el preu minim que estaries dispossat a pagar? 200000
+Vols balco? (yes/no)n
+Vols terrassa? (yes/no)y
+Vols una casa amb mobles? (yes/no)n
+Vols electrodomestics? (yes/no)n
+Vols aire aire condicionat? (yes/no)y
+Vols calefaccio? (yes/no)y
+Vols piscina comunitaria? (yes/no)n
+Vols parquet? (yes/no)y
+Casa [Hab_7] aceptable en 41.4858387767749 2.22119521873118.
+Casa [Hab_9] parcialment aceptable en 41.4523582635164 2.10668393150684. Motius: 
+El servei [Zona_Cultural] es troba a 8128.95831372789 m
+Casa [Hab_68] parcialment aceptable en 41.3256307718901 2.06404961927375. Motius: 
+El servei [Zona_Cultural] es troba a 2834.05899146287 m
+Casa [Hab_43] parcialment aceptable en 41.3587090788515 2.09684504257928. Motius: 
+La casa no te terrassa
+Casa [Hab_13] parcialment aceptable en 41.3459337592914 2.14177216263609. Motius: 
+El servei [Zona_Cultural] es troba a 2689.32355785083 m
+Casa [Hab_20] parcialment aceptable en 41.4022589655292 2.0618859875243. Motius: 
+La casa costa 41000€
+El servei [Zona_Cultural] es troba a 5349.88460734534 m
+Casa [Hab_29] parcialment aceptable en 41.4133887809039 2.14055516748034. Motius: 
+El servei [Zona_Cultural] es troba a 2982.56739479993 m
+La casa no te calefaccio
+Casa [Hab_33] parcialment aceptable en 41.4203667718669 2.16888456496148. Motius: 
+El servei [Zona_Cultural] es troba a 2555.49482729482 m
+La casa no te parquet
+Casa [Hab_49] parcialment aceptable en 41.3919228405383 2.0631155090239. Motius: 
+La casa costa 61000€
+El servei [Zona_Cultural] es troba a 4253.57916170496 m
+Casa [Hab_57] parcialment aceptable en 41.4802534288104 2.07892191356873. Motius: 
+El servei [Zona_Cultural] es troba a 11868.2139787255 m
+La casa no te parquet
+Casa [Hab_90] parcialment aceptable en 41.3645881475321 2.19684864523604. Motius: 
+El servei [Zona_Cultural] es troba a 2022.37967347566 m
+La casa no te terrassa
+Casa [Hab_99] parcialment aceptable en 41.3280968022213 2.26133179104055. Motius: 
+El servei [Zona_Cultural] es troba a 8603.33939127657 m
+La casa no te parquet
+Casa [Hab_81] parcialment aceptable en 41.4447676927938 2.25319039372312. Motius: 
+La casa no te terrassa
+La casa no te aire condicionat
+Casa [Hab_60] parcialment aceptable en 41.3615157282472 2.18662161161641. Motius: 
+El servei [Zona_Cultural] es troba a 1756.06423381106 m
+La casa no te parquet
+Casa [Hab_35] parcialment aceptable en 41.4539929611322 2.07044118389719. Motius: 
+La casa té 137m^2 d'area
+El servei [Zona_Cultural] es troba a 10337.4753295688 m
+Casa [Hab_24] parcialment aceptable en 41.413276302849 2.19840150911737. Motius: 
+La casa costa 141000€
+El servei [Zona_Cultural] es troba a 1479.58205777328 m
+Casa [Hab_0] parcialment aceptable en 41.3755290717128 2.16597694661397. Motius: 
+No està solejat en cap moment
+La casa no te terrassa
+La casa no te calefaccio
+Casa [Hab_1] parcialment aceptable en 41.4222784464025 2.19738247976294. Motius: 
+El servei [Zona_Cultural] es troba a 2336.95448404229 m
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_12] parcialment aceptable en 41.3472553664712 2.16519851564621. Motius: 
+El servei [Zona_Cultural] es troba a 2547.71883314649 m
+La casa no te terrassa
+La casa no te parquet
+Casa [Hab_19] parcialment aceptable en 41.4713723353534 2.05437541589659. Motius: 
+La casa costa 121000€
+El servei [Zona_Cultural] es troba a 12624.4591824883 m
+La casa no te parquet
+Casa [Hab_22] parcialment aceptable en 41.477791056547 2.15979570387095. Motius: 
+La casa costa 147000€
+El servei [Zona_Cultural] es troba a 5191.59197397443 m
+La casa no te aire condicionat
+Casa [Hab_25] parcialment aceptable en 41.4878806505219 2.09425132922164. Motius: 
+El servei [Zona_Cultural] es troba a 10577.5376273316 m
+La casa no te terrassa
+La casa no te parquet
+Casa [Hab_38] parcialment aceptable en 41.3549402163771 2.16181578438807. Motius: 
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 1651.32487746239 m
+La casa no te terrassa
+Casa [Hab_39] parcialment aceptable en 41.4780515594263 2.16808247642655. Motius: 
+El servei [Zona_Cultural] es troba a 4507.3107150763 m
+La casa no te terrassa
+La casa no te parquet
+Casa [Hab_45] parcialment aceptable en 41.3627311078382 2.26852381883823. Motius: 
+La casa costa 171000€
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 7183.59916872368 m
+Casa [Hab_46] parcialment aceptable en 41.4802413470956 2.24581034548021. Motius: 
+El servei [Zona_Cultural] es troba a 2139.18591343866 m
+La casa no te terrassa
+La casa no te calefaccio
+Casa [Hab_48] parcialment aceptable en 41.4297136994801 2.23467668389513. Motius: 
+El servei [Zona_Cultural] es troba a 2725.1836676608 m
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_56] parcialment aceptable en 41.3654898571623 2.22501738552498. Motius: 
+El servei [Zona_Cultural] es troba a 3683.55717547841 m
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_73] parcialment aceptable en 41.4675202344078 2.1358782022127. Motius: 
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 7391.9315077634 m
+La casa no te calefaccio
+Casa [Hab_75] parcialment aceptable en 41.3988804760158 2.13719166424882. Motius: 
+La casa té 126m^2 d'area
+El servei [Zona_Cultural] es troba a 2369.63772591343 m
+La casa no te calefaccio
+Casa [Hab_78] parcialment aceptable en 41.3509263138947 2.06185560289035. Motius: 
+La casa té 114m^2 d'area
+El servei [Zona_Cultural] es troba a 1418.50417781796 m
+La casa no te calefaccio
+Casa [Hab_88] parcialment aceptable en 41.4122026823163 2.25258679551835. Motius: 
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 4465.9373811245 m
+La casa no te terrassa
+Casa [Hab_98] parcialment aceptable en 41.328129488144 2.17305317936157. Motius: 
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 4768.2456231952 m
+La casa no te aire condicionat
+Casa [Hab_97] parcialment aceptable en 41.4199640685734 2.19905571718974. Motius: 
+El servei [Zona_Cultural] es troba a 2151.49106686265 m
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_83] parcialment aceptable en 41.4225894649713 2.19105959270921. Motius: 
+La casa té 69m^2 d'area
+El servei [Zona_Cultural] es troba a 2252.79453701411 m
+La casa no te calefaccio
+Casa [Hab_79] parcialment aceptable en 41.4715644835755 2.0906611689205. Motius: 
+El servei [Zona_Cultural] es troba a 10641.5607623601 m
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_71] parcialment aceptable en 41.4231228753332 2.10066289526606. Motius: 
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 6269.2766221706 m
+La casa no te aire condicionat
+Casa [Hab_62] parcialment aceptable en 41.375832514837 2.04916204122454. Motius: 
+El servei [Zona_Cultural] es troba a 3213.15258045918 m
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_61] parcialment aceptable en 41.4237578035363 2.25620019327155. Motius: 
+El servei [Zona_Cultural] es troba a 3240.98943584958 m
+La casa no te terrassa
+La casa no te calefaccio
+Casa [Hab_53] parcialment aceptable en 41.3478214941593 2.19535605480548. Motius: 
+La casa costa 186000€
+El servei [Zona_Cultural] es troba a 3441.88972477951 m
+La casa no te parquet
+Casa [Hab_47] parcialment aceptable en 41.3972549890712 2.16668854504527. Motius: 
+No està solejat en cap moment
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_36] parcialment aceptable en 41.3777220230793 2.05049372428104. Motius: 
+El servei [Zona_Cultural] es troba a 3433.70759273635 m
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_32] parcialment aceptable en 41.4486411773779 2.11574114195442. Motius: 
+El servei [Zona_Cultural] es troba a 7356.22179947031 m
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_31] parcialment aceptable en 41.4622931989565 2.14047365663644. Motius: 
+El servei [Zona_Cultural] es troba a 7214.00271818323 m
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_30] parcialment aceptable en 41.4007424512248 2.05647417247904. Motius: 
+El servei [Zona_Cultural] es troba a 5377.86529784932 m
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_11] parcialment aceptable en 41.3936771629645 2.09519874058998. Motius: 
+La casa costa 133000€
+El servei [Zona_Cultural] es troba a 3638.42863743154 m
+La casa no te terrassa
+Casa [Hab_6] parcialment aceptable en 41.473880921472 2.07877825225168. Motius: 
+El servei [Zona_Cultural] es troba a 11444.9194722619 m
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_4] parcialment aceptable en 41.3271354336107 2.16011343544047. Motius: 
+El servei [Zona_Cultural] es troba a 4625.21320585834 m
+La casa no te terrassa
+La casa no te aire condicionat
+Casa [Hab_3] parcialment aceptable en 41.3488388066975 2.23239033552564. Motius: 
+El servei [Zona_Cultural] es troba a 5263.4381774517 m
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_5] parcialment aceptable en 41.4117739897149 2.19021966292402. Motius: 
+La casa costa 143000€
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 1051.66694923186 m
+La casa no te parquet
+Casa [Hab_8] parcialment aceptable en 41.4331132419577 2.18648074841774. Motius: 
+El servei [Zona_Cultural] es troba a 3411.86359884033 m
+La casa no te aire condicionat
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_27] parcialment aceptable en 41.4054544716389 2.20685209830253. Motius: 
+El servei [Zona_Cultural] es troba a 1600.72687381046 m
+La casa no te terrassa
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_34] parcialment aceptable en 41.4446269096386 2.16995739146369. Motius: 
+La casa costa 78000€
+El servei [Zona_Cultural] es troba a 4926.97531175142 m
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_40] parcialment aceptable en 41.4130304459405 2.24105184198025. Motius: 
+La casa té 110m^2 d'area
+El servei [Zona_Cultural] es troba a 4390.17026943428 m
+La casa no te terrassa
+La casa no te parquet
+Casa [Hab_51] parcialment aceptable en 41.4714152088142 2.25446149484915. Motius: 
+La casa costa 41000€
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 2210.20805544532 m
+La casa no te calefaccio
+Casa [Hab_66] parcialment aceptable en 41.3458296377324 2.04765827447196. Motius: 
+La casa costa 39000€
+La casa no te terrassa
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_76] parcialment aceptable en 41.3334001043287 2.138147285492. Motius: 
+El servei [Zona_Cultural] es troba a 4103.41723624282 m
+La casa no te terrassa
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_96] parcialment aceptable en 41.4040252069334 2.148177919152. Motius: 
+El servei [Zona_Cultural] es troba a 1800.91710451856 m
+La casa no te terrassa
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_92] parcialment aceptable en 41.4170035735734 2.21168464458475. Motius: 
+La casa costa 38000€
+El servei [Zona_Cultural] es troba a 2548.02405009879 m
+La casa no te terrassa
+La casa no te aire condicionat
+Casa [Hab_91] parcialment aceptable en 41.4775866858802 2.0891038473046. Motius: 
+La casa costa 47000€
+La casa té 130m^2 d'area
+El servei [Zona_Cultural] es troba a 11041.887283507 m
+La casa no te aire condicionat
+Casa [Hab_89] parcialment aceptable en 41.3665433709686 2.09302794164999. Motius: 
+La casa costa 183000€
+La casa té 78m^2 d'area
+La casa no te terrassa
+La casa no te aire condicionat
+Casa [Hab_87] parcialment aceptable en 41.3450891447358 2.10574861437724. Motius: 
+La casa costa 194000€
+El servei [Zona_Cultural] es troba a 1903.13307023429 m
+La casa no te terrassa
+La casa no te aire condicionat
+Casa [Hab_86] parcialment aceptable en 41.4439990783862 2.21608564637424. Motius: 
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 2787.21248850035 m
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_84] parcialment aceptable en 41.4228370861312 2.24421200853075. Motius: 
+El servei [Zona_Cultural] es troba a 3277.55893191942 m
+La casa no te terrassa
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_82] parcialment aceptable en 41.3431654883517 2.1010256767008. Motius: 
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 2006.4152126473 m
+La casa no te terrassa
+La casa no te parquet
+Casa [Hab_80] parcialment aceptable en 41.4452347781253 2.18668788480834. Motius: 
+La casa té 81m^2 d'area
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 4758.52404921484 m
+La casa no te calefaccio
+Casa [Hab_77] parcialment aceptable en 41.4339238707836 2.2612876155599. Motius: 
+El servei [Zona_Cultural] es troba a 2326.76594662907 m
+La casa no te terrassa
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_70] parcialment aceptable en 41.4275075365378 2.10544468395522. Motius: 
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 6215.89677036321 m
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_67] parcialment aceptable en 41.4526474509071 2.20456027795514. Motius: 
+La casa costa 195000€
+El servei [Zona_Cultural] es troba a 3594.62392026291 m
+La casa no te terrassa
+La casa no te parquet
+Casa [Hab_65] parcialment aceptable en 41.4066321920953 2.22500462678427. Motius: 
+El servei [Zona_Cultural] es troba a 3114.36920773878 m
+La casa no te terrassa
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_64] parcialment aceptable en 41.36982254406 2.10731443123366. Motius: 
+La casa costa 173000€
+La casa té 71m^2 d'area
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 1287.52404489307 m
+Casa [Hab_59] parcialment aceptable en 41.4020340076735 2.13668294090124. Motius: 
+La casa té 85m^2 d'area
+El servei [Zona_Cultural] es troba a 2518.94026664208 m
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_58] parcialment aceptable en 41.4846986815134 2.04646300823524. Motius: 
+La casa costa 128000€
+El servei [Zona_Cultural] es troba a 14133.2143039764 m
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_52] parcialment aceptable en 41.4244708069811 2.25197319294562. Motius: 
+La casa costa 192000€
+El servei [Zona_Cultural] es troba a 3103.697010376 m
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_50] parcialment aceptable en 41.4511708395949 2.21686111758887. Motius: 
+La casa té 103m^2 d'area
+El servei [Zona_Cultural] es troba a 2571.67294760295 m
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_44] parcialment aceptable en 41.394397871026 2.23230724853764. Motius: 
+El servei [Zona_Cultural] es troba a 3796.09622229126 m
+La casa no te terrassa
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_42] parcialment aceptable en 41.3618702510907 2.12551071393378. Motius: 
+La casa costa 53000€
+El servei [Zona_Cultural] es troba a 2353.90236129675 m
+La casa no te aire condicionat
+La casa no te parquet
+Casa [Hab_28] parcialment aceptable en 41.4721850748863 2.16745364782244. Motius: 
+La casa costa 107000€
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 4725.06045770579 m
+La casa no te calefaccio
+Casa [Hab_21] parcialment aceptable en 41.3997113486052 2.07315479938327. Motius: 
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 4754.14839693043 m
+La casa no te terrassa
+La casa no te aire condicionat
+Casa [Hab_17] parcialment aceptable en 41.3527248512623 2.13893283410764. Motius: 
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 2132.09826945234 m
+La casa no te terrassa
+La casa no te aire condicionat
+Casa [Hab_10] parcialment aceptable en 41.3614627148959 2.20738145601262. Motius: 
+La casa costa 184000€
+El servei [Zona_Cultural] es troba a 2801.17167860199 m
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_2] parcialment aceptable en 41.4063243990713 2.25815553111584. Motius: 
+La casa té 86m^2 d'area
+El servei [Zona_Cultural] es troba a 5174.97733568318 m
+La casa no te terrassa
+La casa no te aire condicionat
+Casa [Hab_15] parcialment aceptable en 41.4112113858886 2.12636113784888. Motius: 
+La casa té 116m^2 d'area
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 3750.1187565815 m
+La casa no te terrassa
+La casa no te parquet
+Casa [Hab_26] parcialment aceptable en 41.409897024521 2.0500164832736. Motius: 
+La casa costa 166000€
+El servei [Zona_Cultural] es troba a 6529.18201096923 m
+La casa no te terrassa
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_37] parcialment aceptable en 41.3592138131556 2.118560607837. Motius: 
+La casa té 112m^2 d'area
+El servei [Zona_Cultural] es troba a 1782.92031670522 m
+La casa no te terrassa
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_41] parcialment aceptable en 41.4064874319581 2.06634065985981. Motius: 
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 5677.11244708851 m
+La casa no te terrassa
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_69] parcialment aceptable en 41.3275997126718 2.09466266716053. Motius: 
+La casa costa 123000€
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 3409.60660475997 m
+La casa no te terrassa
+La casa no te calefaccio
+Casa [Hab_72] parcialment aceptable en 41.383205148648 2.20883087795542. Motius: 
+La casa costa 43000€
+El servei [Zona_Cultural] es troba a 1933.93248477503 m
+La casa no te terrassa
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_74] parcialment aceptable en 41.3956295201936 2.08157351517294. Motius: 
+La casa té 135m^2 d'area
+El servei [Zona_Cultural] es troba a 4069.3868518557 m
+La casa no te aire condicionat
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_95] parcialment aceptable en 41.4165113570198 2.19403261280176. Motius: 
+La casa costa 89000€
+La casa té 122m^2 d'area
+El servei [Zona_Cultural] es troba a 1640.10583380861 m
+La casa no te terrassa
+La casa no te parquet
+Casa [Hab_93] parcialment aceptable en 41.3643499511944 2.23128131427634. Motius: 
+El servei [Zona_Cultural] es troba a 4207.64518345455 m
+La casa no te terrassa
+La casa no te aire condicionat
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_85] parcialment aceptable en 41.3316507551996 2.11835829943888. Motius: 
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 3705.14770445033 m
+La casa no te terrassa
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_63] parcialment aceptable en 41.3358622983032 2.09168330991494. Motius: 
+La casa té 102m^2 d'area
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 2458.2945493349 m
+La casa no te terrassa
+La casa no te parquet
+Casa [Hab_54] parcialment aceptable en 41.3334608028829 2.04679291602389. Motius: 
+La casa costa 129000€
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 1514.59965532809 m
+La casa no te terrassa
+La casa no te parquet
+Casa [Hab_23] parcialment aceptable en 41.359129241187 2.0597295906434. Motius: 
+La casa té 110m^2 d'area
+El servei [Zona_Cultural] es troba a 1783.50509341323 m
+La casa no te aire condicionat
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_16] parcialment aceptable en 41.487508289386 2.25936620827649. Motius: 
+La casa costa 118000€
+La casa té 128m^2 d'area
+El servei [Zona_Cultural] es troba a 3184.72158456753 m
+La casa no te aire condicionat
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_18] parcialment aceptable en 41.3287925277716 2.07471259415257. Motius: 
+La casa té 76m^2 d'area
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 3163.202482979 m
+La casa no te aire condicionat
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_94] parcialment aceptable en 41.4862574126906 2.23883558354063. Motius: 
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 1469.6640905124 m
+La casa no te terrassa
+La casa no te aire condicionat
+La casa no te calefaccio
+La casa no te parquet
+Casa [Hab_14] parcialment aceptable en 41.4830108518356 2.20716245877761. Motius: 
+La casa té 54m^2 d'area
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 1208.73236668528 m
+La casa no te terrassa
+La casa no te aire condicionat
+La casa no te calefaccio
+Casa [Hab_55] parcialment aceptable en 41.4627032069554 2.22961095526636. Motius: 
+La casa costa 146000€
+La casa té 129m^2 d'area
+No està solejat en cap moment
+El servei [Zona_Cultural] es troba a 1906.27980533858 m
+La casa no te terrassa
+La casa no te aire condicionat
+La casa no te calefaccio
+CLIPS> (exit)

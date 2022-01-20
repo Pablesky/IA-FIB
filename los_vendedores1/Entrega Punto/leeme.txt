@@ -1,0 +1,31 @@
+Intruccions per a poder executar la demo.
+
+A l'arrel d'aquest fitxer tens la segurament entrega final del nostre grup.
+El contingut es el seguent:
+
+  -La carpeta /Demo Petita, que es la primera demo del nostre programa, dins hi ha un altre readme per poder executar-la
+  i la explicació dels fitxers que la compossen.
+
+  -El fitxer data.clips que conté les dades de serveis i llocs de la ciutat de Barcelona.
+
+  -El fitxer executar_demo.clips que conté les comandes per a poder executar el programa.
+
+  -Els fitxers executar.sh i un Makefile, qualsevol de les dues opcions haurien de funcionar, per si un cas, si copies
+  i enganxes aquesta comanda a la teva terminal hauria de funcionar -> clips -f executar_demo.clips
+
+  -El fitxer ontologia.clips, que com bé diu el nom, és la ontologia.
+
+  -El fitxer rules.clips que conté el codi del programa que ens dona la solucio.
+
+
+Aquest programa faria el funcionament esperat de la entrega final. Agafar tota la base de dades d'edificis donada i la
+serie de serveis o llocs que vols tenir en compte, i realitzar unes preguntes a l'usuari per tal de trobar l'habitatge
+que més s'adapti a les seves preferencies.
+
+Es mostraran els edificis que més s'adapten a les seves preferencies en ordre de millor a pitjor, i dins de cada categoria,
+també s'ordenen per a les que tenen mes coses bones que dolentes. En resum, la primera sera la millor i la ultima sera la
+pitjor recomanacio.
+
+Tambe obtindrem informacio extra de coses que no hem demanat de l'habitatge i en te en cas de que aquest sigui una recomanacio
+recomanable.
+Altrament tindrem la informacio de les coses que no te l'habitatge.

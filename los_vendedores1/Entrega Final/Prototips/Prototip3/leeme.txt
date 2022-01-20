@@ -1,0 +1,3 @@
+Per executar el programa escriu la següent comanda dins d'aquesta carpeta.
+
+clips -f executar.clips

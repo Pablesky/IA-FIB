@@ -1,0 +1,46 @@
+(load ontologia.clips)
+(load data.clips)
+(load habitatges.clips)
+(load rules.clips)
+(reset)
+(run)
+y
+n
+n
+n
+y
+y
+n
+n
+y
+y
+y
+n
+n
+n
+n
+y
+y
+n
+y
+y
+n
+n
+n
+n
+n
+25
+100
+n
+n
+300000
+50000
+y
+n
+y
+n
+n
+n
+y
+y
+(exit)

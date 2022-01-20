@@ -1,0 +1,44 @@
+(dribble-on output.txt)
+(load ontologia.clips)
+(load data.clips)
+(load habitatges.clips)
+(load rules.clips)
+(reset)
+(run)
+y
+y
+y
+n
+y
+y
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+n
+y
+n
+n
+y
+n
+30
+0
+n
+n
+300000
+0
+n
+n
+n
+n
+n
+n
+n
+n
+(exit)

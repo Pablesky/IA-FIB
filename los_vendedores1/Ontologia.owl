@@ -1,0 +1,989 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#"
+     xml:base="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#preferencia_cap -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#preferencia_cap">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#preferencia_llunyana_de -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#preferencia_llunyana_de">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#preferencia_mitjana_de -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#preferencia_mitjana_de">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#preferencia_propera_de -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#preferencia_propera_de">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#servei_cobert -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#servei_cobert">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#servei_mes_proper -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#servei_mes_proper">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#servei_no_cobert -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#servei_no_cobert">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#treballa_a -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#treballa_a">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Lloc_de_treball"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#aceptable -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#aceptable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>adecuado</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>parcialmente</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>recomendable</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#aceptable_abstracto -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#aceptable_abstracto">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#aire_condicionat -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#aire_condicionat">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#aire_condicionat_satisfet -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#aire_condicionat_satisfet">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#amb_mobles -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#amb_mobles">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#amb_mobles_satisfet -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#amb_mobles_satisfet">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#any_construccio -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#any_construccio">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#area -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#area">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#area_satisfeta -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#area_satisfeta">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#ascensor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#ascensor">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Multi_Pis"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#atic -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#atic">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Multi_Pis"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#balco -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#balco">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#balco_satisfet -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#balco_satisfet">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#bones_vistes -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#bones_vistes">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#calefaccio -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#calefaccio">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#calefaccio_satisfet -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#calefaccio_satisfet">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#cotxe -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#cotxe">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#description_result -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#description_result">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#dormitoris_satisfets -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#dormitoris_satisfets">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#edat -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#edat">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#electrodomestics -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#electrodomestics">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#electrodomestics_satisfet -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#electrodomestics_satisfet">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#estricte -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#estricte">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#facil_transport_feina -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#facil_transport_feina">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#fills -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#fills">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Familiar"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#fills_futurs -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#fills_futurs">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Familiar"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#garatge_util -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#garatge_util">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#jardi -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#jardi">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#lavabos_satisfets -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#lavabos_satisfets">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#mascotes -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#mascotes">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#mascotes_cobert -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#mascotes_cobert">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#mobilitat_reduida -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#mobilitat_reduida">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#necessita_transport -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#necessita_transport">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#necessitat_assencor_satisfeta -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#necessitat_assencor_satisfeta">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#num_persones -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#num_persones">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#numero_de_persones -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#numero_de_persones">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#En_Grup"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#numero_dormitoris -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#numero_dormitoris">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#numero_dormitoris_dobles -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#numero_dormitoris_dobles">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#numero_dormitoris_simples -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#numero_dormitoris_simples">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#numero_lavabos -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#numero_lavabos">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#parella -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#parella">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Familiar"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#parquet -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#parquet">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#parquet_satisfet -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#parquet_satisfet">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#persones_grans_al_carrec -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#persones_grans_al_carrec">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Familiar"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#pis_nou -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#pis_nou">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#piscina_comunitaria -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#piscina_comunitaria">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#piscina_comunitaria_satisfet -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#piscina_comunitaria_satisfet">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#placa_garatge -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#placa_garatge">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#planta -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#planta">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Multi_Pis"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#poden_compartir_dormitori -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#poden_compartir_dormitori">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#preu -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#preu">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#preu_maxim -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#preu_maxim">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#preu_minim -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#preu_minim">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedInt"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#preu_raonable -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#preu_raonable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>dins</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>lluny</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>prop</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#printed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#printed">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#solejat -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#solejat">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>ambdues</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>cap</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>mati</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>tarda</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#terrassa -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#terrassa">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#terrassa_satisfet -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#terrassa_satisfet">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#ubicacio_x -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#ubicacio_x">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Lloc_de_treball"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#real"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#ubicacio_y -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#ubicacio_y">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Lloc_de_treball"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#real"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Biblioteques -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Biblioteques">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Duplex -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Duplex">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Multi_Pis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#En_Grup -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#En_Grup">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Escoles -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Escoles">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Familiar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Familiar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Gimnas -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Gimnas">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Hospital_o_CAP -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Hospital_o_CAP">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Individual -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Individual">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Lloc_de_treball -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Lloc_de_treball"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Llocs_emblematics -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Llocs_emblematics">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Multi_Pis -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Multi_Pis">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Pis -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Pis">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Multi_Pis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Platja -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Platja">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Poligons_Industrials -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Poligons_Industrials">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Solicitant"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Supermercat_i_Hipermercats -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Supermercat_i_Hipermercats">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Transport_Public -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Transport_Public">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Unifamiliar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Unifamiliar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Habitatge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Zona_Cultural -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Zona_Cultural">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Zona_Oci_Nocturn -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Zona_Oci_Nocturn">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Zona_Verda -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Zona_Verda">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Zona_comercial -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Zona_comercial">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pablesky/ontologies/2021/10/los_vendedores#Servei"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
